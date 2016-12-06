@@ -5,9 +5,39 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+
+Promotion.destroy_all
+Shop.destroy_all
 User.destroy_all
 
 User.create(username:" Miguel", email:"mixcharles@gmail.com", password:"xx", address: "Bruxelles")
 User.create(username:" Martin", email:"Martin@gmail.com", password:"xoxo", address: "Louvain-La-Neuve")
 User.create(username:" François", email:"Francois@gmail.com", password:"xixi", address: "Liège")
 User.create(username:" David", email:"David@gmail.com", password:"xaxa", address: "Anderlecht")
+User.create(username:" George", email:"George@gmail.com", password:"xixi", address: "Verviers")
+User.create(username:" Michel", email:"Michel@gmail.com", password:"xaxa", address: "Ixelles")
+
+Shop.create(user_id: User.all.first.id, category:"Boulangerie", description:"Votre boucher à Art-loi depuis 150 ans", phone_number: "+32 479 22 55 66", VAT_number: "ABCD")
+Shop.create(user_id: User.all.last.id, category:"Boulangerie", description:"Votre boucher à Art-loi depuis 150 ans", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY")
+
+5.times do
+  unit1 = ["Kg","piece(s)"]
+  unit2 = unit1[rand(0..1)]
+  product_type = Faker::Food.ingredient
+  initial_quantity = (1..15).to_a.sample
+  initial_price_per_unit = Faker::Commerce.price
+  price_after_promotion_per_unit = initial_price_per_unit/2
+  Promotion.create(shop_id: Shop.all.sample.id,
+  product_type: product_type,
+  initial_quantity: initial_quantity,
+  remaining_quantity: (initial_quantity - (0...initial_quantity).to_a.sample),
+  unit: unit2,
+  title: "#{initial_quantity}#{unit2} at #{price_after_promotion_per_unit}€",
+  validity: Faker::Time.forward(3, :morning),
+  promotion_status: true,
+  digits_code: (1000..9999).to_a.sample,
+  initial_price_per_unit: initial_price_per_unit,
+  price_after_promotion_per_unit:price_after_promotion_per_unit)
+end

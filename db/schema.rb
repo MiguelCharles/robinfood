@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20161206110226) do
   create_table "promotions", force: :cascade do |t|
     t.integer  "shop_id"
     t.string   "title"
+    t.string   "product_type"
     t.integer  "initial_quantity"
     t.string   "unit"
     t.integer  "initial_price_per_unit"

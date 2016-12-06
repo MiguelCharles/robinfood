@@ -3,6 +3,7 @@ class CreatePromotions < ActiveRecord::Migration[5.0]
     create_table :promotions do |t|
       t.references :shop, foreign_key: true
       t.string :title
+      t.string :product_type
       t.integer :initial_quantity
       t.string :unit
       t.integer :initial_price_per_unit

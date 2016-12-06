@@ -43,7 +43,7 @@ class PromotionsController < ApplicationController
     end
 
     def promotion_params
-      params.require(:promotion).permit(:shop_id, :title, :initial_quantity, :unit, :initial_price_per_unit, :price_after_promotion_per_unit, :remaining_quantity, :promotion_status, :digits_code, :validity)
+      params.require(:promotion).permit(:shop_id, :title, :product_type, :initial_quantity, :unit, :initial_price_per_unit, :price_after_promotion_per_unit, :remaining_quantity, :promotion_status, :digits_code, :validity)
     end
 
 end
