@@ -1,4 +1,4 @@
-class CreatePromotions < ActiveRecord::Migration[5.0]
+class CreatePromotions < ActiveRecord::Migration
   def change
     create_table :promotions do |t|
       t.references :shop, foreign_key: true

@@ -19,9 +19,8 @@ ActiveRecord::Schema.define(version: 20161206172119) do
     t.integer  "promotion_id"
     t.integer  "quantity_ordered"
     t.string   "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["promotion_id"], name: "index_orders_on_promotion_id", using: :btree
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "promotions", force: :cascade do |t|
@@ -36,20 +35,19 @@ ActiveRecord::Schema.define(version: 20161206172119) do
     t.boolean  "promotion_status"
     t.integer  "digits_code"
     t.datetime "validity"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.index ["shop_id"], name: "index_promotions_on_shop_id", using: :btree
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shops", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "name_of_the_store"
     t.string   "category"
     t.text     "description"
     t.string   "phone_number"
     t.string   "VAT_number"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_shops_on_user_id", using: :btree
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
