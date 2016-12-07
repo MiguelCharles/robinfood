@@ -25,6 +25,10 @@ class OrdersController < ApplicationController
       @order = Order.find_or_create_by(promotion_id: params[:promotion_id], user_id: current_user.id)
       @order.user_id = current_user.id
       @order.status = "To be confirmed"
+      if @order.quantity_ordered == nil
+        @order.quantity_ordered = 0
+      end
+
       @order.quantity_ordered += params[:quantity_ordered].to_i
       @order.save!
     end
