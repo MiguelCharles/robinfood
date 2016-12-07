@@ -1,2 +1,23 @@
-<h1>Promotions#index</h1>
-<p>Find me in app/views/promotions/index.html.erb</p>
+
+    <h1>Good deals nearby and for today</h1>
+
+  <div class="row">
+    <% @promotions.each do |promo| %>
+      <div class ="col-md-4">
+        <div class="card text-center">
+            <h2> <%= link_to promo.title, promotion_path(promo)%></h2>
+            <i>proposed by</i>
+            <h3><%= promo.shop.name_of_the_store %> </h3>
+            <p><strong>- <%= promo.discount%>%</strong></p>
+        </div>
+
+        <strong><%= promo.priceperunit %> €</strong>
+        <p><strong> <%= promo.producttype %> </strong></p>
+        <p><%= promo.description %></p>
+        <p> valid until : <strong><%= promo.duration %></strong></p>
+        <p>Avalaible quantity : <strong><%= promo.remainingquantity %> <%= promo.unit%></strong></p><br/>
+        <a href="#" class="btn-medium"> Add to basket</a>
+
+        <p><%= promo.promotionstatus %></p>
+
+        <% end %>
