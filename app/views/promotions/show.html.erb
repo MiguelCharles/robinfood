@@ -11,7 +11,7 @@
     <%= @promotion.initial_quantity %>
   </li>
   <li>
-    Initial price: <strong>-<%= @promotion.initial_price_per_unit %>%</strong>
+    Initial price: <strong>-<%= @promotion.initial_price_per_unit %> € </strong>
   </li>
   <li>
     Price offered: <strong><%= @promotion.price_after_promotion_per_unit %>€</strong>
@@ -21,5 +21,9 @@
 <div class="container text-center bottom">
   <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
   <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
-  <%= link_to ' Add',  create_order_user_order_orderline_path(current_user.id, Order.create, promotion_id: @promotion.id), method: :post %>
+
+  <%= link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
+  <%= link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
 </div>
+
+quantity d'un order gérée ici (via bouton)
