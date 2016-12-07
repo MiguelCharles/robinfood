@@ -1,5 +1,5 @@
 class PromotionsController < ApplicationController
-  before_action :set_promotion, only: [:show, :edit, :update, :destroy, :add_to_order]
+  before_action :set_promotion, only: [:show, :edit, :update, :destroy]
   def index
     @promotions = Promotion.all.order(:validity)
   end
@@ -36,18 +36,6 @@ class PromotionsController < ApplicationController
     redirect_to promotions_path
   end
 
-  def add_to_order
-    order = Order.create(promotion: @promotion)
-    if current_user
-      current_user << order
-    else
-      if session[:order_ids]
-        session[:order_ids] << order.id
-      else
-        session[:order_ids] = [order.id]
-      end
-    end
-  end
 
   private
 
