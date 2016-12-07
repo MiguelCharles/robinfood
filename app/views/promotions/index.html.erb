@@ -8,15 +8,23 @@
             <h2> <%= link_to promo.title, promotion_path(promo)%></h2>
             <i>proposed by</i>
             <h3><%= promo.shop.name_of_the_store %> </h3>
-            <p><strong>- <%= promo.initial_price_per_unit%>€</strong></p>
+            <p><strong> <%= promo.shop.category %> </strong></p>
+            <p><strong>- Your price : <%= promo.price_after_promotion_per_unit%> € instead of <%=promo.initial_price_per_unit %> € </strong></p>
         </div>
 
         <strong><%= promo.price_after_promotion_per_unit %> c</strong>
+
+
         <p><strong> <%= promo.product_type %> </strong></p>
+
         <p><%= promo.initial_quantity %></p>
+
         <p><%= promo.remaining_quantity%></p>
+
         <p> valid until : <strong><%= promo.validity %></strong></p>
+
         <p>Avalaible quantity : <strong><%= promo.remaining_quantity %> <%= promo.unit%></strong></p><br/>
+
         <a href="#" class="btn-medium"> Add to basket</a>
 
         <p><%= promo.digits_code %></p>
