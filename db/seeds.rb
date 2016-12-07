@@ -7,20 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-
 Promotion.destroy_all
 Shop.destroy_all
 User.destroy_all
 
-User.create(username:" Miguel", email:"mixcharles@gmail.com", password:"xx", address: "Bruxelles")
-User.create(username:" Martin", email:"Martin@gmail.com", password:"xoxo", address: "Louvain-La-Neuve")
-User.create(username:" François", email:"Francois@gmail.com", password:"xixi", address: "Liège")
-User.create(username:" David", email:"David@gmail.com", password:"xaxa", address: "Anderlecht")
-User.create(username:" George", email:"George@gmail.com", password:"xixi", address: "Verviers")
-User.create(username:" Michel", email:"Michel@gmail.com", password:"xaxa", address: "Ixelles")
+User.create(username:"Paul", email:"paul@gmail.com", password:"123456" ,address: "Bruxelles")
+User.create(username:"Martin", email:"paul@gmail.com", password:"123456" ,address: "Louvain-La-Neuve")
+User.create(username:"François",email:"paul@gmail.com", password:"123456" , address: "Liège")
+User.create(username:"David",email:"paul@gmail.com", password:"123456" , address: "Anderlecht")
+User.create(username:"George",email:"paul@gmail.com", password:"123456" , address: "Verviers")
+User.create(username:" Marcel", address: "Ixelles")
 
-Shop.create(user_id: User.all.first.id, category:"Boulangerie", description:"Votre boucher à Art-loi depuis 150 ans", phone_number: "+32 479 22 55 66", VAT_number: "ABCD")
-Shop.create(user_id: User.all.last.id, category:"Boulangerie", description:"Votre boucher à Art-loi depuis 150 ans", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY")
+Shop.create(user_id: User.all.first.id, name_of_the_store: "Chez Paul", category:"Boucherie", description: "Votre boucher à Art-loi depuis 150 ans", phone_number: "+32 479 22 55 66", VAT_number: "ABCD")
+Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", category:"Boulangerie", description: "Votre boulanger Rue Marie-Thérèse 150 ans", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY")
 
 5.times do
   unit1 = ["Kg","piece(s)"]

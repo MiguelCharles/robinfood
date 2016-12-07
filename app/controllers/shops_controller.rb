@@ -30,7 +30,7 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
 private
   def shop_params
-  params.require(:params).permit(:user_id, :category, :description, :phone_number, :VAT_number)
+  params.require(:params).permit(:user_id, :name_of_the_store, :category, :description, :phone_number, :VAT_number)
 end
 
 def set_shop
