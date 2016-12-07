@@ -11,11 +11,11 @@ Promotion.destroy_all
 Shop.destroy_all
 User.destroy_all
 
-User.create(username:"Paul", address: "Bruxelles")
-User.create(username:"Martin", address: "Louvain-La-Neuve")
-User.create(username:"François", address: "Liège")
-User.create(username:"David", address: "Anderlecht")
-User.create(username:"George", address: "Verviers")
+User.create(username:"Paul", email:"paul@gmail.com", password:"123456" ,address: "Bruxelles")
+User.create(username:"Martin", email:"paul@gmail.com", password:"123456" ,address: "Louvain-La-Neuve")
+User.create(username:"François",email:"paul@gmail.com", password:"123456" , address: "Liège")
+User.create(username:"David",email:"paul@gmail.com", password:"123456" , address: "Anderlecht")
+User.create(username:"George",email:"paul@gmail.com", password:"123456" , address: "Verviers")
 User.create(username:" Marcel", address: "Ixelles")
 
 Shop.create(user_id: User.all.first.id, name_of_the_store: "Chez Paul", category:"Boucherie", description: "Votre boucher à Art-loi depuis 150 ans", phone_number: "+32 479 22 55 66", VAT_number: "ABCD")
