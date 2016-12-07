@@ -1,20 +1,20 @@
 <h1><%= @promotion.title %></h1>
 
-<h2><%= @promotion.seller.username %></h2>
+<h2><%= @promotion.shop.name_of_the_store %></h2>
 
 <h3>Description</h3>
 <ul>
   <li>
-  <%= @promotion.producttype %>
+  <%= @promotion.product_type %>
   </li>
   <li>
-    <%= @promotion.description %>
+    <%= @promotion.initial_quantity %>
   </li>
   <li>
-    Discount: <strong>-<%= @promotion.discount %>%</strong>
+    Initial price: <strong>-<%= @promotion.initial_price_per_unit %>%</strong>
   </li>
   <li>
-    Price: <strong><%= @promotion.priceperunit %>€</strong>
+    Price offered: <strong><%= @promotion.price_after_promotion_per_unit %>€</strong>
   </li>
 </ul>
 

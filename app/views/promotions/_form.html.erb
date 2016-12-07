@@ -1,27 +1,17 @@
 <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 <%= simple_form_for(@promotion) do |promo| %>
-  <% if @promotion.errors.any? %>
-    <div style="color:darkred">
-      <% @promotion.errors.full_messages.each do |message| %>
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        <span class="sr-only">Error:</span>
-        <%= message.html_safe %><br>
-      <% end %>
-    </div>
-  <% end %>
+<!-- -->
 
   <div class="form-inputs">
     <%= promo.input :title %>
-    <%= promo.input :initialquantity %>
-    <%= promo.input :remainingquantity%>
-    <%= promo.input :description%>
+    <%= promo.input :initial_quantity %>
     <%= promo.input :unit %>
-    <%= promo.input :duration %>
-    <%= promo.input :producttype%>
-    <%= promo.input :code %>
-    <%= promo.input :priceperunit%>
-    <%= promo.input :discount %>
-    <%= promo.input :promotionstatus %>
+    <%= promo.input :validity %>
+    <%= promo.input :product_type%>
+    <%= promo.input :digits_code %>
+    <%= promo.input :initial_price_per_unit%>
+    <%= promo.input :price_after_promotion_per_unit %>
+    <%= promo.input :promotion_status %>
   </div>
 
 
