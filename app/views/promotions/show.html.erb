@@ -1,2 +1,25 @@
-<h1>Promotions#show</h1>
-<p>Find me in app/views/promotions/show.html.erb</p>
+<h1><%= @promotion.title %></h1>
+
+<h2><%= @promotion.seller.username %></h2>
+
+<h3>Description</h3>
+<ul>
+  <li>
+  <%= @promotion.producttype %>
+  </li>
+  <li>
+    <%= @promotion.description %>
+  </li>
+  <li>
+    Discount: <strong>-<%= @promotion.discount %>%</strong>
+  </li>
+  <li>
+    Price: <strong><%= @promotion.priceperunit %>€</strong>
+  </li>
+</ul>
+
+<div class="container text-center bottom">
+  <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
+  <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
+  <%= link_to ' Add',  create_order_user_order_orderline_path(current_user.id, Order.create, promotion_id: @promotion.id), method: :post %>
+</div>
