@@ -1,0 +1,13 @@
+
+<%= simple_form_for(@shop) do |s| %>
+<div class="form-inputs">
+
+  <%= s.input :category %>
+  <%= s.input :description %>
+  <%= s.input :phone_number %>
+  <%= s.input :VAT_number %>
+
+</div>
+<%= s.button :submit %>
+
+<% end %>
