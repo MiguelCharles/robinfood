@@ -40,6 +40,10 @@ class OrdersController < ApplicationController
 
   end
 
+  def orders_from_user(user)
+    @orders_user = Order.where(@order.user_id = user)
+  end
+
 private
 
 def set_order
