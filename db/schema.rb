@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20161208100741) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "promotions", force: :cascade do |t|
@@ -86,6 +88,7 @@ ActiveRecord::Schema.define(version: 20161208100741) do
   end
 
   add_foreign_key "orders", "promotions"
+  add_foreign_key "orders", "users"
   add_foreign_key "promotions", "shops"
   add_foreign_key "shops", "users"
 end
