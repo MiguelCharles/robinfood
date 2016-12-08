@@ -12,7 +12,7 @@
                 <%= @promotion.product_type %>
              </li>
              <li>
-                <%= @promotion.initial_quantity %>
+                initial quantity: <%= @promotion.initial_quantity %>
              </li>
              <li>
                 Initial price: <strong>-<%= @promotion.initial_price_per_unit %> € </strong>
@@ -35,7 +35,7 @@
   <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
   <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
 </div>
-
+<div class="container">
 <%= simple_form_for(@order) do |f| %>
   <%= f.error_notification %>
 
@@ -44,3 +44,4 @@
 
   <%= f.button :submit %>
 <% end %>
+</div>
