@@ -18,8 +18,9 @@ User.create(username:"David",email:"paul@gmail.com", password:"123456" , address
 User.create(username:"George",email:"paul@gmail.com", password:"123456" , address: "Verviers")
 User.create(username:" Marcel", address: "Ixelles")
 
-Shop.create(user_id: User.all.first.id, name_of_the_store: "Chez Paul", category:"Boucherie", description: "Votre boucher à Art-loi depuis 150 ans", phone_number: "+32 479 22 55 66", VAT_number: "ABCD")
-Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", category:"Boulangerie", description: "Votre boulanger Rue Marie-Thérèse 150 ans", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY")
+Shop.create(user_id: User.all.first.id, name_of_the_store: "Chez Paul", category:"Boucherie", description: "Votre boucher à Art-loi depuis 150 ans", phone_number: "+32 479 22 55 66", VAT_number: "ABCD", country:"Belgium", city:"Brussels", zip_code: 1000, address:" du bailli", street_number: 20)
+Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", category:"Boulangerie", description: "Votre boulanger Rue Marie-Thérèse 150 ans", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Ixelles", zip_code: 1050, address:"Avenue Louise", street_number: 200)
+
 
 5.times do
   unit1 = ["Kg","piece(s)"]
