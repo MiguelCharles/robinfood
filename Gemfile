@@ -29,7 +29,19 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'omniauth-facebook'
 gem 'simple_form'
+gem 'figaro'
+gem 'geocoder'
+
+gem 'country_select'
+gem 'autoprefixer-rails'
+
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 # Frontend Gems
 gem "bootstrap-sass"
@@ -57,11 +69,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'faker', git: 'git@github.com:stympy/faker.git'
 gem 'devise'
 gem 'figaro'
 gem 'redis'
-gem 'devise'
 gem 'bootstrap-sass'
 
 gem 'font-awesome-sass'
