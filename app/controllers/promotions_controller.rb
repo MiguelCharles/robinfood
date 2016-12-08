@@ -19,6 +19,7 @@ class PromotionsController < ApplicationController
 
   def create
     @promotion = Promotion.new(promotion_params)
+    @promotion.shop = Shop.find_by(user: current_user)
     if @promotion.save!
       redirect_to promotion_path(@promotion)
     else
