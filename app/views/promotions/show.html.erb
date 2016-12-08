@@ -1,22 +1,35 @@
-<h1><%= @promotion.title %></h1>
-
-<h2><%= @promotion.shop.name_of_the_store %></h2>
-
-<h3>Description</h3>
-<ul>
-  <li>
-  <%= @promotion.product_type %>
-  </li>
-  <li>
-    <%= @promotion.initial_quantity %>
-  </li>
-  <li>
-    Initial price: <strong>-<%= @promotion.initial_price_per_unit %> € </strong>
-  </li>
-  <li>
+<div class="container">
+  <div class="row">
+    <div class="banner-seller">
+      <h1 class="text-center"><%= @promotion.title %></h1>
+       <div class="profil-seller text-center">
+          <i>proposed by:</i><br/><br/>
+          <img src="/assets/shop.png" alt="seller" class="avatar-large"><h2><%= @promotion.shop.name_of_the_store %></h2>
+       </div>
+       <div class="banner-description"><h3>Description</h3>
+          <ul>
+             <li>
+                <%= @promotion.product_type %>
+             </li>
+             <li>
+                <%= @promotion.description %>
+             </li>
+             <li>
+                <%= @promotion.initial_quantity %>
+             </li>
+             <li>
+                Initial price: <strong>-<%= @promotion.initial_price_per_unit %> € </strong>
+             </li>
+             <li>
     Price offered: <strong><%= @promotion.price_after_promotion_per_unit %>€</strong>
-  </li>
-</ul>
+             </li>
+          </ul>
+       </div>
+    </div>
+  </div>
+</div>
+
+
 
 <div class="container text-center bottom">
   <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
