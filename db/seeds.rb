@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
 
 Promotion.destroy_all
 Shop.destroy_all
@@ -28,7 +27,7 @@ ingredients = ["Carots", "Croissants", "Sandwiches", "Oranges"]
  unit2 = unit1[rand(0..1)]
  product_type = ingredients.sample
  initial_quantity = (1..15).to_a.sample
- initial_price_per_unit = Faker::Commerce.price
+ initial_price_per_unit = (5..40).to_a.sample
  price_after_promotion_per_unit = initial_price_per_unit/2
  Promotion.create(shop_id: Shop.all.sample.id,
  product_type: product_type,
