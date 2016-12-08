@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Order.destroy_all
 Promotion.destroy_all
 Shop.destroy_all
 User.destroy_all
@@ -20,7 +21,6 @@ Shop.create(user_id: User.all.first.id, name_of_the_store: "Chez Paul", category
 Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", category:"Boulangerie", description: "Votre boulanger Rue Marie-Thérèse 150 ans", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY")
 
 ingredients = ["Carots", "Croissants", "Sandwiches", "Oranges"]
-
 
 
 5.times do

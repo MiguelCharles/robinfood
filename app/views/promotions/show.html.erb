@@ -22,8 +22,15 @@
   <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
   <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
 
-  <%= link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
-  <%= link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
+  <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
+  <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
 </div>
 
-quantity d'un order gérée ici (via bouton)
+<%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :quantity_ordered %>
+  <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
+
+  <%= f.button :submit %>
+<% end %>

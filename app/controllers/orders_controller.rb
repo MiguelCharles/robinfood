@@ -12,7 +12,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-
+    if current_user.present?
+      @order = Order.new(order_params)
+       @order.user_id = current_user.id
+      @order.status = "To be confirmed"
+      @order.save!
+    end
+    redirect_back(fallback_location: promotion_path(params[:order][:promotion_id]))
   end
 
 
@@ -22,18 +28,10 @@ class OrdersController < ApplicationController
 
   def update
     if current_user.present?
-      @order = Order.find_or_create_by(promotion_id: params[:promotion_id], user_id: current_user.id)
-      @order.user_id = current_user.id
-      @order.status = "To be confirmed"
-      if @order.quantity_ordered == nil
-        @order.quantity_ordered = 0
-      end
-
-      @order.quantity_ordered += params[:quantity_ordered].to_i
-      @order.save!
+      @order = Order.find(params[:id])
+      @order.update!(order_params)
     end
-
-    redirect_back(fallback_location: promotion_path(params[:promotion_id]))
+    redirect_back(fallback_location: promotion_path(params[:order][:promotion_id]))
   end
 
   def destroy
@@ -50,6 +48,9 @@ def set_order
   @order = Order.find(params[:id])
 end
 
+def order_params
+  params.require(:order).permit(:promotion_id, :quantity_ordered)
+end
 
 end
 

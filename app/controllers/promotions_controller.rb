@@ -5,6 +5,7 @@ class PromotionsController < ApplicationController
   end
 
   def show
+    @order = Order.find_or_initialize_by(promotion_id: params[:id], user_id: current_user.id)
   end
 
   def new
