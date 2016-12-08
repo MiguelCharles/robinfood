@@ -25,6 +25,7 @@ class PromotionsController < ApplicationController
     else
       render :new
     end
+    @promotion.digits_code = (1000..9999).to_a.sample
   end
 
   def edit
