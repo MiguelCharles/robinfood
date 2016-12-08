@@ -57,7 +57,7 @@
             <p class="text-center"><strong><%= promo.digits_code %></strong></p>
             <p><% promo.promotion_status %></p>
             <p class="add-to-cart"><a href="#" class="btn-medium" role="button"><i class="fa fa-cart-arrow-down"></i> Add to basket</a></p>
-            <a href="#" class="storelink"></a>
+            <%= link_to promo.title, promotion_path(promo), {class: "storelink"}%>
           </div>
         </div>
       </div>
