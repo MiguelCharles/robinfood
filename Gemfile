@@ -55,7 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'figaro'
 gem 'redis'
-gem 'devise'
 gem 'bootstrap-sass'
 
 gem 'font-awesome-sass'

@@ -11,16 +11,17 @@ Shop.destroy_all
 User.destroy_all
 
 User.create(username:"Paul", email:"paul@gmail.com", password:"123456" ,address: "Bruxelles")
-User.create(username:"Martin", email:"paul@gmail.com", password:"123456" ,address: "Louvain-La-Neuve")
-User.create(username:"François",email:"paul@gmail.com", password:"123456" , address: "Liège")
-User.create(username:"David",email:"paul@gmail.com", password:"123456" , address: "Anderlecht")
-User.create(username:"George",email:"paul@gmail.com", password:"123456" , address: "Verviers")
-User.create(username:" Marcel", address: "Ixelles")
+User.create(username:"Martin", email:"paul1@gmail.com", password:"123456" ,address: "Louvain-La-Neuve")
+User.create(username:"François",email:"paul2@gmail.com", password:"123456" , address: "Liège")
+User.create(username:"David",email:"paul3@gmail.com", password:"123456" , address: "Anderlecht")
+User.create(username:"George",email:"paul4@gmail.com", password:"123456" , address: "Verviers")
 
 Shop.create(user_id: User.all.first.id, name_of_the_store: "Chez Paul", category:"Boucherie", description: "Votre boucher à Art-loi depuis 150 ans", phone_number: "+32 479 22 55 66", VAT_number: "ABCD")
 Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", category:"Boulangerie", description: "Votre boulanger Rue Marie-Thérèse 150 ans", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY")
 
 ingredients = ["Carots", "Croissants", "Sandwiches", "Oranges"]
+
+
 
 5.times do
  unit1 = ["Kg","piece(s)"]
@@ -35,7 +36,7 @@ ingredients = ["Carots", "Croissants", "Sandwiches", "Oranges"]
  remaining_quantity: (initial_quantity - (0...initial_quantity).to_a.sample),
  unit: unit2,
  title: "#{initial_quantity}#{unit2} of #{product_type} at #{price_after_promotion_per_unit}€",
- validity: Faker::Time.forward(3, :morning),
+ validity: Time.now + (1..5).to_a.sample,
  promotion_status: true,
  digits_code: (1000..9999).to_a.sample,
  initial_price_per_unit: initial_price_per_unit,
