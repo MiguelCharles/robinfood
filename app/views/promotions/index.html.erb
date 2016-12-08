@@ -1,34 +1,45 @@
+<div class="container-fluid" style="background: linear-gradient(to left, #56ab2f , #a8e063);">
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Good deals nearby and for today</h1>
+      <form class="form-inline top">
+          <div class="input-group input-group-lg top">
+          <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-street-view" aria-hidden="true"></i></span>
+          <input type="text" class="form-control" placeholder="Enter your address, city, ..." aria-describedby="sizing-addon1">
+          </div>
+          <button type="submit" class="btn btn-form top">FIND DEALS</button>
+      </form>
+    </div>
+  </div>
+</div>
 
-    <h1>Good deals nearby and for today</h1>
-
+<div class="container top">
+  <h2 class="text-center bottom">Find Your <strong><span class="green">Best Deals</span></strong> of the WEEK !</h2>
   <div class="row">
     <% @promotions.each do |promo| %>
-      <div class ="col-md-4">
-        <div class="card text-center">
-            <h2> <%= link_to promo.title, promotion_path(promo)%></h2>
-            <i>proposed by</i>
-            <h3><%= promo.shop.name_of_the_store %> </h3>
-            <p><strong> <%= promo.shop.category %> </strong></p>
-            <p><strong>- Your price : <%= promo.price_after_promotion_per_unit%> € instead of <%=promo.initial_price_per_unit %> € </strong></p>
+      <div class ="col -xs-12 col-md-4">
+        <p class="promo-validity text-center"><%= promo.validity %></p>
+        <div class="thumbnail">
+          <div class="avatar-box"><%= image_tag "shop.png", alt:"seller", class:"avatar-seller" %></div>
+          <img src="http://www.arcticgardens.ca/blog/wp-content/uploads/2015/09/viande-hach%C3%A9e-rouge.jpg" alt="img">
+          <div class="caption">
+            <h4><%= promo.shop.name_of_the_store %></h4>
+            <h5><%= promo.shop.category %></strong></h5>
+            <p class="promo-product-type"><%= promo.product_type %></p>
+            <p class="promo-title"><%= link_to promo.title, promotion_path(promo)%></p>
+            <p class="promo-discount">- <%= promo.price_after_promotion_per_unit %> €</p>
+            <p class="initial-price"><s style="color: grey"><%=promo.initial_price_per_unit %> € </s></p>
+            <p class="promo-price"><%= promo.price_after_promotion_per_unit%> €</strong></p>
+            <!--<p><%= promo.initial_quantity %></p>
+            <p><%= promo.remaining_quantity%></p>-->
+            <p><%= promo.unit%></p><br/>
+            <p class="text-center"><strong><%= promo.digits_code %></strong></p>
+            <p><% promo.promotion_status %></p>
+            <p class="add-to-cart"><a href="#" class="btn-medium" role="button"><i class="fa fa-cart-arrow-down"></i> Add to basket</a></p>
+            <a href="#" class="storelink"></a>
+          </div>
         </div>
-
-        <strong><%= promo.price_after_promotion_per_unit %> c</strong>
-
-
-        <p><strong> <%= promo.product_type %> </strong></p>
-
-        <p><%= promo.initial_quantity %></p>
-
-        <p><%= promo.remaining_quantity%></p>
-
-        <p> valid until : <strong><%= promo.validity %></strong></p>
-
-        <p>Avalaible quantity : <strong><%= promo.remaining_quantity %> <%= promo.unit%></strong></p><br/>
-
-        <a href="#" class="btn-medium"> Add to basket</a>
-
-        <p><%= promo.digits_code %></p>
-
-        <p><%= promo.promotion_status %></p>
-
-        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

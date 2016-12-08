@@ -1,6 +1,16 @@
+<div class="container top pullDown">
+<div class="row">
 <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 <%= simple_form_for(@promotion) do |promo| %>
-<!-- -->
+  <% if @promotion.errors.any? %>
+    <div class="alert alert-danger" role="alert" style="color:darkred">
+      <% @promotion.errors.full_messages.each do |message| %>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        <%= message.html_safe %><br>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="form-inputs">
     <%= promo.input :title %>
@@ -20,4 +30,6 @@
     <%= promo.button :submit %>
   </div>
 <% end %>
+</div>
+</div>
 </div>
