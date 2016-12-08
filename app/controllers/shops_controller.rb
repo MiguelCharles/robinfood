@@ -22,6 +22,15 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
   redirect_to promotions_path
   end
 
+  def promotions
+    @promotions = Promotion.joins(:shop).where("shops.user_id = ?", current_user.id)
+      @hash = Gmaps4rails.build_markers(@promotions) do |promo, marker|
+        marker.lat promo.shop.latitude
+        marker.lng promo.shop.longitude
+    end
+
+  end
+
   def edit
   end
 

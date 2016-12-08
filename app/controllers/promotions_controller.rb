@@ -21,11 +21,11 @@ class PromotionsController < ApplicationController
     @promotion = Promotion.new(promotion_params)
     @promotion.shop = Shop.find_by(user: current_user)
     if @promotion.save!
-      redirect_to promotion_path(@promotion)
+      @promotion.digits_code = (1000..9999).to_a.sample
+      redirect_to shop_promotions
     else
       render :new
     end
-    @promotion.digits_code = (1000..9999).to_a.sample
   end
 
   def edit
