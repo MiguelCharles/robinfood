@@ -1,19 +1,20 @@
 <div class="container">
-  <div class="row">
+<div class="row">
 <div class="banner-seller">
-    <%= image_tag @promotion.photo_url%>
+  <div class="col-xs-6">
 
-        <%= link_to ' Back',promotions_path, { :class=>"btn-small fa fa-arrow-left" } %>
-        <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-small fa fa-pencil-square-o" } %>
 
         <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
         <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
-
+<div class="arriere-plan">
+    <%= image_tag @promotion.photo_url%>
+ </div>
  <div class="profil-seller text-center">
-          <i>proposed by:</i><br/><br/>
-          <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" }%><h2><%= @promotion.shop.name_of_the_store %></h2>
+
+          <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" }%><h4><%= @promotion.shop.name_of_the_store %></h4>
 </div>
-       <div class="banner-description">
+</div>
+       <div class="banner-description col-xs-6">
 <h1 class="text-center"><%= @promotion.description %></h1>
        <h3>Description</h3>
           <ul>
@@ -38,7 +39,11 @@
     </div>
   </div>
 </div>
-
+<p><br>
+<br>
+<br>
+<br>
+<br></p>
 
 <div class="container text-center bottom">
   <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
@@ -49,10 +54,42 @@
 <%= simple_form_for(@order) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity, min: '0', step: "#{@promotion.min_quantity}" }%>
+  <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity,type: "hidden", min: '0', id: "qt", step: "#{@promotion.min_quantity}" }%>
   <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
-
+  <p class="text-center"><span id="augmenter" class=" counter btn-medium">+</span><span style="cursor:auto;" class="counter number"><%= @promotion.min_quantity%></span><span class="btn-medium counter" id="diminuer">-</span></p>
   <%= f.button :submit,  { :class=>"btn-medium fa fa-arrow-right" }  %>
 <% end %>
 </div>
+<style>
+  .counter{
+    margin-left: 40px;
+    font-size: 14pt;
+    font-weight: bold;
+    cursor:pointer;
+  }
+  .number{
+
+  }
+</style>
  </div>
+ <% content_for(:after_js) do %>
+ <script>
+$(document).ready(function(){
+  $("#augmenter").click(function(){
+    var qt = parseInt($('input#qt').val());
+    qt = qt +1;
+    $('input#qt').val(qt)
+
+    $('.number').text(qt)
+  });
+    $("#diminuer").click(function(){
+    var qt = parseInt($('input#qt').val());
+    qt = qt - 1;
+    $('input#qt').val(qt)
+
+    $('.number').text(qt)
+  });
+
+})
+ </script>
+<% end %>
