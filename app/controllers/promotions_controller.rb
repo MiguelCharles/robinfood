@@ -1,12 +1,20 @@
 class PromotionsController < ApplicationController
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
   def index
-    # @q = Promotion.search(params[:q])
+    if params[:address]
+      @address = params[:address]
+      @shops = Shop.near(@address, 10)
+      @promotions = Promotion.where(shop_id: @shops.pluck(:id))
+    else
+      @address = nil
+    end
+    # @address = Promotion.search(params[:address])
     @promotions = Promotion.all.order(:validity)
       @hash = Gmaps4rails.build_markers(@promotions) do |promo, marker|
         marker.lat promo.shop.latitude
         marker.lng promo.shop.longitude
     end
+
   end
 
   def show

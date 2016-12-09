@@ -1,7 +1,7 @@
 class Shop < ApplicationRecord
   belongs_to :user
   has_many :promotions
-  geocoded_by :full_address
+  geocoded_by :address
   validates :zip_code, presence: true
   validates :city, presence: true
 
@@ -9,7 +9,8 @@ class Shop < ApplicationRecord
 
   after_validation :geocode
 
-  def full_address
-    "#{address}, #{street_number} #{zip_code} #{city} #{country}"
-  end
+
+  # def full_address
+  #   "#{address}, #{street_number} #{zip_code} #{city} #{country}"
+  # end
 end

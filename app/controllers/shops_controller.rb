@@ -14,10 +14,12 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
     @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
       marker.lat shop.latitude
       marker.lng shop.longitude
+    end
   end
 
   def new
-    @shop = Shop.new
+    @shop = Shop.new()
+
   end
 
   def create
@@ -48,10 +50,11 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
 private
   def shop_params
-  params.require(:params).permit(:user_id, :name_of_the_store, :category, :description, :phone_number, :VAT_number)
+  params.require(:shop).permit(:name_of_the_store, :category, :description, :phone_number, :VAT_number, :address, :zip_code, :city, :country)
 end
 
 def set_shop
   @shop = Shop.find(params[:id])
 end
+
 end
