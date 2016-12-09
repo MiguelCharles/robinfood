@@ -1,12 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="banner-seller">
-      <h1 class="text-center"><%= @promotion.title %></h1>
-       <div class="profil-seller text-center">
+<div class="banner-seller">
+    <%= image_tag @promotion.photo_url%>
+
+        <%= link_to ' Back',promotions_path, { :class=>"btn-small fa fa-arrow-left" } %>
+        <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-small fa fa-pencil-square-o" } %>
+
+        <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
+        <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
+
+ <div class="profil-seller text-center">
           <i>proposed by:</i><br/><br/>
-          <img src="/assets/shop.png" alt="seller" class="avatar-large"><h2><%= @promotion.shop.name_of_the_store %></h2>
-       </div>
-       <div class="banner-description"><h3>Description</h3>
+          <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" }%><h2><%= @promotion.shop.name_of_the_store %></h2>
+</div>
+       <div class="banner-description">
+<h1 class="text-center"><%= @promotion.description %></h1>
+       <h3>Description</h3>
           <ul>
              <li>
                 <%= @promotion.product_type %>
@@ -31,10 +40,10 @@
 </div>
 
 
-
 <div class="container text-center bottom">
   <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
   <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
+  <%= link_to ' View My Order', orders_path, { :class=>"btn-medium fa fa-arrow-right" } %>
 </div>
 <div class="container">
 <%= simple_form_for(@order) do |f| %>
@@ -43,6 +52,7 @@
   <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity, min: '0', step: "#{@promotion.min_quantity}" }%>
   <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
 
-  <%= f.button :submit %>
+  <%= f.button :submit,  { :class=>"btn-medium fa fa-arrow-right" }  %>
 <% end %>
 </div>
+ </div>
