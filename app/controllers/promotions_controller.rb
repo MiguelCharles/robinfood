@@ -22,7 +22,7 @@ class PromotionsController < ApplicationController
     @promotion.shop = Shop.find_by(user: current_user)
     if @promotion.save!
       @promotion.digits_code = (1000..9999).to_a.sample
-      @promotion.status = true
+      @promotion.promotion_status = true
       redirect_to shop_promotions_path(@promotion.shop)
     else
       render :new
