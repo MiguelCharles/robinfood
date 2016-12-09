@@ -56,8 +56,9 @@
             <p><%= promo.unit%></p><br/>
             <p class="text-center"><strong><%= promo.digits_code %></strong></p>
             <p><% promo.promotion_status %></p>
-            <p class="add-to-cart"><a href="#" class="btn-medium" role="button"><i class="fa fa-cart-arrow-down"></i> Add to basket</a></p>
+            <p class="add-to-cart"><a href="#" class="btn-medium" role="button"><i class="fa fa-cart-arrow-down"></i> View Details</a></p>
             <%= link_to promo.title, promotion_path(promo), {class: "storelink"}%>
+            <%= link_to 'View Details', promotion_path(promo), { :class=>"btn-medium fa fa-arrow-right" } %>
           </div>
         </div>
       </div>

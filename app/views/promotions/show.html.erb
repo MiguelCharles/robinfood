@@ -35,6 +35,7 @@
 <div class="container text-center bottom">
   <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
   <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
+  <%= link_to ' View My Order', orders_path, { :class=>"btn-medium fa fa-arrow-right" } %>
 </div>
 <div class="container">
 <%= simple_form_for(@order) do |f| %>
@@ -43,6 +44,6 @@
   <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity, min: '0', step: "#{@promotion.min_quantity}" }%>
   <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
 
-  <%= f.button :submit %>
+  <%= f.button :submit,  { :class=>"btn-medium fa fa-arrow-right" }  %>
 <% end %>
 </div>
