@@ -39,26 +39,25 @@
   <div class="row">
     <% @promotions.each do |promo| %>
       <div class ="col -xs-12 col-md-4">
-        <p class="promo-validity text-center"><%= promo.validity %></p>
+        <p class="promo-validity text-center"> Deals ends in : <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
         <div class="thumbnail">
           <div class="avatar-box"><%= image_tag "shop.png", alt:"seller", class:"avatar-seller" %></div>
           <img src="http://www.arcticgardens.ca/blog/wp-content/uploads/2015/09/viande-hach%C3%A9e-rouge.jpg" alt="img">
           <div class="caption">
             <h4><%= promo.shop.name_of_the_store %></h4>
             <h5><%= promo.shop.category %></strong></h5>
-            <p class="promo-product-type"><%= promo.product_type %></p>
-            <p class="promo-title"><%= link_to promo.title, promotion_path(promo)%></p>
-            <p class="promo-discount">- <%= promo.price_after_promotion_per_unit %> €</p>
+            <p class="promo-product-type"><%= link_to promo.description, promotion_path(promo) %></p>
+            <!-- <p class="promo-title"><%= link_to promo.title, promotion_path(promo)%></p>-->
+<!--             <p class="promo-discount">- <%= promo.price_after_promotion_per_unit %> €</p> -->
             <p class="initial-price"><s style="color: grey"><%=promo.initial_price_per_unit %> € </s></p>
-            <p class="promo-price"><%= promo.price_after_promotion_per_unit%> €</strong></p>
+            <p class="promo-price"><%= promo.price_after_promotion_per_unit%> € -<%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %>%</strong></p>
             <!--<p><%= promo.initial_quantity %></p>
             <p><%= promo.remaining_quantity%></p>-->
-            <p><%= promo.unit%></p><br/>
-            <p class="text-center"><strong><%= promo.digits_code %></strong></p>
-            <p><% promo.promotion_status %></p>
-            <p class="add-to-cart"><a href="#" class="btn-medium" role="button"><i class="fa fa-cart-arrow-down"></i> View Details</a></p>
-            <%= link_to promo.title, promotion_path(promo), {class: "storelink"}%>
-            <%= link_to 'View Details', promotion_path(promo), { :class=>"btn-medium fa fa-arrow-right" } %>
+            <!-- <p><%= promo.unit%></p><br/> -->
+            <!-- <p class="text-center"><strong><%= promo.digits_code %></strong></p>-->
+            </div>
+             <%= link_to promo.title, promotion_path(promo), {class: "storelink"}%>
+            <%= link_to 'View Details', promotion_path(promo), { :class=>"btn-medium add-to-cart fa fa-arrow-right" } %>
           </div>
         </div>
       </div>

@@ -100,7 +100,7 @@ christmas_pic = ["https://s-media-cache-ak0.pinimg.com/originals/87/e3/49/87e349
  unit: unit2,
  photo_url: photo_url,
  description: "#{product_type} - #{title}",
- validity: Time.now + (1..5).to_a.sample,
+ validity: Time.now + (10..50).to_a.sample,
  promotion_status: true,
  digits_code: (1000..9999).to_a.sample,
  initial_price_per_unit: initial_price_per_unit,
