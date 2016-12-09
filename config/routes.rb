@@ -5,9 +5,12 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 root to: 'promotions#index'
-resources :users, except: [:index]
+resources :users, except: [:index] do
+end
 
-resources :shops
+resources :shops do
+  get 'promotions', to: 'shops#promotions'
+end
 resources :promotions do
  post 'add_to_order', to: 'add_to_order#promotions', on: :member
 end
