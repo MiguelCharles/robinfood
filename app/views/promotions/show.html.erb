@@ -21,20 +21,28 @@
                 <%= @promotion.product_type %>
              </li>
              <li>
-                initial quantity: <%= @promotion.initial_quantity %>
+                <%= @promotion.description %>
              </li>
              <li>
-                Initial price: <strong>-<%= @promotion.initial_price_per_unit %> € </strong>
+                Initial price: <strong><%= @promotion.initial_price_per_unit %> € </strong>
+                initial quantity: <%= @promotion.initial_quantity %>
              </li>
              <li>
     Price offered: <strong><%= @promotion.price_after_promotion_per_unit %>€</strong>
              </li>
+             <li>
+    Discount: <strong><%= ((1-(@promotion.price_after_promotion_per_unit.to_f/@promotion.initial_price_per_unit.to_f))*100).round %>%</strong>
+             </li>
           </ul>
        </div>
+    </div>
+  </div>
+</div>
+<div class="container">
 <%= simple_form_for(@order) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :quantity_ordered %>
+  <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity, min: '0', step: "#{@promotion.min_quantity}" }%>
   <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
 
   <%= f.button :submit %>
