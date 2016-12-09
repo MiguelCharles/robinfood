@@ -10,12 +10,16 @@
     border-radius: 2px;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+    height: 390px;
 }
 
 
 .thumbnail:hover {
       box-shadow: 0 4px 15px 0 rgba(0,0,0, 0.2);
 }
+
+.thumbnail-img{ max-height: 195px;}
+
 
 
 .caption h5{ font-weight: bold;}
