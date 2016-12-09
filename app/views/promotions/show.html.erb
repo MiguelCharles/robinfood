@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="banner-seller" style="background-image: url('http://mcsagencement.com/wp-content/uploads/2015/02/IMG_0762-iphone-e1461407482152.jpg');">
+<div class="banner-seller">
+    <%= image_tag @promotion.photo_url%>
 
         <%= link_to ' Back',promotions_path, { :class=>"btn-small fa fa-arrow-left" } %>
         <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-small fa fa-pencil-square-o" } %>
@@ -8,13 +9,12 @@
         <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
         <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
 
-    </div>
  <div class="profil-seller text-center">
           <i>proposed by:</i><br/><br/>
-          <img src="/assets/shop.png" alt="seller" class="avatar-large"><h2><%= @promotion.shop.name_of_the_store %></h2>
+          <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" }%><h2><%= @promotion.shop.name_of_the_store %></h2>
 </div>
        <div class="banner-description">
-<h1 class="text-center"><%= @promotion.title %></h1>
+<h1 class="text-center"><%= @promotion.description %></h1>
        <h3>Description</h3>
           <ul>
              <li>
