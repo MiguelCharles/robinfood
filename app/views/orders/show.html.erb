@@ -1,7 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="banner-seller">
-      <h1 class="text-center">Hi <%= Current_user.username %> enter the lokis code to generate activate the deal for <%= @order.title %></h1>
+<div class="container top">
+<div class="row">
+    <div >
+      <h1>Hi <%= current_user.username %> please go pick-up yours <%= @order.promotion.title %> at <%= @order.promotion.shop.full_address %></h1>
+      <%= image_tag @order.promotion.shop.photo_url, { :class=>"thumbnail-img" }%>
+      <%= image_tag @order.promotion.photo_url, { :class=>"thumbnail-img" }%>
+      <%= link_to ' Genrate Coupon', orders_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
     </div>
   </div>
 </div>
