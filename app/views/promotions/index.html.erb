@@ -14,35 +14,14 @@
 </div>
 
 <div class="container top">
-  <h2 class="text-center bottom">Find Your <strong><span class="green">Best Deals</span></strong> of the WEEK !</h2>
-    <div id="map" style="width: 100%; height: 600px;">
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>
-</div>
-
+<h2 class="text-center bottom">Find Your <strong><span class="green">Best Deals</span></strong> of the WEEK !</h2>
   <div class="row">
     <% @promotions.each do |promo| %>
       <div class ="col -xs-12 col-md-4">
         <p class="promo-validity text-center"><%= promo.validity %></p>
         <div class="thumbnail">
-          <div class="avatar-box"><%= image_tag "shop.png", alt:"seller", class:"avatar-seller" %></div>
-          <img src="http://www.arcticgardens.ca/blog/wp-content/uploads/2015/09/viande-hach%C3%A9e-rouge.jpg" alt="img">
+          <div class="avatar-box"><%= image_tag promo.shop.photo_url, { :class=>"avatar-seller" }%></div>
+          <%= image_tag promo.photo_url, { :class=>"thumbnail-img" }%>
           <div class="caption">
             <h4><%= promo.shop.name_of_the_store %></h4>
             <h5><%= promo.shop.category %></strong></h5>
@@ -63,4 +42,24 @@
       </div>
     <% end %>
   </div>
+    <div id="map" style="width: 100%; height: 600px;">
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
+</div>
 </div>
