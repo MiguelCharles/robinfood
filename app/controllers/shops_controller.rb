@@ -11,6 +11,9 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
   end
 
   def new

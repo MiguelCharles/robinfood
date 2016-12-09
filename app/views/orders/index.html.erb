@@ -12,6 +12,7 @@
          <% end %>
             <p>Ordered Quantity: <%= order.quantity_ordered %></p>
             <p>Status: <%= order.status%></p>
+            <%= link_to ' Genrate Coupon', orders_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
             <%= link_to ' View Details', orders_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
         </div>
     </div>
