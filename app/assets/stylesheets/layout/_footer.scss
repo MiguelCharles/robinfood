@@ -1,9 +1,33 @@
 // Your footer style
 // Your footer style
-footer{
-  padding-top: 25px;
-  padding-left: 25px;
-height: 130px;
-background-color: rgba(51, 51, 51, 0.7);
-cursor: rgba(255, 255, 255, 0.7);
+#footer {
+  background: #333333;
+  padding: 30px 0;
+  color: #CCCCCC;
+  cursor: yellow
 }
+#footer p {
+  margin-top: 17px;
+}
+#footer ul {
+  margin-top: 10px;
+}
+#footer a {
+  color: #CCCCCC;
+  font-size: 30px;
+  letter-spacing: 20px;
+  transition: color 0.5s ease;
+}
+#footer a:hover{
+  color: yellow;
+}
+
+
+
+//footer{
+//padding-top: 25px;
+//padding-left: 25px;
+//height: 130px;
+//background-color: rgba(51, 51, 51, 0.7);
+//cursor: yellow;
+//}
