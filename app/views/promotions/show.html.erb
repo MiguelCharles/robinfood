@@ -54,7 +54,7 @@
 <%= simple_form_for(@order) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity,type: "hidden", min: '0', id: "qt", step: "#{@promotion.min_quantity}" }%>
+  <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity,type: "hidden", min: '1', id: "qt", step: "#{@promotion.min_quantity}" }%>
   <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
   <p class="text-center"><span id="diminuer" class=" counter btn-medium">-</span><span style="cursor:auto;" class="counter number"><%= @promotion.min_quantity%></span><span class="btn-medium counter" id="augmenter">+</span></p>
   <%= f.button :submit,  { :class=>"btn-medium fa fa-arrow-right" }  %>
