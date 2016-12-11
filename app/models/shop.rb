@@ -4,9 +4,7 @@ class Shop < ApplicationRecord
   geocoded_by :address
   validates :zip_code, presence: true
   validates :city, presence: true
-
   validates :country, presence: true
-
   after_validation :geocode
 
 

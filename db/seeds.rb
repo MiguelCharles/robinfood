@@ -36,7 +36,7 @@ vegetables = ["Cabbages", "Celery", "Zuchini", "Spinach", "Sweet Potato"]
 vegetables_pic = [
 "https://static.pexels.com/photos/5205/food-healthy-vegetables-potatoes.jpg",
 "https://static.pexels.com/photos/34494/soup-greens-celery-vegetables-food.jpg",
-"hhttps://www.pexels.com/photo/3-zuchini-brown-wooden-surface-128420/",
+"https://static.pexels.com/photos/128420/pexels-photo-128420.jpeg",
 "https://static.pexels.com/photos/5938/food-salad-healthy-lunch.jpg",
 "https://static.pexels.com/photos/89247/pexels-photo-89247.png"
 ]
@@ -54,7 +54,7 @@ sandwich_pic = 'http://storage.canalblog.com/65/66/128490/55125607_p.jpg'
 christmas = ["cupcake", "chocolate cake", "chutney", "gingerbread"]
 christmas_pic = ["https://static.pexels.com/photos/14105/pexels-photo-14105.jpeg",
   "https://static.pexels.com/photos/132694/pexels-photo-132694.jpeg",
-  "http://www.lipglossiping.com/wp-content/uploads/2012/10/christmas-chutney-finished2.jpg",
+  "https://static.pexels.com/photos/162686/plums-fruit-jam-violet-162686.jpeg",
   "http://thecookieshop.files.wordpress.com/2009/11/gingerbread.jpg"
 ]
 
