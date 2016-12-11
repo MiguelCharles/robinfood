@@ -44,7 +44,7 @@
         <p class="promo-validity text-center">Deal ends in <%= distance_of_time_in_words(Time.now - promo.validity) %></p>
         <div class="thumbnail">
           <div class="avatar-box"><%= image_tag "shop.png", alt:"seller", class:"avatar-seller" %></div>
-          <img src="http://www.arcticgardens.ca/blog/wp-content/uploads/2015/09/viande-hach%C3%A9e-rouge.jpg" alt="img">
+          <img src="https://static.pexels.com/photos/5938/food-salad-healthy-lunch.jpg" alt="img">
 
         </div>
       </div>
@@ -70,12 +70,3 @@
     });
   <% end %>
 <% end %>
-</div>
-<div class="container">
-  <div class="row">
-    <% @promotions.each do |promo| %>
-      <div class ="col -xs-12 col-md-4">
-        <p class="promo-validity text-center">Deal ends in <%= distance_of_time_in_words(Time.now - promo.validity) %></p>
-        <div class="thumbnail">
-          <img src="https://static.pexels.com/photos/5938/food-salad-healthy-lunch.jpg" alt="img">
-
