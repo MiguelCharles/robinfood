@@ -11,12 +11,13 @@
 }
 
 // Margins
-.top{ margin-top: 5%;}
+.top{ margin-top: 7%;}
 .bottom { margin-bottom: 5%;}
 
-span.green{ color:#94DB46;}
 
 // Backgrounds
+
+
 .bg-green {
   background: #94DB46;
 }
@@ -29,6 +30,19 @@ span.green{ color:#94DB46;}
 .bg-dark-blue {
   background: #3b5998;
 }
+
+// Color
+
+::-moz-selection {
+  color: black; background: #94DB46;
+}
+
+::selection {
+  color: black; background: #94DB46;
+}
+
+span.green{ color: #94DB46;}
+
 
 // Elements
 
