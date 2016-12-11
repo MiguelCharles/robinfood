@@ -25,36 +25,36 @@ Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", photo_u
 ingredients = ["Fruit", "Vegetable", "Bread", "Christmas"]
 
 fruits = ["Jonnagold Apple", "Orange from Valencia", "Belgian Pear Doyen", "Strawberry from Wepion"]
-fruits_pic = ["https://s3-eu-west-1.amazonaws.com/mijntuin/plants/23996.jpg",
-"http://lespetitsplatsdemireille.hautetfort.com/images/orange.png",
-"https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/11/06/17/pears3.jpg",
-"http://i.ndtvimg.com/i/2015-11/strawberry-625_625x350_81447914865.jpg"
+fruits_pic = ["https://static.pexels.com/photos/162806/apple-fruit-fruits-delicious-162806.jpeg",
+"https://static.pexels.com/photos/87047/orange-fruit-vitamins-fruits-87047.jpeg",
+"https://static.pexels.com/photos/74051/night-74051.jpeg",
+"https://static.pexels.com/photos/175728/pexels-photo-175728.jpeg"
 ]
 
 
 vegetables = ["Cabbages", "Celery", "Zuchini", "Spinach", "Sweet Potato"]
 vegetables_pic = [
-"http://previews.123rf.com/images/egal/egal1301/egal130100042/17543705-Assortment-of-fresh-cabbages-isolated-on-white-background-Stock-Photo.jpg",
-"https://draxe.com/wp-content/uploads/2015/04/bigstock-Fresh-green-celery-isolated-on-52080031.jpg",
-"http://i.ndtvimg.com/mt/cooks/2014-11/courgettes-zucchini.jpg",
-"http://www.naturalineco.com/kindeditor/attached/image/20140926/20140926231629_9834.png",
-"http://sheismynutritionist.com/wp-content/uploads/2013/09/sweet-potato-nutritional-fact-versus-regular-potato.png"
+"https://static.pexels.com/photos/5205/food-healthy-vegetables-potatoes.jpg",
+"https://static.pexels.com/photos/34494/soup-greens-celery-vegetables-food.jpg",
+"https://static.pexels.com/photos/128420/pexels-photo-128420.jpeg",
+"https://static.pexels.com/photos/5938/food-salad-healthy-lunch.jpg",
+"https://static.pexels.com/photos/89247/pexels-photo-89247.png"
 ]
 
 breads = ["Cougnou", "Cramique", "Croissant", "Baguette"]
 breads_pic = [
 "http://www.orpea.be/upload/news/850/cougnou.jpg",
 "http://www.labonnecuisine.be/wp-content/uploads/2015/11/cramique-2.jpg",
-"http://labadiane-hanoi.com/wp-content/uploads/2014/08/la-badiane-lich-su-banh-sung-bo.jpg",
-"ttp://painrisien.com/wp-content/uploads/2012/05/DSC03319.jpg"]
+"https://static.pexels.com/photos/192933/pexels-photo-192933.jpeg",
+"http://painrisien.com/wp-content/uploads/2012/05/DSC03319.jpg"]
 
 sandwich = ["John", "Luca", "Louisa", "Big Poulet", "Marcos", "DeliEggs"]
 sandwich_pic = 'http://storage.canalblog.com/65/66/128490/55125607_p.jpg'
 
 christmas = ["cupcake", "chocolate cake", "chutney", "gingerbread"]
-christmas_pic = ["https://s-media-cache-ak0.pinimg.com/originals/87/e3/49/87e34981af6005a516af6ce14bfa3f4f.jpg",
-  "https://s-media-cache-ak0.pinimg.com/564x/7b/7b/bc/7b7bbcd25f417d511e01c6f63f6b4fd1.jpg",
-  "http://www.lipglossiping.com/wp-content/uploads/2012/10/christmas-chutney-finished2.jpg",
+christmas_pic = ["https://static.pexels.com/photos/14105/pexels-photo-14105.jpeg",
+  "https://static.pexels.com/photos/132694/pexels-photo-132694.jpeg",
+  "https://static.pexels.com/photos/162686/plums-fruit-jam-violet-162686.jpeg",
   "http://thecookieshop.files.wordpress.com/2009/11/gingerbread.jpg"
 ]
 

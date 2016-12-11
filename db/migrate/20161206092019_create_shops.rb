@@ -7,7 +7,8 @@ class CreateShops < ActiveRecord::Migration
       t.text :description
       t.string :phone_number
       t.string :VAT_number
-
+      geocoded_by :address
+      after_validation :geocode, if: :address_changed?
       t.timestamps
     end
   end
