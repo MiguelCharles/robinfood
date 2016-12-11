@@ -21,7 +21,6 @@
       <div class ="col-xs-12 col-md-4">
         <p class="promo-validity text-center"> Deals ends in : <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
         <div class="thumbnail">
-          <div class="avatar-box"><%= image_tag promo.shop.photo_url, { :class=>"avatar-seller" }%></div>
           <%= image_tag promo.photo_url, { :class=>"thumbnail-img" }%>
           <div class="caption">
             <h4><%= promo.shop.name_of_the_store %></h4>
@@ -71,4 +70,12 @@
     });
   <% end %>
 <% end %>
+</div>
+<div class="container">
+  <div class="row">
+    <% @promotions.each do |promo| %>
+      <div class ="col -xs-12 col-md-4">
+        <p class="promo-validity text-center">Deal ends in <%= distance_of_time_in_words(Time.now - promo.validity) %></p>
+        <div class="thumbnail">
+          <img src="https://static.pexels.com/photos/5938/food-salad-healthy-lunch.jpg" alt="img">
 
