@@ -1,8 +1,8 @@
 <!-- <div class="container-fluid" style="background: linear-gradient(to left, #56ab2f , #a8e063);"> -->
-<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/41123/pexels-photo-41123.jpeg');">
+<div class="banner" style="background: linear-gradient(-225deg, rgba(148, 219, 70, 0.6) 0%, rgba(184,255,89,0.3) 50%), url('https://static.pexels.com/photos/41123/pexels-photo-41123.jpeg');">
   <div class="banner">
     <div class="banner-content">
-      <h1>Good deals nearby and for today</h1>
+      <h1>Good <span class="green">deals</span> nearby and for today</h1>
       <form action="" method="get" class="form-inline top">
           <div class="input-group input-group-lg top">
           <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-street-view" aria-hidden="true"></i></span>
@@ -37,7 +37,21 @@
     <% end %>
     </div>
 </div>
-    <div id="map" style="width: 100%; height: 600px;">
+<div class="container">
+  <div class="row">
+    <% @promotions.each do |promo| %>
+      <div class ="col-xs-12 col-md-4">
+        <p class="promo-validity text-center">Deal ends in <%= distance_of_time_in_words(Time.now - promo.validity) %></p>
+        <div class="thumbnail">
+          <div class="avatar-box"><%= image_tag "shop.png", alt:"seller", class:"avatar-seller" %></div>
+          <img src="http://www.arcticgardens.ca/blog/wp-content/uploads/2015/09/viande-hach%C3%A9e-rouge.jpg" alt="img">
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+    <div id="map" style="width: 100%; height: 600px;"></div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -65,9 +79,3 @@
         <div class="thumbnail">
           <img src="https://static.pexels.com/photos/5938/food-salad-healthy-lunch.jpg" alt="img">
 
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-</div>
