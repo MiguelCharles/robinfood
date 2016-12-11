@@ -79,23 +79,17 @@
  <% content_for(:after_js) do %>
  <script>
 $(document).ready(function(){
-    $("#diminuer").click(function(){
-    var qt = parseInt($('input#qt').val());
-    qt = qt - 1;
-    $('input#qt').val(qt)
-
-    $('.number').text(qt)
-  });
+   $("#diminuer").click(function(){
+    if (parseInt($('input#qt').val()) > <%= @min_value.to_i + 1%>) {
+     var qt = parseInt($('input#qt').val());
+      qt = qt - 1;
+      $('input#qt').val(qt)
+     $('.number').text(qt)
+  }
+});
   $("#augmenter").click(function(){
     var qt = parseInt($('input#qt').val());
     qt = qt +1;
-    $('input#qt').val(qt)
-
-    $('.number').text(qt)
-  });
-    $("#diminuer").click(function(){
-    var qt = parseInt($('input#qt').val());
-    qt = qt - 1;
     $('input#qt').val(qt)
 
     $('.number').text(qt)
