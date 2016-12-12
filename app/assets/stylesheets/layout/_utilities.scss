@@ -3,6 +3,11 @@
  * These are examples of utilities classes
  * Feel free to change them and create your own
  * ------------------------------------- */
+body {
+    margin: 0;
+    padding-top: 70px !important;
+  }
+
 
 // Paddings
 .padded {
@@ -11,7 +16,7 @@
 }
 
 // Margins
-.top{ margin-top: 7%;}
+.top{ margin-top: 5%;}
 .bottom { margin-bottom: 5%;}
 
 
@@ -43,7 +48,7 @@
 
 span.green{ color: #94DB46;}
 
-a{color: black !important; text-decoration: none !important;}
+a{text-decoration: none !important;}
 // Elements
 
 .seperator {

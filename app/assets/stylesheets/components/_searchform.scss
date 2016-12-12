@@ -1,4 +1,9 @@
-input#InputAdress {
-    width: 350px;
+.form-control {
+    display: block;
+    width: 90%;
+    margin: 5%;
+}
+input#current_location {
     height: 50px;
 }
+
