@@ -14,7 +14,7 @@ Geocoder.configure(
   # (if you want to implement custom error handling);
   # supports SocketError and Timeout::Error
   # always_raise: [],
-units: :km,                 # :km for kilometers or :mi for miles
+  units: :km,                 # :km for kilometers or :mi for miles
 
   :lookup => :google,
   :api_key => ENV['GOOGLE_API_SERVER_KEY'],
