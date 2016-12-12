@@ -1,5 +1,49 @@
-<!-- <div class="container-fluid" style="background: linear-gradient(to left, #56ab2f , #a8e063);"> -->
+
+<!-- <div class="container-fluid" style="background: linear-gradient(to left, #56ab2f  , #a8e063 );"> -->
 <div class="banner" style="background: linear-gradient(-225deg, rgba(148, 219, 70, 0.6) 0%, rgba(184,255,89,0.3) 50%), url('https://static.pexels.com/photos/41123/pexels-photo-41123.jpeg');">
+
+ <div class="banner">
+   <div class="banner-content">
+     <h1>Good <span class="green">deals</span> nearby and for today</h1>
+     <form action="" method="get" class="form-inline top">
+         <div class="input-group input-group-lg top">
+         <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-street-view" aria-hidden="true"></i></span>
+         <input type="text" id="current_location" name="address" class="form-control" placeholder="In which area are you?" aria-describedby="sizing-addon1">
+         </div>
+         <button type="submit" id="localisation"class="btn btn-form top">FIND DEALS</button>
+     </form>
+   </div>
+ </div>
+</div>
+
+<div class="container top">
+ <h2 class="text-center bottom">Find Your <strong><span class="green">Best Deals</span></strong> of the WEEK !</h2>
+ <div class="row">
+ <% if @promotions.any? %>
+   <% @promotions.each_with_index do |promo, index| %>
+     <div class ="col-xs-12 col-md-4">
+       <p class="promo-validity text-center"> Deals ends in : <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
+       <%= link_to promotion_path(promo) do %>
+       <div class="thumbnail">
+         <%= image_tag promo.photo_url, { :class=>"thumbnail-img" }%>
+         <div class="caption">
+           <h4><%= promo.shop.name_of_the_store %></h4>
+           <h5><strong><%= promo.shop.category %></strong></h5>
+           <p class="promo-title"><%= link_to promo.description, promotion_path(promo)%></p>
+           <p class="promo-discount"><%= promo.price_after_promotion_per_unit %> € -<%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
+         </div>
+       </div>
+       <%end%>
+     </div>
+     <% if index.odd?%>
+     <!--<div class="clearfix"></div>-->
+     <% end %>
+   <% end %>
+   <% else %>
+     <h2 class="text-center bottom">Unfortunately, we were not able to find any promotion near your current location</h2>
+   <% end %>
+   </div>
+
   <div class="banner">
     <div class="banner-content">
       <h1>Good <span class="green">deals</span> nearby and for today</h1>
@@ -41,25 +85,30 @@
       <h2 class="text-center bottom">Unfortunately, we were not able to find any promotion near your current location</h2>
     <% end %>
     </div>
+
 </div>
-    <div id="map" style="width: 100%; height: 600px;"></div>
+   <div id="map" style="width: 100%; height: 600px;"></div>
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
+ <%= javascript_tag do %>
+   $(document).ready(function() {
+     var handler = Gmaps.build('Google');
+     handler.buildMap({ internal: { id: 'map' } }, function() {
+       markers = handler.addMarkers(<%= raw @hash.to_json %>);
+       handler.bounds.extendWith(markers);
+       handler.fitMapToBounds();
+       if (markers.length == 0) {
+         handler.getMap().setZoom(2);
+       } else if (markers.length == 1) {
+         handler.getMap().setZoom(14);
+       }
+     });
+   });
+ <% end %>
+<% end %>
+
+<%= content_for(:after_js) do %>
+ <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>"></script>
 <% end %>
 
 <%= content_for(:after_js) do %>

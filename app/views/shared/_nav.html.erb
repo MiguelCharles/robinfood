@@ -1,4 +1,45 @@
-<% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-<%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+<nav class="navbar-default navbar-fixed-top">
+  <div class="container-fluid">
 
-<!-- lien facebook dans navbar attention, sous template le wagon donc à changer " PROFIL PICTURE AND DROPDOWN " -->
+      <%= link_to root_path, class: "navbar-brand navbar-left" do %>
+          Gaspiranha
+      <% end %>
+
+    <div class="navbar-right">
+    <% if user_signed_in? %>
+
+    <!-- Different navigation if login or not-->
+
+     <!-- Profile picture and dropdown -->
+     <div class="dropdown pull-right">
+       <% avatar_url = current_user.facebook_picture_url || "https://image.freepik.com/free-icon/user-male-shape-in-a-circle-ios-7-interface-symbol_318-35357.jpg" %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-haspopup" => true, "aria-expanded" => false %>
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to "#" do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+            <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
+     </div>
+    </div>
+    <% else %>
+    <div class="pull-right">
+    <!-- Login link-->
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
+    <!-- Sign Up link (call-to-action) -->
+    <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, {class: "sign btn btn-form"} %>
+    </div>
+    <% end %>
+  </div><!-- /.container-fluid -->
+</nav>
