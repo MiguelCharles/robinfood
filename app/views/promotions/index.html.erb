@@ -21,6 +21,7 @@
     <% @promotions.each_with_index do |promo, index| %>
       <div class ="col-xs-12 col-md-4">
         <p class="promo-validity text-center"> Deals ends in : <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
+        <%= link_to promotion_path(promo) do %>
         <div class="thumbnail">
           <%= image_tag promo.photo_url, { :class=>"thumbnail-img" }%>
           <div class="caption">
@@ -28,9 +29,9 @@
             <h5><strong><%= promo.shop.category %></strong></h5>
             <p class="promo-title"><%= link_to promo.description, promotion_path(promo)%></p>
             <p class="promo-discount"><%= promo.price_after_promotion_per_unit %> € -<%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
-            <%= link_to ' View Details', promotion_path(promo), { :class=>"btn-medium fa fa-pencil-square-o" } %>
           </div>
         </div>
+        <%end%>
       </div>
       <% if index.odd?%>
       <!--<div class="clearfix"></div>-->
