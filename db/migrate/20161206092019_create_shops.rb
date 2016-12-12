@@ -7,7 +7,6 @@ class CreateShops < ActiveRecord::Migration
       t.text :description
       t.string :phone_number
       t.string :VAT_number
-
       t.timestamps
     end
   end
