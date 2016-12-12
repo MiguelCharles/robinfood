@@ -11,6 +11,7 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+
   end
 
   def new
