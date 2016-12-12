@@ -10,7 +10,7 @@
     border-radius: 2px;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    height: 390px;
+    height: 315px;
 }
 
 
@@ -20,14 +20,16 @@
 
 .thumbnail-img{ max-height: 195px;}
 
-
+.thumbnail a {
+    color: #333333 !important;
+}
 
 .caption h5{ font-weight: bold;}
 
 .promo-validity{
     font-weight: bold;
     font-size: 20px;
-    background: linear-gradient(to bottom, #56ab2f , #a8e063);
+    background-color: #94db46;
     color: white;
     padding: 0;
     position: relative;
@@ -90,7 +92,7 @@ text-align: right;}
     width: 100%;
     height: 50%;
     z-index: 2;
-    background: black;
+    background: #333333;
     opacity: 0;}
 
 
