@@ -1,0 +1,31 @@
+.navbar-default {
+    background-color: #ffffff;
+    border-color: transparent;
+    padding: 10px;
+    height: 70px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+}
+
+a.navbar-brand {
+  font-weight:bold;
+  font-size: 24px;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+}
+
+.navbar-default .navbar-brand {
+    color: black;
+}
+
+.pull-right{ padding: 7px;}
+
+.navbar-right a{
+
+  color: black;
+}
+
+a.sign.btn.btn-form{ color: white;  width: 95px; height: auto !important;}
+
+a.sign.btn.btn-form:hover {
+    color: #94db46;
+    border: solid 2px #94db46;
+}
