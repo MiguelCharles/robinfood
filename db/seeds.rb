@@ -25,38 +25,20 @@ Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", photo_u
 ingredients = ["Fruit", "Vegetable", "Bread", "Christmas"]
 
 fruits = ["Jonnagold Apple", "Orange from Valencia", "Belgian Pear Doyen", "Strawberry from Wepion"]
-fruits_pic = ["https://static.pexels.com/photos/162806/apple-fruit-fruits-delicious-162806.jpeg",
-"https://static.pexels.com/photos/87047/orange-fruit-vitamins-fruits-87047.jpeg",
-"https://static.pexels.com/photos/74051/night-74051.jpeg",
-"https://static.pexels.com/photos/175728/pexels-photo-175728.jpeg"
-]
+fruits_pic = ["food/fruits/apple.jpeg","food/fruits/orange.jpeg","food/fruits/night.jpeg","food/fruits/strawberry.jpeg"]
 
 
 vegetables = ["Cabbages", "Celery", "Zuchini", "Spinach", "Sweet Potato"]
-vegetables_pic = [
-"https://static.pexels.com/photos/5205/food-healthy-vegetables-potatoes.jpg",
-"https://static.pexels.com/photos/34494/soup-greens-celery-vegetables-food.jpg",
-"https://static.pexels.com/photos/128420/pexels-photo-128420.jpeg",
-"https://static.pexels.com/photos/5938/food-salad-healthy-lunch.jpg",
-"https://static.pexels.com/photos/89247/pexels-photo-89247.png"
-]
+vegetables_pic = ["food/vegetables/potatoes.jpg","food/vegetables/celery.jpg","food/vegetables/zuchini.jpg","food/vegetables/salad.jpg","food/vegetables/sweet-potatoes.jpg"]
 
 breads = ["Cougnou", "Cramique", "Croissant", "Baguette"]
-breads_pic = [
-"http://www.orpea.be/upload/news/850/cougnou.jpg",
-"http://www.labonnecuisine.be/wp-content/uploads/2015/11/cramique-2.jpg",
-"https://static.pexels.com/photos/192933/pexels-photo-192933.jpeg",
-"http://painrisien.com/wp-content/uploads/2012/05/DSC03319.jpg"]
+breads_pic = ["food/bread/cougnou.jpg","food/bread/complete.jpeg","food/bread/croissant.jpeg","food/bread/baguette.jpg"]
 
 sandwich = ["John", "Luca", "Louisa", "Big Poulet", "Marcos", "DeliEggs"]
-sandwich_pic = 'http://storage.canalblog.com/65/66/128490/55125607_p.jpg'
+sandwich_pic = ["food/sandwich/cornichon.jpeg","food/sandwich/roasted.jpeg","food/sandwich/salami.jpeg","food/sandwich/tomato.jpeg"]
 
 christmas = ["cupcake", "chocolate cake", "chutney", "gingerbread"]
-christmas_pic = ["https://static.pexels.com/photos/14105/pexels-photo-14105.jpeg",
-  "https://static.pexels.com/photos/132694/pexels-photo-132694.jpeg",
-  "https://static.pexels.com/photos/162686/plums-fruit-jam-violet-162686.jpeg",
-  "http://thecookieshop.files.wordpress.com/2009/11/gingerbread.jpg"
-]
+christmas_pic = ["food/christmas/cupcake.jpeg","food/christmas/chocolate.jpeg","food/christmas/confiture.jpeg","food/christmas/cookies.jpeg"]
 
 
 20.times do
@@ -66,8 +48,9 @@ christmas_pic = ["https://static.pexels.com/photos/14105/pexels-photo-14105.jpeg
  shop = Shop.find(shop_id)
  if shop.name_of_the_store == "Exki"
     product_type = "Sandwich"
+    i = rand(0..3)
     title = sandwich.sample
-    photo_url = sandwich_pic
+    photo_url = sandwich_pic[i]
  else
    product_type = ingredients.sample
    if product_type == "Fruit"
