@@ -16,10 +16,11 @@ a.navbar-brand {
     color: #333333;
 }
 
-.pull-right{ padding: 8px;}
+.pull-right{ padding: 14px;}
 
 .pull-right a {
     margin-left: 15px;
+    margin-top: 8px;
 }
 
 .navbar-right a{
@@ -31,6 +32,5 @@ a.sign.btn.btn-form{ color: white;  width: 95px; height: 35px !important;}
 
 .navbar-right a.sign.btn.btn-form:hover {
     color: #94db46;
-    border: solid 2px #94db46 !important;
     background-color: white;
 }
