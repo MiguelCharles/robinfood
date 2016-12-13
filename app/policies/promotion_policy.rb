@@ -15,19 +15,22 @@ class PromotionPolicy < ApplicationPolicy
     return true
   end
 
+  def show
+    true
+  end
+
   def update?
     #seul un user qui a crée un shop qui lui meme a crée une promotion peut créer une promotion pour ce shop
     user_as_promotion_owner_or_admin?
   end
 
-  def destroy
+  def destroy?
     user_as_promotion_owner_or_admin?
   end
 
-  private
 
   def user_as_promotion_owner_or_admin?
-   user.admin || record.user == user
+   user.admin? || record.shop.user == user
   end
 
 end
