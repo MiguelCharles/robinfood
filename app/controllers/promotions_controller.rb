@@ -43,12 +43,13 @@ end
   end
 
   def create
-
-    @promotion = current_user.shops[0].promotions.build(promotion_params)
-    #@promotion.shop = Shop.find_by(user: current_user)
+    # @promotion = current_user.shops[0].promotions.build(promotion_params)
+    @promotion = Promotion.new(promotion_params)
+    @promotion.digits_code = 2432
+    @promotion.promotion_status = true
+    @promotion.shop = Shop.find_by(user: current_user)
+    @promotion.save
     if @promotion.save!
-      @promotion.digits_code = (1000..9999).to_a.sample
-      @promotion.promotion_status = true
       redirect_to shop_promotions_path(@promotion.shop)
     else
       render :new
