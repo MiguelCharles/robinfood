@@ -21,7 +21,6 @@ Shop.create(user_id: User.all.first.id, name_of_the_store: "Exki", photo_url: "h
 Rue du Marché aux Herbes", street_number: 93)
 Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", photo_url: "http://www.elle.be/fr/wp-content/uploads/2016/08/marcel.jpg", category:"Fine Grocery", description: "Votre boulanger de tradition qui aime le gout", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Ixelles", zip_code: 1050, address:"Avenue Louise", street_number: 200)
 
-
 ingredients = ["Fruit", "Vegetable", "Bread", "Christmas"]
 
 fruits = ["Jonnagold Apple", "Orange from Valencia", "Belgian Pear Doyen", "Strawberry from Wepion"]
