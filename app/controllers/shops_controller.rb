@@ -20,11 +20,12 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
   def new
     @shop = Shop.new()
-
   end
 
   def create
-  Shop.create(shop_params)
+  @shop = Shop.new(shop_params)
+  @shop.user_id = current_user.id
+  @shop.save
   redirect_to promotions_path
   end
 
