@@ -28,7 +28,7 @@ fruits_pic = ["food/fruits/apple.jpg","food/fruits/orange.jpg","food/fruits/nigh
 
 
 vegetables = ["Cabbages", "Celery", "Zuchini", "Spinach", "Sweet Potato"]
-vegetables_pic = ["food/vegetables/potatoes.jpg","food/vegetables/celery.jpg","food/vegetables/zuchini.jpg","food/vegetables/salad.jpg","food/vegetables/sweet-potatoes.jpg"]
+vegetables_pic = ["food/vegetables/potatoes.jpg","food/vegetables/celery.jpg","food/vegetables/zuchini.jpg","food/vegetables/salad.jpg","food/vegetables/sweet-potatoe.jpg"]
 
 breads = ["Cougnou", "Cramique", "Croissant", "Baguette"]
 breads_pic = ["food/bread/cougnou.jpg","food/bread/complete.jpg","food/bread/croissant.jpg","food/bread/baguette.jpg"]
