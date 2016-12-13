@@ -74,7 +74,10 @@ christmas_pic = ["food/christmas/cupcake.jpeg","food/christmas/chocolate.jpeg","
  end
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..40).to_a.sample
- price_after_promotion_per_unit = initial_price_per_unit/2
+ discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
+ discount2 = discount[rand(0..6)]
+ p  Time.now + (3600..260000).to_a.sample
+ price_after_promotion_per_unit = initial_price_per_unit*discount2
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -83,7 +86,7 @@ christmas_pic = ["food/christmas/cupcake.jpeg","food/christmas/chocolate.jpeg","
  unit: unit2,
  photo_url: photo_url,
  description: "#{product_type} - #{title}",
- validity: Time.now + (10..50).to_a.sample,
+ validity: Time.now + (3600..260000).to_a.sample,
  promotion_status: true,
  digits_code: (1000..9999).to_a.sample,
  initial_price_per_unit: initial_price_per_unit,
