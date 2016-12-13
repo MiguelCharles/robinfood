@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :destroy, :add_to_order]
   def index
-    @orders = Order.all.order(:updated_at) #maybe better to order by status
+    @orders = current_user.orders.order(:updated_at) #maybe better to order by status
   end
 
   def show
@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
       @order.status = "To be confirmed"
       @order.save!
     end
-    redirect_back(fallback_location: promotion_path(params[:order][:promotion_id]))
+     redirect_to orders_path
   end
 
 
@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
       @order = Order.find(params[:id])
       @order.update!(order_params)
     end
-    redirect_back(fallback_location: promotion_path(params[:order][:promotion_id]))
+     redirect_to orders_path
   end
 
   def destroy
@@ -44,6 +44,20 @@ class OrdersController < ApplicationController
 
   def orders_from_user(user)
     @orders_user = Order.where(@order.user_id = user)
+  end
+
+  def confirm
+    @order = Order.find(params[:id])
+    code =  (params[:confirm]["code"]).to_i
+    if @order.promotion.digits_code == code
+      @order.status = "Picked-up"
+      @order.save!
+      flash[:notice] = "Promotion Validated - Here is your coupon"
+      redirect_to order_path(@order.id)
+    else
+      flash[:alert] = "Invalid Promotion Code!"
+      redirect_to order_path(@order.id)
+    end
   end
 
 private
