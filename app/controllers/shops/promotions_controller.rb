@@ -5,7 +5,6 @@ class Shops::PromotionsController < ApplicationController
     # @q = Promotion.search(params[:q])
     @promotions = Promotion.joins(:shop).where("shops.user_id = ?", current_user.id)
     end
-  end
 
 
 end
