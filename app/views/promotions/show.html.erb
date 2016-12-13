@@ -1,20 +1,21 @@
-<div class="container">
-<div class="row">
-<div class="banner-seller">
-  <div class="col-xs-6">
-
+<div class="container top">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="banner-seller">
 
         <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
         <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
-<div class="arriere-plan">
-    <%= image_tag @promotion.photo_url%>
- </div>
- <div class="profil-seller text-center">
+      <div class="arriere-plan">
+       <%= image_tag @promotion.photo_url%>
+      </div>
+      <div class="profil-seller text-center">
 
           <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" }%><h4><%= @promotion.shop.name_of_the_store %></h4>
-</div>
-</div>
-       <div class="banner-description col-xs-6">
+      </div>
+      </div>
+    </div>
+<div class="col-xs-12 col-md-6">
+<div class="banner-description bottom">
 <h1 class="text-center"><%= @promotion.description %></h1>
        <h3>Description</h3>
           <ul>
@@ -34,58 +35,27 @@
              </li>
           </ul>
        </div>
-    </div>
-  </div>
-</div>
-<p><br>
-<br>
-<br>
-<br>
-<br></p>
-
-<div class="container text-center bottom">
-
-  <%= link_to ' Back',promotions_path, class: "btn-medium fa fa-arrow-left" %>
-  <%= link_to ' View My Order', orders_path, { :class=>"btn-medium fa fa-arrow-right" } %>
-
- <% if policy(@promotion).update? %>
-    <%= link_to ' Edit', edit_promotion_path, class: "btn-medium fa fa-pencil-square-o" %>
- <% end %>
-
- <% if policy(@promotion).destroy? %>
-    <%= link_to ' Destroy', promotion_path(@promotion), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn-medium fa fa-pencil-square-o"  %>
- <% end %>
-
-  <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
-  <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
-
-</div>
-<div class="container">
+<div class="banner-cart">
+<div class="banner-form-cart">
 <%= simple_form_for(@order) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity,type: "hidden", min: '1', id: "qt", step: "#{@promotion.min_quantity}" }%>
+  <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity,type: "hidden", min: '1', id: "qt", step: "#{@promotion.min_quantity}" }%><br/>
   <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
-  <p class="text-center"><span id="diminuer" class=" counter btn-medium">-</span><span style="cursor:auto;" class="counter number"><%= @promotion.min_quantity%></span><span class="btn-medium counter" id="augmenter">+</span></p>
-  <%= f.button :submit,  { :class=>"btn-medium fa fa-arrow-right" }  %>
+  <p><span id="diminuer" class=" btn-mini counter "><i class="fa fa-minus" aria-hidden="true"></i></span><span style="cursor:auto;" class="counter number"><%= @promotion.min_quantity%></span><span class="btn-mini counter" id="augmenter"><i class="fa fa-plus" aria-hidden="true"></i></span></p>
+  <%= f.button :submit,  { :class=>"btn-medium-submit pull-right top bottom" }  %>
 <% end %>
 </div>
-<style>
-  .counter{
-    margin-left: 40px;
-    font-size: 14pt;
-    font-weight: bold;
-    cursor:pointer;
-  }
-  .number{
+</div>
+</div>
+</div>
 
-  }
-  .arriere-plan img {
-    max-width: 97%!important;
-    max-height: 350px!important;
-}
-</style>
- </div>
+<div class="container top bottom text-center">
+  <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
+  <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
+  <%= link_to ' View My Order', orders_path, { :class=>"btn-medium fa fa-eye top" } %>
+</div>
+
  <% content_for(:after_js) do %>
  <script>
 $(document).ready(function(){
@@ -108,24 +78,3 @@ $(document).ready(function(){
 })
  </script>
 <% end %>
-
- <div id="map" style="width: 100%; height: 600px;">
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>
-</div>
