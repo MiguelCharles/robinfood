@@ -24,20 +24,20 @@ Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", photo_u
 ingredients = ["Fruit", "Vegetable", "Bread", "Christmas"]
 
 fruits = ["Jonnagold Apple", "Orange from Valencia", "Belgian Pear Doyen", "Strawberry from Wepion"]
-fruits_pic = ["food/fruits/apple.jpeg","food/fruits/orange.jpeg","food/fruits/night.jpeg","food/fruits/strawberry.jpeg"]
+fruits_pic = ["food/fruits/apple.jpg","food/fruits/orange.jpg","food/fruits/night.jpg","food/fruits/strawberry.jpg"]
 
 
 vegetables = ["Cabbages", "Celery", "Zuchini", "Spinach", "Sweet Potato"]
 vegetables_pic = ["food/vegetables/potatoes.jpg","food/vegetables/celery.jpg","food/vegetables/zuchini.jpg","food/vegetables/salad.jpg","food/vegetables/sweet-potatoes.jpg"]
 
 breads = ["Cougnou", "Cramique", "Croissant", "Baguette"]
-breads_pic = ["food/bread/cougnou.jpg","food/bread/complete.jpeg","food/bread/croissant.jpeg","food/bread/baguette.jpg"]
+breads_pic = ["food/bread/cougnou.jpg","food/bread/complete.jpg","food/bread/croissant.jpg","food/bread/baguette.jpg"]
 
 sandwich = ["John", "Luca", "Louisa", "Big Poulet", "Marcos", "DeliEggs"]
-sandwich_pic = ["food/sandwich/cornichon.jpeg","food/sandwich/roasted.jpeg","food/sandwich/salami.jpeg","food/sandwich/tomato.jpeg"]
+sandwich_pic = ["food/sandwich/cornichon.jpg","food/sandwich/roasted.jpg","food/sandwich/salami.jpg","food/sandwich/tomato.jpg"]
 
 christmas = ["cupcake", "chocolate cake", "chutney", "gingerbread"]
-christmas_pic = ["food/christmas/cupcake.jpeg","food/christmas/chocolate.jpeg","food/christmas/confiture.jpeg","food/christmas/cookies.jpeg"]
+christmas_pic = ["food/christmas/cupcake.jpg","food/christmas/chocolate.jpg","food/christmas/confiture.jpg","food/christmas/cookies.jpg"]
 
 
 20.times do
