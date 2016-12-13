@@ -6,13 +6,18 @@
         <% if order.promotion.shop.photo_url %>
           <%= image_tag order.promotion.shop.photo_url, height: 100, width: 130%>
         <% end %>
-            <h2> <%= link_to order.promotion.description, order_path(order)%></h2>
+         <p><%= order.promotion.shop.name_of_the_store %></p>
          <% if order.promotion.photo_url %>
             <%= image_tag order.promotion.photo_url, height: 100, width: 130 %>
          <% end %>
-            <p>Ordered Quantity: <%= order.quantity_ordered %></p>
-            <p>Status: <%= order.status%></p>
+          <p> <%= order.promotion.description %></p>
+         <p>Quantity: <%= order.quantity_ordered %> <%= order.promotion.unit %></p>
+         <p>Price: <%= order.promotion.price_after_promotion_per_unit * order.quantity_ordered %> €</p>
+         <p>Status: <%= order.status %></p>
+         <% if order.status != "Picked-up" %>
+            <%= link_to ' Edit', promotion_path(order.promotion), class: "btn-medium fa fa-pencil-square-o" %>
             <%= link_to ' Confirm Order', order_path(order), { :class=>"btn-medium fa fa-pencil-square-o" } %>
+         <% end %>
         </div>
     </div>
    <%end%>

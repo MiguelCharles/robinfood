@@ -5,11 +5,12 @@
       <h1>Your order status: <%= @order.status  %> </h1>
       <%= image_tag @order.promotion.shop.photo_url, { :class=>"thumbnail-img" }%>
       <%= image_tag @order.promotion.photo_url, { :class=>"thumbnail-img" }%>
-      <%= simple_form_for :confirm, :url => confirm_order_path, :method => :post  do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: 'Something went wrong' %>
-      <%= f.input :code, label: "Please enter the 4 digits code provided in the shop"%>
-      <%= f.button :submit,  "Generate Coupon", { :class=>"btn-medium fa fa-arrow-right" }  %>
+      <% if @order.status != "Picked-up" %>
+        <%= simple_form_for :confirm, :url => confirm_order_path, :method => :post  do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :code, label: "Please enter the code provided at the counter of #{@order.promotion.shop.name_of_the_store}"%>
+        <%= f.button :submit,  "Generate Coupon", { :class=>"btn-medium fa fa-arrow-right" }  %>
+      <% end %>
       <% end %>
     </div>
   </div>
