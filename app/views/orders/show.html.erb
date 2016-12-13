@@ -4,9 +4,17 @@
       <h1>Hi <%= current_user.username %> please go pick-up yours <%= @order.promotion.title %> at <%= @order.promotion.shop.full_address %></h1>
       <%= image_tag @order.promotion.shop.photo_url, { :class=>"thumbnail-img" }%>
       <%= image_tag @order.promotion.photo_url, { :class=>"thumbnail-img" }%>
-      <%= link_to ' Generate Coupon', orders_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
+      <%= simple_form_for :confirm, :url => confirm_order_path, :method => :post  do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :code, label: "Please enter the 4 digits code provided in the shop"%>
+      <%= f.button :submit,  { :class=>"btn-medium fa fa-arrow-right" }  %>
+      <% end %>
     </div>
   </div>
+</div>
+
+<div class="container">
+
 </div>
 
 <div id="map" style="width: 100%; height: 600px;">

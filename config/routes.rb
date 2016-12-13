@@ -14,5 +14,7 @@ end
 resources :promotions do
  post 'add_to_order', to: 'add_to_order#promotions', on: :member
 end
-  resources :orders
+  resources :orders do
+    post 'confirm', on: :member
+  end
 end
