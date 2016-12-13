@@ -20,15 +20,16 @@
  <% if @promotions.any? %>
    <% @promotions.each_with_index do |promo, index| %>
      <div class ="col-xs-12 col-md-4">
-       <p class="promo-validity text-center"> Deals ends in : <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
+       <p class="promo-validity text-center">Deals <i class="fa fa-clock-o" aria-hidden="true"></i> <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
        <%= link_to promotion_path(promo) do %>
        <div class="thumbnail">
          <%= image_tag promo.photo_url, { :class=>"thumbnail-img" }%>
          <div class="caption">
            <h4><%= promo.shop.name_of_the_store %></h4>
-           <h5><strong><%= promo.shop.category %></strong></h5>
-           <p class="promo-title"><%= link_to promo.description, promotion_path(promo)%></p>
-           <p class="promo-discount"><%= promo.price_after_promotion_per_unit %> € -<%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
+           <h5><strong><%= link_to promo.description, promotion_path(promo)%></strong></h5>
+           <p class="promo-title"><%= promo.shop.category %></p>
+           <p class="promo-discount">-<%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
+           <p class="promo-price"><%= promo.price_after_promotion_per_unit %>€</p>
          </div>
        </div>
        <%end%>

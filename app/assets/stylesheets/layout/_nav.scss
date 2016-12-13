@@ -16,13 +16,10 @@ a.navbar-brand {
     color: #333333;
 }
 
-.pull-right{ padding: 14px;}
-
-.pull-right a {
-    margin-left: 15px;
-    margin-top: 8px;
+.navbar-right {
+    height: 50px;
+    padding: 14px;
 }
-
 .navbar-right a{
 
   color: #333333;
@@ -33,4 +30,22 @@ a.sign.btn.btn-form{ color: white;  width: 95px; height: 35px !important;}
 .navbar-right a.sign.btn.btn-form:hover {
     color: #94db46;
     background-color: white;
+}
+
+
+.dropdown {
+    position: relative;
+    top: -10px;
+}
+
+.dropdown-menu{ padding: 0 0;}
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 3px 30px;
+    clear: both;
+    font-weight: normal;
+    line-height: 2.4;
+    color: #333333;
+    white-space: nowrap;
 }
