@@ -11,7 +11,7 @@ Promotion.destroy_all
 Shop.destroy_all
 User.destroy_all
 
-User.create(username:"Paul", email:"paul@gmail.com", password:"123456" ,address: "Bruxelles")
+User.create(username:"Exki", email:"admin@exki.com", password:"123456" ,address: "Bruxelles")
 User.create(username:"Martin", email:"paul1@gmail.com", password:"123456" ,address: "Louvain-La-Neuve")
 User.create(username:"François",email:"paul2@gmail.com", password:"123456" , address: "Liège")
 User.create(username:"David",email:"paul3@gmail.com", password:"123456" , address: "Anderlecht")
@@ -75,7 +75,6 @@ christmas_pic = ["food/christmas/cupcake.jpg","food/christmas/chocolate.jpg","fo
  initial_price_per_unit = (5..40).to_a.sample
  discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
  discount2 = discount[rand(0..6)]
- p  Time.now + (3600..260000).to_a.sample
  price_after_promotion_per_unit = initial_price_per_unit*discount2
  Promotion.create(shop_id: shop_id,
  title: title,
@@ -87,7 +86,7 @@ christmas_pic = ["food/christmas/cupcake.jpg","food/christmas/chocolate.jpg","fo
  description: "#{product_type} - #{title}",
  validity: Time.now + (3600..260000).to_a.sample,
  promotion_status: true,
- digits_code: (1000..9999).to_a.sample,
+ digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
  min_quantity: (1..10).to_a.sample,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
