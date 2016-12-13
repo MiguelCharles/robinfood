@@ -1,10 +1,10 @@
-<div class="container top">
+<div class="container top bottom">
 <div class="row">
    <% current_user.orders.each do |order| %>
     <div class ="col-md-4">
-        <div class="card text-center">
+        <div class="text-center">
         <% if order.promotion.shop.photo_url %>
-          <%= image_tag order.promotion.shop.photo_url, height: 100, width: 130%>
+          <%= image_tag order.promotion.shop.photo_url, class: "avatar-large" %>
         <% end %>
          <p><%= order.promotion.shop.name_of_the_store %></p>
          <% if order.promotion.photo_url %>
