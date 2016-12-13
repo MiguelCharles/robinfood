@@ -1,36 +1,53 @@
 <div class="container">
-  <div class="row">
-    <div class="banner-seller">
-      <h1 class="text-center"><%= @promotion.title %></h1>
-       <div class="profil-seller text-center">
-          <i>proposed by:</i><br/><br/>
-          <img src="/assets/shop.png" alt="seller" class="avatar-large"><h2><%= @promotion.shop.name_of_the_store %></h2>
-       </div>
-       <div class="banner-description"><h3>Description</h3>
+<div class="row">
+<div class="banner-seller">
+  <div class="col-xs-6">
+
+
+        <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
+        <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
+<div class="arriere-plan">
+    <%= image_tag @promotion.photo_url%>
+ </div>
+ <div class="profil-seller text-center">
+
+          <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" }%><h4><%= @promotion.shop.name_of_the_store %></h4>
+</div>
+</div>
+       <div class="banner-description col-xs-6">
+<h1 class="text-center"><%= @promotion.description %></h1>
+       <h3>Description</h3>
           <ul>
              <li>
                 <%= @promotion.product_type %>
              </li>
 
              <li>
-                <%= @promotion.initial_quantity %>
-             </li>
-             <li>
-                Initial price: <strong>-<%= @promotion.initial_price_per_unit %> € </strong>
+                Initial price: <strong><%= @promotion.initial_price_per_unit %> € </strong>
+                initial quantity: <%= @promotion.initial_quantity %>
              </li>
              <li>
     Price offered: <strong><%= @promotion.price_after_promotion_per_unit %>€</strong>
+             </li>
+             <li>
+    Discount: <strong><%= ((1-(@promotion.price_after_promotion_per_unit.to_f/@promotion.initial_price_per_unit.to_f))*100).round %>%</strong>
              </li>
           </ul>
        </div>
     </div>
   </div>
 </div>
-
-
+<p><br>
+<br>
+<br>
+<br>
+<br></p>
 
 <div class="container text-center bottom">
+
   <%= link_to ' Back',promotions_path, class: "btn-medium fa fa-arrow-left" %>
+  <%= link_to ' View My Order', orders_path, { :class=>"btn-medium fa fa-arrow-right" } %>
+
  <% if policy(@promotion).update? %>
     <%= link_to ' Edit', edit_promotion_path, class: "btn-medium fa fa-pencil-square-o" %>
  <% end %>
@@ -41,15 +58,55 @@
 
   <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
   <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
-</div>
 
+</div>
+<div class="container">
 <%= simple_form_for(@order) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :quantity_ordered %>
+  <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity,type: "hidden", min: '1', id: "qt", step: "#{@promotion.min_quantity}" }%>
   <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
+  <p class="text-center"><span id="diminuer" class=" counter btn-medium">-</span><span style="cursor:auto;" class="counter number"><%= @promotion.min_quantity%></span><span class="btn-medium counter" id="augmenter">+</span></p>
+  <%= f.button :submit,  { :class=>"btn-medium fa fa-arrow-right" }  %>
+<% end %>
+</div>
+<style>
+  .counter{
+    margin-left: 40px;
+    font-size: 14pt;
+    font-weight: bold;
+    cursor:pointer;
+  }
+  .number{
 
-  <%= f.button :submit %>
+  }
+  .arriere-plan img {
+    max-width: 97%!important;
+    max-height: 350px!important;
+}
+</style>
+ </div>
+ <% content_for(:after_js) do %>
+ <script>
+$(document).ready(function(){
+   $("#diminuer").click(function(){
+    if (parseInt($('input#qt').val()) > <%= @min_value.to_i + 1%>) {
+     var qt = parseInt($('input#qt').val());
+      qt = qt - 1;
+      $('input#qt').val(qt)
+     $('.number').text(qt)
+  }
+});
+  $("#augmenter").click(function(){
+    var qt = parseInt($('input#qt').val());
+    qt = qt +1;
+    $('input#qt').val(qt)
+
+    $('.number').text(qt)
+  });
+
+})
+ </script>
 <% end %>
 
  <div id="map" style="width: 100%; height: 600px;">

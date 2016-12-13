@@ -1,28 +1,39 @@
-<!--
-<<h1><%= @promotion.title %></h1>
-
-<h2><%= @promotion.shop.name_of_the_store %></h2>
-
-<h3>Description</h3>
-<ul>
-  <li>
-  <%= @promotion.product_type %>
-  </li>
-  <li>
-    <%= @promotion.initial_quantity %>
-  </li>
-  <li>
-    Initial price: <strong>-<%= @promotion.initial_price_per_unit %>%</strong>
-  </li>
-  <li>
-    Price offered: <strong><%= @promotion.price_after_promotion_per_unit %>€</strong>
-  </li>
-</ul>
-
-<div class="container text-center bottom">
-  <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
-  <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
-  <%= link_to ' Add',  create_order_user_order_orderline_path(current_user.id, Order.create, promotion_id: @promotion.id), method: :post %>
+<div class="container top">
+<div class="row">
+    <div >
+      <h1>Hi <%= current_user.username %> please go pick-up yours <%= @order.promotion.title %> at <%= @order.promotion.shop.full_address %></h1>
+      <%= image_tag @order.promotion.shop.photo_url, { :class=>"thumbnail-img" }%>
+      <%= image_tag @order.promotion.photo_url, { :class=>"thumbnail-img" }%>
+      <%= simple_form_for :confirm, :url => confirm_order_path, :method => :post  do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :code, label: "Please enter the 4 digits code provided in the shop"%>
+      <%= f.button :submit,  { :class=>"btn-medium fa fa-arrow-right" }  %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-quantity d'un order gérée ici (via bouton) -->
+<div class="container">
+
+</div>
+
+<div id="map" style="width: 100%; height: 600px;">
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
+</div>

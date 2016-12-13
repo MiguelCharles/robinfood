@@ -1,4 +1,4 @@
-<div class="container top pullDown">
+<div class="container top">
 <div class="row">
 <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 <%= simple_form_for(@promotion) do |promo| %>
@@ -13,15 +13,11 @@
   <% end %>
 
   <div class="form-inputs">
-    <%= promo.input :title %>
-    <%= promo.input :initial_quantity %>
-    <%= promo.input :unit %>
-    <%= promo.input :validity %>
-    <%= promo.input :product_type%>
-    <%= promo.input :digits_code %>
-    <%= promo.input :initial_price_per_unit%>
-    <%= promo.input :price_after_promotion_per_unit %>
-    <%= promo.input :promotion_status %>
+    <%= promo.input :title, label:"Please insert the header of your promotion", placeholder:"Sandwiches,croissants, Soup,..."%>
+    <%= promo.input :validity, label:"When does the promotion stop?" %>
+    <%= promo.input :product_type, label:"On which products is this production valid", placeholder:"Be as specific as possible. E.g : Sandwich Nordic"%>
+    <%= promo.input :initial_price_per_unit, label:"Price of the product before promotion", placeholder:"3.5€"%>
+    <%= promo.input :price_after_promotion_per_unit, label:"Price of the product after promotion", placeholder:"2€" %>
   </div>
 
 

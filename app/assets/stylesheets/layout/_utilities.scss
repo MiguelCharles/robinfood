@@ -3,6 +3,11 @@
  * These are examples of utilities classes
  * Feel free to change them and create your own
  * ------------------------------------- */
+body {
+    margin: 0;
+    padding-top: 70px !important;
+  }
+
 
 // Paddings
 .padded {
@@ -14,9 +19,10 @@
 .top{ margin-top: 5%;}
 .bottom { margin-bottom: 5%;}
 
-span.green{ color:#94DB46;}
 
 // Backgrounds
+
+
 .bg-green {
   background: #94DB46;
 }
@@ -30,6 +36,19 @@ span.green{ color:#94DB46;}
   background: #3b5998;
 }
 
+// Color
+
+::-moz-selection {
+  color: black; background: #94DB46;
+}
+
+::selection {
+  color: black; background: #94DB46;
+}
+
+span.green{ color: #94DB46;}
+
+a{text-decoration: none !important;}
 // Elements
 
 .seperator {

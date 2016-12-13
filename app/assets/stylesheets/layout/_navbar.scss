@@ -9,7 +9,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
@@ -18,13 +17,11 @@
   z-index: 1;
   width: 100%;
 }
-
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 50px;
   color: black;
 }
-
 a.navbar-wagon-brand {
   position: relative;
   margin: auto 0;
@@ -32,28 +29,23 @@ a.navbar-wagon-brand {
   font-weight:bold;
   font-size: 24px;
   font-family: "Raleway", "Helvetica", "sans-serif";
-
 }
-
 a.navbar-wagon-brand:hover {
   color: black;
   text-decoration:none;
 }
-
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 /* Navbar item */
 .navbar-wagon-item {
   flex: 0 1 auto;
   cursor: pointer;
   padding: 0 20px;
 }
-
 /* Navbar standard link */
 .navbar-wagon-link {
   color: #616668;
@@ -63,7 +55,6 @@ a.navbar-wagon-brand:hover {
   color: #94db46;
   text-decoration: none;
 }
-
 /* Navbar right button */
 .navbar-wagon-button {
   margin-left: 10px;
@@ -73,14 +64,12 @@ a.navbar-wagon-brand:hover {
   background-color: #94db46;
   color: white;
   font-size: 14px;
-
 }
 .navbar-wagon-button:hover {
   color: black;
   background: #white;
   border-color: #94db46;
 }
-
 /* Navbar search form */
 .navbar-wagon-search {
   flex: 0 1 300px;
@@ -114,7 +103,6 @@ a.navbar-wagon-brand:hover {
 .navbar-wagon-search-input:focus  {
   border: 1px solid #CCCCCC;
 }
-
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
@@ -145,7 +133,6 @@ a.navbar-wagon-brand:hover {
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
-
 .badge-container {
   position: relative;
   font-size: 25px;
@@ -183,4 +170,33 @@ a.navbar-wagon-brand:hover {
 .badge-bordered {
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+.dropdown-menu {
+  height:100vh;
+  width:100%!important;
+  -webkit-transition: width 2s; /* Safari */
+  transition: width 2s;
+}
+.dropdown-menu li a {
+  color:rgb(148, 219, 70)!important;
+  font-size: 14pt!important;
+  font-weight: bold!important;
+}
+.dropdown-menu li a:hover{
+  color:rgb(148, 219, 70)!important;
+}
+.dropdown-menu li {
+  padding-top:20px;
+  color:black!important;
+  font-size: 14pt;
+  font-style: "Comic Sans Ms", sans-serif;
+  border-bottom: grey 1px solid;
+}
+.dropdown-menu{
+  margin-top: 70px!important;
+  position: fixed!important;
+  top:0!important ;
+  left: 0!important;
+  width:30%!important;
+  bottom: 0!important;
 }

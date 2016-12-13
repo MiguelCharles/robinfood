@@ -3,13 +3,18 @@ class PromotionsController < ApplicationController
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @q = Promotion.search(params[:q])
-    #@promotions = Promotion.all.order(:validity)
-    @promotions = policy_scope(Promotion)
-      @hash = Gmaps4rails.build_markers(@promotions) do |promo, marker|
-        marker.lat promo.shop.latitude
-        marker.lng promo.shop.longitude
+    if params[:address]
+      @address = params[:address]
+      @shops = Shop.near(@address, 10).joins(:promotions)
+      @ids = @shops.to_a.map(&:id).uniq
+      @promotions = @shops.any? ? Promotion.where(shop_id: @ids) : []
+    else
+      @promotions = Promotion.all.order(:validity)
     end
+      @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
+        marker.lat shop.latitude
+        marker.lng shop.longitude
+      end
   end
 
   def show
@@ -28,10 +33,13 @@ end
   end
 
   def create
+
     @promotion = current_user.shops[0].promotions.build(promotion_params)
-    # @promotion = Promotion.new(promotion_params)
+    #@promotion.shop = Shop.find_by(user: current_user)
     if @promotion.save!
-      redirect_to promotion_path(@promotion)
+      @promotion.digits_code = (1000..9999).to_a.sample
+      @promotion.promotion_status = true
+      redirect_to shop_promotions_path(@promotion.shop)
     else
       render :new
     end

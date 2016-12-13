@@ -20,11 +20,50 @@
     background-color: #94DB46;
 }
 
-button.btn.btn-form {
-    height: 49px;
+.btn.btn-form {
+    height: 50px;
     width: 125px;
     font-weight: bold;
     color: white;
     border: none;
     background-color: #94DB46;
+}
+
+input.button.btn.btn-form {
+    height: 50px;
+    width: 125px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    background-color: #94DB46;
+}
+
+btn-small a{ color: white; }
+
+
+.share-link {
+  flex: 0 0 24%;
+  color: white;
+  font-size: 18px;
+  padding: 12px;
+  margin-right: 15px;
+  text-align: center;
+  border-radius: 2px;
+  cursor: pointer;
+  float: left;
+  &:hover {
+    color: white;
+  }
+}
+.bg-text {
+  background: #4a4a4a;
+}
+.bg-email {
+  background: #aeaeae;
+}
+.bg-twitter {
+  background: #00a3e1;
+}
+.bg-facebook {
+  background: #3b5998;
 }

@@ -5,6 +5,10 @@ class OrdersController < ApplicationController
   end
 
   def show
+     @hash = Gmaps4rails.build_markers(@order) do |order, marker|
+        marker.lat order.promotion.shop.latitude
+        marker.lng order.promotion.shop.longitude
+      end
   end
 
   def new

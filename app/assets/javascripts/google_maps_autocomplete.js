@@ -10,6 +10,18 @@ $(document).ready(function() {
       }
     });
   }
+
+  var current_location = $('#current_location').get(0);
+
+    if (current_location) {
+    var autocomplete = new google.maps.places.Autocomplete(current_location, { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    google.maps.event.addDomListener(current_location, 'keydown', function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault(); // Do not submit the form on Enter.
+      }
+    });
+  }
 });
 
 function onPlaceChanged() {

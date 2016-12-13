@@ -11,16 +11,30 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+    end
 
   end
 
   def new
-    @shop = Shop.new
+    @shop = Shop.new()
+
   end
 
   def create
   Shop.create(shop_params)
   redirect_to promotions_path
+  end
+
+  def promotions
+    @promotions = Promotion.joins(:shop).where("shops.user_id = ?", current_user.id)
+      @hash = Gmaps4rails.build_markers(@promotions) do |promo, marker|
+        marker.lat promo.shop.latitude
+        marker.lng promo.shop.longitude
+    end
+
   end
 
   def edit
@@ -37,10 +51,11 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
 private
   def shop_params
-  params.require(:params).permit(:user_id, :name_of_the_store, :category, :description, :phone_number, :VAT_number)
+  params.require(:shop).permit(:name_of_the_store, :category, :description, :phone_number, :VAT_number, :address, :zip_code, :city, :country)
 end
 
 def set_shop
   @shop = Shop.find(params[:id])
 end
+
 end

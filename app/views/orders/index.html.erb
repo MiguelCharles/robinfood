@@ -1,13 +1,18 @@
 <div class="container top">
-<h1>Orders#index</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
-
-
 <div class="row">
    <% current_user.orders.each do |order| %>
     <div class ="col-md-4">
         <div class="card text-center">
-            <h2> <%= link_to order.promotion.title, order_path(order)%></h2>
+        <% if order.promotion.shop.photo_url %>
+          <%= image_tag order.promotion.shop.photo_url, height: 100, width: 130%>
+        <% end %>
+            <h2> <%= link_to order.promotion.description, order_path(order)%></h2>
+         <% if order.promotion.photo_url %>
+            <%= image_tag order.promotion.photo_url, height: 100, width: 130 %>
+         <% end %>
+            <p>Ordered Quantity: <%= order.quantity_ordered %></p>
+            <p>Status: <%= order.status%></p>
+            <%= link_to ' View Details', order_path(order), { :class=>"btn-medium fa fa-pencil-square-o" } %>
         </div>
     </div>
    <%end%>

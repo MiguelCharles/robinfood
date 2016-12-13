@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20161212155600) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +41,8 @@ ActiveRecord::Schema.define(version: 20161212155600) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "min_quantity"
+    t.string   "description"
+    t.string   "photo_url"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -56,10 +59,10 @@ ActiveRecord::Schema.define(version: 20161212155600) do
     t.integer  "zip_code"
     t.string   "city"
     t.string   "country"
-    t.string   "full_address"
     t.string   "address"
     t.string   "picture_of_the_shop"
     t.integer  "street_number"
+    t.string   "photo_url"
   end
 
   create_table "users", force: :cascade do |t|
