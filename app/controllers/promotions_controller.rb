@@ -1,5 +1,7 @@
 class PromotionsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
+
   def index
     if params[:address]
       @address = params[:address]
@@ -16,16 +18,24 @@ class PromotionsController < ApplicationController
   end
 
   def show
+
     @order = Order.find_or_initialize_by(promotion_id: params[:id], user_id: current_user.id)
+    @promotion_coordinates = Gmaps4rails.build_markers([@promotion]) do |promo, marker|
+      marker.lat promo.shop.latitude
+      marker.lng promo.shop.longitude
   end
+
+end
 
   def new
     @promotion = Promotion.new
+    authorize @promotion
   end
 
   def create
-    @promotion = Promotion.new(promotion_params)
-    @promotion.shop = Shop.find_by(user: current_user)
+
+    @promotion = current_user.shops[0].promotions.build(promotion_params)
+    #@promotion.shop = Shop.find_by(user: current_user)
     if @promotion.save!
       @promotion.digits_code = (1000..9999).to_a.sample
       @promotion.promotion_status = true
@@ -56,6 +66,7 @@ class PromotionsController < ApplicationController
 
     def set_promotion
       @promotion = Promotion.find(params[:id])
+      authorize @promotion
     end
 
     def promotion_params

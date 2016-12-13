@@ -21,9 +21,7 @@
              <li>
                 <%= @promotion.product_type %>
              </li>
-             <li>
-                <%= @promotion.description %>
-             </li>
+
              <li>
                 Initial price: <strong><%= @promotion.initial_price_per_unit %> € </strong>
                 initial quantity: <%= @promotion.initial_quantity %>
@@ -46,9 +44,21 @@
 <br></p>
 
 <div class="container text-center bottom">
-  <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
-  <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
+
+  <%= link_to ' Back',promotions_path, class: "btn-medium fa fa-arrow-left" %>
   <%= link_to ' View My Order', orders_path, { :class=>"btn-medium fa fa-arrow-right" } %>
+
+ <% if policy(@promotion).update? %>
+    <%= link_to ' Edit', edit_promotion_path, class: "btn-medium fa fa-pencil-square-o" %>
+ <% end %>
+
+ <% if policy(@promotion).destroy? %>
+    <%= link_to ' Destroy', promotion_path(@promotion), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn-medium fa fa-pencil-square-o"  %>
+ <% end %>
+
+  <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
+  <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
+
 </div>
 <div class="container">
 <%= simple_form_for(@order) do |f| %>
@@ -98,3 +108,24 @@ $(document).ready(function(){
 })
  </script>
 <% end %>
+
+ <div id="map" style="width: 100%; height: 600px;">
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
+</div>

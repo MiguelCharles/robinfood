@@ -15,6 +15,7 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
       marker.lat shop.latitude
       marker.lng shop.longitude
     end
+
   end
 
   def new
