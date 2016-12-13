@@ -22,9 +22,7 @@
              <li>
                 <%= @promotion.product_type %>
              </li>
-             <li>
-                <%= @promotion.description %>
-             </li>
+
              <li>
                 Initial price: <strong><%= @promotion.initial_price_per_unit %> € </strong>
                 initial quantity: <%= @promotion.initial_quantity %>
@@ -36,7 +34,7 @@
     Discount: <strong><%= ((1-(@promotion.price_after_promotion_per_unit.to_f/@promotion.initial_price_per_unit.to_f))*100).round %>%</strong>
              </li>
           </ul>
-</div>
+       </div>
 <div class="banner-cart">
 <div class="banner-form-cart">
 <%= simple_form_for(@order) do |f| %>

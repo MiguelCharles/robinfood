@@ -2,12 +2,14 @@
 <div class="row">
     <div >
       <h1>Hi <%= current_user.username %> please go pick-up yours <%= @order.promotion.title %> at <%= @order.promotion.shop.full_address %></h1>
+      <h1>Your order status: <%= @order.status  %> </h1>
       <%= image_tag @order.promotion.shop.photo_url, { :class=>"thumbnail-img" }%>
       <%= image_tag @order.promotion.photo_url, { :class=>"thumbnail-img" }%>
       <%= simple_form_for :confirm, :url => confirm_order_path, :method => :post  do |f| %>
       <%= f.error_notification %>
+      <%= f.error_notification message: 'Something went wrong' %>
       <%= f.input :code, label: "Please enter the 4 digits code provided in the shop"%>
-      <%= f.button :submit,  { :class=>"btn-medium fa fa-arrow-right" }  %>
+      <%= f.button :submit,  "Generate Coupon", { :class=>"btn-medium fa fa-arrow-right" }  %>
       <% end %>
     </div>
   </div>

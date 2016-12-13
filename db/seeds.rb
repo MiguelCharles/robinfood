@@ -11,7 +11,7 @@ Promotion.destroy_all
 Shop.destroy_all
 User.destroy_all
 
-User.create(username:"Paul", email:"paul@gmail.com", password:"123456" ,address: "Bruxelles")
+User.create(username:"Exki", email:"admin@exki.com", password:"123456" ,address: "Bruxelles")
 User.create(username:"Martin", email:"paul1@gmail.com", password:"123456" ,address: "Louvain-La-Neuve")
 User.create(username:"François",email:"paul2@gmail.com", password:"123456" , address: "Liège")
 User.create(username:"David",email:"paul3@gmail.com", password:"123456" , address: "Anderlecht")
@@ -21,24 +21,23 @@ Shop.create(user_id: User.all.first.id, name_of_the_store: "Exki", photo_url: "h
 Rue du Marché aux Herbes", street_number: 93)
 Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", photo_url: "http://www.elle.be/fr/wp-content/uploads/2016/08/marcel.jpg", category:"Fine Grocery", description: "Votre boulanger de tradition qui aime le gout", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Ixelles", zip_code: 1050, address:"Avenue Louise", street_number: 200)
 
-
 ingredients = ["Fruit", "Vegetable", "Bread", "Christmas"]
 
 fruits = ["Jonnagold Apple", "Orange from Valencia", "Belgian Pear Doyen", "Strawberry from Wepion"]
-fruits_pic = ["food/fruits/apple.jpeg","food/fruits/orange.jpeg","food/fruits/night.jpeg","food/fruits/strawberry.jpeg"]
+fruits_pic = ["food/fruits/apple.jpg","food/fruits/orange.jpg","food/fruits/night.jpg","food/fruits/strawberry.jpg"]
 
 
 vegetables = ["Cabbages", "Celery", "Zuchini", "Spinach", "Sweet Potato"]
-vegetables_pic = ["food/vegetables/potatoes.jpg","food/vegetables/celery.jpg","food/vegetables/zuchini.jpg","food/vegetables/salad.jpg","food/vegetables/sweet-potatoes.jpg"]
+vegetables_pic = ["food/vegetables/potatoes.jpg","food/vegetables/celery.jpg","food/vegetables/zuchini.jpg","food/vegetables/salad.jpg","food/vegetables/sweet-potatoe.jpg"]
 
 breads = ["Cougnou", "Cramique", "Croissant", "Baguette"]
-breads_pic = ["food/bread/cougnou.jpg","food/bread/complete.jpeg","food/bread/croissant.jpeg","food/bread/baguette.jpg"]
+breads_pic = ["food/bread/cougnou.jpg","food/bread/complete.jpg","food/bread/croissant.jpg","food/bread/baguette.jpg"]
 
 sandwich = ["John", "Luca", "Louisa", "Big Poulet", "Marcos", "DeliEggs"]
-sandwich_pic = ["food/sandwich/cornichon.jpeg","food/sandwich/roasted.jpeg","food/sandwich/salami.jpeg","food/sandwich/tomato.jpeg"]
+sandwich_pic = ["food/sandwich/cornichon.jpg","food/sandwich/roasted.jpg","food/sandwich/salami.jpg","food/sandwich/tomato.jpg"]
 
 christmas = ["cupcake", "chocolate cake", "chutney", "gingerbread"]
-christmas_pic = ["food/christmas/cupcake.jpeg","food/christmas/chocolate.jpeg","food/christmas/confiture.jpeg","food/christmas/cookies.jpeg"]
+christmas_pic = ["food/christmas/cupcake.jpg","food/christmas/chocolate.jpg","food/christmas/confiture.jpg","food/christmas/cookies.jpg"]
 
 
 20.times do
@@ -74,7 +73,9 @@ christmas_pic = ["food/christmas/cupcake.jpeg","food/christmas/chocolate.jpeg","
  end
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..40).to_a.sample
- price_after_promotion_per_unit = initial_price_per_unit/2
+ discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
+ discount2 = discount[rand(0..6)]
+ price_after_promotion_per_unit = initial_price_per_unit*discount2
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -83,9 +84,9 @@ christmas_pic = ["food/christmas/cupcake.jpeg","food/christmas/chocolate.jpeg","
  unit: unit2,
  photo_url: photo_url,
  description: "#{product_type} - #{title}",
- validity: Time.now + (10..50).to_a.sample,
+ validity: Time.now + (3600..260000).to_a.sample,
  promotion_status: true,
- digits_code: (1000..9999).to_a.sample,
+ digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
  min_quantity: (1..10).to_a.sample,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
