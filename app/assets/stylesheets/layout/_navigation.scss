@@ -1,0 +1,74 @@
+nav.navbar.navbar-default.navbar-fixed-top {
+    background: white;
+    height: 70px !important;
+    padding: 10px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+}
+
+.navbar-default .navbar-toggle {
+    border-color: none !important;
+}
+
+.navbar-toggle {
+    position: relative;
+    float: left;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 0px solid transparent;
+    border-radius: 2px;
+}
+
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #ffffff !important;
+}
+
+ul.nav.navbar-nav {
+    background-color: white;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: white !important;
+}
+
+div#bs-example-navbar-collapse-1 {
+    margin-top: 2px;
+    overflow: hidden;
+
+}
+
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #333333;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #333 !important;
+}
+
+.navbar-brand {
+    color: #333 !important;
+    font-size: 24px;
+    font-weight: bold;
+  font-family: "Raleway";
+}
+
+.pull-right {
+    /* float: right; */
+    position: absolute;
+    right: 12px;
+    top: 10px;
+}
+
+@media screen and (min-width:300px) and (max-width:767px) {
+
+.navbar-collapse {
+    margin-right: -30px !important;
+    margin-left: -30px !important;
+}
+
+}

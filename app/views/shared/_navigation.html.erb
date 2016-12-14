@@ -1,0 +1,66 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <%= link_to root_path, class: "navbar-brand" do %>
+          Robin Food
+      <% end %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+
+        <li class="dropdown">
+        <% avatar_url = current_user.facebook_picture_url || "https://image.freepik.com/free-icon/user-male-shape-in-a-circle-ios-7-interface-symbol_318-35357.jpg" %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-haspopup" => true, "aria-expanded" => false %>
+          <ul class="dropdown-menu">
+
+            <li> <%= link_to "#" do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+            </li>
+
+            <li><%= link_to "#" do %>
+            <i class="fa fa-shopping-cart"></i> <%= t(".profile", default: "My orders") %>
+            <% end %></li>
+            <li><%= link_to "#" do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Manage products") %>
+            <% end %></li>
+            <li><%= link_to "#" do %>
+            <i class="fa fa-cogs"></i> <%= t(".profile", default: "Settings") %>
+            <% end %></li>
+
+            <li><%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+            </li>
+
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Become Partner</a></li>
+          </ul>
+        </li>
+        <% else %>
+
+    </div><!-- /.navbar-collapse -->
+
+  <div class="pull-right">
+    <!-- Login link-->
+    <%= link_to new_user_session_path do %>
+    <i class="fa fa-sign-in"></i> <%= t(".sign_in", default: "Login")%>
+    <% end %>
+    <!-- Sign Up link (call-to-action) -->
+    <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, {class: "sign btn btn-form hidden-xs"} %>
+    </div>
+    <% end %>
+
+  </div><!-- /.container-fluid -->
+</nav>
