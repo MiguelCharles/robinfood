@@ -4,7 +4,7 @@ class PromotionsController < ApplicationController
   # Pundit: white-list approach.
   before_action :authenticate_user!, except: :index
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
-  after_action :verify_policy_scoped, only: :update, unless: :skip_pundit?
+  # after_action :verify_policy_scoped, only: [:update], unless: :skip_pundit?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
@@ -60,6 +60,7 @@ end
 
   def update
      if @promotion.update(promotion_params)
+      @promotion.save!
       redirect_to promotions_path
     else
       render :edit
