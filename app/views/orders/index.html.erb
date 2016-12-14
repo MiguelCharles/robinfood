@@ -1,10 +1,11 @@
 <div class="container top bottom">
+<%= link_to '',promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
 <div class="row">
-<h1 class="bottom">My order</h1>
+<h1 class="text-center">My order</h1>
    <% current_user.orders.each do |order| %>
 <div class="col-xs-12 col-md-12">
 <div class="separator"></div>
-  <div class="col-xs-12 col-md-4">
+  <div class="col-md-4">
     <div class="cart-sec">
          <% if order.promotion.photo_url %>
             <%= image_tag order.promotion.photo_url, class: "img-responsive"%>
@@ -12,7 +13,7 @@
     </div>
   </div>
 
-  <div class="col-xs-6 col-md-4">
+  <div class="col-md-4">
       <div class="cart-item-info">
          <% if order.promotion.shop.photo_url %>
           <%= image_tag order.promotion.shop.photo_url, class: "avatar-large" %>
@@ -24,9 +25,9 @@
          <p>Status: <%= order.status %></p>
       </div>
   </div>
-  <div class="col-xs-6 col-md-4">
+  <div class="col-md-4">
          <% if order.status != "Picked-up" %>
-            <div class="cart-edit text-center"><%= link_to ' Edit', promotion_path(order.promotion), class: "btn-medium fa fa-pencil-square-o" %>
+            <div class="cart-edit text-center"><%= link_to '', promotion_path(order.promotion), class: "btn-minim fa fa-pencil-square-o" %>
             </div>
 
             <div class="cart-confirm text-center"><%= link_to ' Confirm Order', order_path(order), class: "btn-medium-confirm fa fa-check" %>
