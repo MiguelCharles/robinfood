@@ -55,6 +55,24 @@
     background-color: #fff;
 }
 
+.btn-medium-confirm{
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 25px;
+  border-radius: 50px;
+  border: solid 2px white;
+  transition: all 0.3s;
+  color: white;
+  background-color: #94DB46;
+}
+
+.btn-medium-confirm:hover {
+    text-decoration: none;
+    color: #94DB46;
+    border: 2px solid #94DB46;
+    background-color: #fff;
+}
+
 .btn.btn-form {
     height: 50px;
     width: 125px;
