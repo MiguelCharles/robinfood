@@ -71,7 +71,7 @@ $(document).ready(function(){
       $('input#qt').val(qt)
      $('.number').text(qt)
      total = qt * <%= @promotion.price_after_promotion_per_unit %>;
-    total = total + "$";
+    total = "Total:  " +total + " €";
      $('.total').text(total)
  }
 });
@@ -82,7 +82,7 @@ $(document).ready(function(){
 
     $('.number').text(qt)
     total = qt * <%= @promotion.price_after_promotion_per_unit %>;
-    total = total + "$";
+    total = "Total:  " + total + " €";
      $('.total').text(total)
   });
 
