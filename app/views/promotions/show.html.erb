@@ -12,7 +12,7 @@
         </div>
         <div class="profil-seller text-center">
 
-          <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" }%><h4><%= @promotion.shop.name_of_the_store %></h4>
+          <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" }%><h4><strong><%= @promotion.shop.name_of_the_store %></strong></h4>
           <%= @promotion.shop.category %>
           <p class="text-center top"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= @promotion.shop.full_address  %></p>
         </div>
@@ -23,7 +23,7 @@
 
   <div class="col-md-6 bottom" style="border:  solid 2px whitesmoke;">
   <div class="banner-description bottom">
-        <h2 class="text-center"><%= @promotion.description %></h2>
+        <h2 class="text-center top" ><%= @promotion.description %></h2>
         <p class="text-center"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i> <%= distance_of_time_in_words(@promotion.validity - Time.now) %></p>
 
 
@@ -40,7 +40,6 @@
       </div>
 
     <div class="banner-cart">
-    <h3 class="text-center"><i class="fa fa-shopping-cart fa-lg colorg " aria-hidden="true"></i> Add to cart</h3>
     <div class="separator"></div>
       <div class="banner-form-cart text-center">
     <%= simple_form_for(@order) do |f| %>
@@ -59,7 +58,7 @@
 <div class="row top bottom text-center">
   <!--<%= link_to ' View My Order', orders_path, { :class=>"btn-medium fa fa-eye top pull-right" } %>  -->
 </div>
-
+</div>
  <% content_for(:after_js) do %>
  <script>
 $(document).ready(function(){

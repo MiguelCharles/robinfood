@@ -15,7 +15,6 @@
     <%= render 'shared/nav' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= render 'shared/footer' %>
       <!-- Include Google Maps JS library. You should use your *own* key -->
 
     <!-- Include Dependencies of GMaps for Rails gem -->
@@ -33,6 +32,7 @@
 
 
     <%= yield(:after_js) %>
+      <%= render 'shared/footer' %>
 
   </body>
 </html>
