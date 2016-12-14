@@ -1,10 +1,10 @@
 <div class="container top">
 <div class="row top">
       <h1 class="text-center bottom">You can generate <span class="colorg">your coupon</span> and pick-up your order </h1>
-      <div class="col-md-6 col-md-offset-3" style="border: solid 2px whitesmoke;">
-      <div class="text-center">
+      <div class="col-md-6 col-md-offset-3" style="border: dashed 2px whitesmoke;">
+      <div class="text-center top bottom">
       <%= image_tag @order.promotion.shop.photo_url, { :class=>"avatar-large" }%>
-      <p> <%= @order.promotion.shop.name_of_the_store  %> - <%= @order.promotion.shop.category %> </p>
+      <p><strong><%= @order.promotion.shop.name_of_the_store  %> - <%= @order.promotion.shop.category %></strong> </p>
       <p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= @order.promotion.shop.full_address  %> </p>
 
       <div class="image-container top bottom"><%= image_tag @order.promotion.photo_url, { :class=>"img-responsive" }%>
@@ -20,7 +20,7 @@
         <%= simple_form_for :confirm, :url => confirm_order_path, :method => :post  do |f| %>
         <%= f.error_notification %>
         <%= f.input :code, label: "Please enter the code provided at the counter of #{@order.promotion.shop.name_of_the_store}"%>
-        <%= f.button :submit,  "Generate Coupon", { :class=>"btn-medium fa fa-arrow-right bottom" }  %>
+        <%= f.button :submit,  "Generate Coupon", { :class=>"btn-medium fa fa-arrow-right top bottom" }  %>
       <% end %>
       <% end %>
       </div>
