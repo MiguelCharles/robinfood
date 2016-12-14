@@ -27,8 +27,8 @@
            <h4><%= promo.shop.name_of_the_store %></h4>
            <h5><strong><%= link_to promo.description, promotion_path(promo)%></strong></h5>
            <p class="promo-title"><%= promo.shop.category %></p>
-           <p class="promo-discount">- <%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
-           <p class="promo-price"><%= promo.price_after_promotion_per_unit %>€</p>
+           <p class="promo-discount"> <%= ((-(promo.price_after_promotion_to_float/promo.initial_price_to_float))*100).round %> %</p>
+           <p class="promo-price"><%= number_with_precision(promo.price_after_promotion_to_float, precision: 2) %>€</p>
          </div>
        </div>
        <%end%>

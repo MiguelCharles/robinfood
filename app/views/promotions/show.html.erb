@@ -33,9 +33,9 @@
 
               <!--<p>Initial price: <strong><%= @promotion.initial_price_per_unit %> € </strong></p>-->
 
-              <p class="text-right">Discount: <span class="font-size colorr"><strong>- <%= ((1-(@promotion.price_after_promotion_per_unit.to_f/@promotion.initial_price_per_unit.to_f))*100).round %>%</strong></span></p>
+              <p class="text-right">Discount: <span class="font-size colorr"><strong> <%= ((-(@promotion.price_after_promotion_to_float/@promotion.initial_price_to_float))*100).round %>%</strong></span></p>
 
-              <p class="text-right">Price offered: <span class="font-size"><strong><%= @promotion.price_after_promotion_per_unit %>€</strong></span></p>
+              <p class="text-right">Price offered: <span class="font-size"><strong><%=number_with_precision(@promotion.price_after_promotion_to_float, precision: 2) %>€</p> </strong></span></p>
 
       </div>
 
