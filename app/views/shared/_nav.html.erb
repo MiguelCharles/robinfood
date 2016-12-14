@@ -30,6 +30,13 @@
             <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
             <% end %>
           </li>
+          <% unless current_user.shops.empty? %>
+            <li>
+              <%= link_to shop_promotions_path(current_user.shops.first.id) do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Manage My Products") %>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
      </div>
     </div>
