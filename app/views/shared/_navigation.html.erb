@@ -32,9 +32,13 @@
             <li><%= link_to "#" do %>
             <i class="fa fa-shopping-cart"></i> <%= t(".profile", default: "My orders") %>
             <% end %></li>
-            <li><%= link_to "#" do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Manage products") %>
-            <% end %></li>
+            <% unless current_user.shops.empty? %>
+            <li>
+             <%= link_to shop_promotions_path(current_user.shops.first.id) do %>
+             <i class="fa fa-sign-out"></i>  Manage My Products
+             <% end %>
+            </li>
+         <% end %>
             <li><%= link_to "#" do %>
             <i class="fa fa-cogs"></i> <%= t(".profile", default: "Settings") %>
             <% end %></li>
