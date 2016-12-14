@@ -48,9 +48,10 @@
 
     <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity,type: "hidden", min: '1', id: "qt", step: "#{@promotion.min_quantity}" }%><br/>
     <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
-    <p><span id="diminuer" class=" btn-mini counter "><i class="fa fa-minus" aria-hidden="true"></i></span><span style="cursor:auto;" class="counter number"><%= @promotion.min_quantity%></span><span class="btn-mini counter" id="augmenter"><i class="fa fa-plus" aria-hidden="true"></i></span></p>
+    <p><span id="diminuer" class=" btn-mini counter "><i class="fa fa-minus" aria-hidden="true"></i></span><span style="cursor:auto;" class="counter number"><%= @promotion.min_quantity%></span><span class="btn-mini counter" id="augmenter"><i class="fa fa-plus" aria-hidden="true"></i></span> <span> <p class="total"> <%= @promotion.min_quantity * @promotion.price_after_promotion_per_unit %> $ </p></span>
     <%= f.button :submit,  class: "btn-medium-submit top bottom" %>
     <% end %>
+
       </div>
     </div>
   </div>
@@ -69,7 +70,10 @@ $(document).ready(function(){
       qt = qt - 1;
       $('input#qt').val(qt)
      $('.number').text(qt)
-  }
+     total = qt * <%= @promotion.price_after_promotion_per_unit %>;
+    total = total + "$";
+     $('.total').text(total)
+ }
 });
   $("#augmenter").click(function(){
     var qt = parseInt($('input#qt').val());
@@ -77,6 +81,9 @@ $(document).ready(function(){
     $('input#qt').val(qt)
 
     $('.number').text(qt)
+    total = qt * <%= @promotion.price_after_promotion_per_unit %>;
+    total = total + "$";
+     $('.total').text(total)
   });
 
 })
