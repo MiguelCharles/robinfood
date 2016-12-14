@@ -73,6 +73,7 @@ end
   end
 
 
+
   private
 
   def set_promotion

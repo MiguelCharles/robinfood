@@ -1,31 +1,59 @@
 <div class="container top">
-  <h2 class="text-center bottom">See below the list of your promotion(s) with Robin Food</h2>
 
   <div class="row">
-    <% @promotions.each do |promo| %>
-      <div class ="col -xs-12 col-md-4">
-        <p class="promo-validity text-center"><%= promo.validity %></p>
-        <div class="thumbnail">
-          <div class="avatar-box"><%= image_tag "shop.png", alt:"seller", class:"avatar-seller" %></div>
-          <img src="food/fruits/strawberry.jpg" alt="img">
-          <div class="caption">
-            <h4><%= promo.shop.name_of_the_store %></h4>
-            <h5><%= promo.shop.category %></strong></h5>
-            <p class="promo-product-type"><%= promo.product_type %></p>
-            <p class="promo-title"><%= link_to promo.title, promotion_path(promo)%></p>
-            <p class="promo-discount">- <%= promo.price_after_promotion_per_unit %> €</p>
-            <p class="initial-price"><s style="color: grey"><%=promo.initial_price_per_unit %> € </s></p>
-            <p class="promo-price"><%= promo.price_after_promotion_per_unit%> €</strong></p>
-            <!--<p><%= promo.initial_quantity %></p>
-            <p><%= promo.remaining_quantity%></p>-->
-            <p><%= promo.unit%></p><br/>
-            <p class="text-center"><strong><%= promo.digits_code %></strong></p>
-            <p><% promo.promotion_status %></p>
-            <p class="add-to-cart"><a href="#" class="btn-medium" role="button"><i class="fa fa-cart-arrow-down"></i> Add to basket</a></p>
-            <%= link_to promo.title, promotion_path(promo), {class: "storelink"}%>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <h2 class="text-center bottom"> Products from your catalogue you can activate with Robin Food</h2>
+ <% unless @promotions_inactive.empty? %>
+   <% @promotions_inactive.each_with_index do |promo, index| %>
+     <div class ="col-xs-12 col-md-4">
+       <p class="promo-validity text-center"> <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i> <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
+       <%= link_to promotion_path(promo) do %>
+       <div class="thumbnail">
+         <%= image_tag promo.photo_url, { :class=>"thumbnail-img" }%>
+         <div class="caption">
+           <h5><strong><%= link_to promo.description, promotion_path(promo)%></strong></h5>
+           <p class="promo-discount">- <%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
+           <p class="promo-price"><%= promo.price_after_promotion_per_unit %>€</p>
+
+           <%= link_to 'Edit', edit_promotion_path(promo.id),  :class=>"btn-medium fa fa-pencil-square-o pull-left"  %>
+           <%= link_to 'Activate',shop_activation_path( promo_id: promo.id, id: params["shop_id"].to_i), method: :put, :class=>"btn-medium fa fa-pencil-square-o pull-left"  %>
+         </div>
+       </div>
+       <%end%>
+     </div>
+     <% if index.odd?%>
+     <!--<div class="clearfix"></div> -->
+     <% end %>
+   <% end %>
+   <% else %>
+     <h2 class="text-center bottom">Unfortunately, we were not able to find any promotion near your current location</h2>
+   <% end %>
+   <%= link_to 'Upload New Product', new_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o pull-left" } %>
   </div>
+
+ <div class="row">
+  <h2 class="text-center bottom">Products from your catalogue currently promoted with Robin Food</h2>
+ <% unless @promotions_active.empty? %>
+   <% @promotions_active.each_with_index do |promo, index| %>
+     <div class ="col-xs-12 col-md-4">
+       <p class="promo-validity text-center"> <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i> <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
+       <%= link_to promotion_path(promo) do %>
+       <div class="thumbnail">
+         <%= image_tag promo.photo_url, { :class=>"thumbnail-img" }%>
+         <div class="caption">
+           <h5><strong><%= link_to promo.description, promotion_path(promo)%></strong></h5>
+           <p class="promo-discount">- <%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
+           <p class="promo-price"><%= promo.price_after_promotion_per_unit %>€</p>
+            <%= link_to 'Deactivate' ,shop_activation_path( promo_id: promo.id, id: params["shop_id"].to_i), method: :put, :class=>"btn-medium fa fa-pencil-square-o pull-left"  %>
+         </div>
+       </div>
+       <%end%>
+     </div>
+     <% if index.odd?%>
+     <!--<div class="clearfix"></div>-->
+     <% end %>
+   <% end %>
+   <% else %>
+     <h2 class="text-center bottom">Unfortunately, we were not able to find any promotion near your current location</h2>
+   <% end %>
+   </div>
 </div>
