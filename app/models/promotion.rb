@@ -4,6 +4,15 @@ class Promotion < ApplicationRecord
   validates :shop, presence: true
   # geocoded_by :address
   # after_validation :geocode
+
+  def initial_price_to_float
+    (initial_price_per_unit.to_f).round(2)
+
+  end
+
+  def price_after_promotion_to_float
+    (price_after_promotion_per_unit.to_f).round(2)
+
   def change_status
     self.promotion_status ? self.promotion_status = false : self.promotion_status = true
     self.save
