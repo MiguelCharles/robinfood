@@ -12,7 +12,12 @@ class PromotionPolicy < ApplicationPolicy
   end
 
   def new?
-    return true
+    if user.shops.empty?
+
+      return false
+    else
+      true
+    end
   end
 
   def show
