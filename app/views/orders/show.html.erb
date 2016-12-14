@@ -21,6 +21,29 @@
         <%= f.error_notification %>
         <%= f.input :code, label: "Please enter the code provided at the counter of #{@order.promotion.shop.name_of_the_store}"%>
         <%= f.button :submit,  "Generate Coupon", { :class=>"btn-medium fa fa-arrow-right top bottom" }  %>
+        <div id="map" class="top" style="width: 100%; height: 600px;">
+
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            $(document).ready(function() {
+              var handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function() {
+                markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+                if (markers.length == 0) {
+                  handler.getMap().setZoom(2);
+                } else if (markers.length == 1) {
+                  handler.getMap().setZoom(14);
+                }
+              });
+            });
+          <% end %>
+        <% end %>
+        <%= content_for(:after_js) do %>
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>"></script>
+        <% end %>
+        </div>
       <% end %>
       <% end %>
       </div>
@@ -29,24 +52,5 @@
 </div>
 </div>
 
-<div id="map" class="top" style="width: 100%; height: 600px;">
 
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>
-</div>
 
