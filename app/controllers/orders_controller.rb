@@ -1,8 +1,13 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :destroy, :add_to_order]
-#  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:update]
   def index
-
+    unless session[:order].nil?
+      @order = Order.new(session[:order])
+      @order.user = current_user
+      @order.save!
+      session[:order] = nil
+    end
     @orders = current_user.orders.order(:updated_at) #maybe better to order by status
   end
 
@@ -20,15 +25,14 @@ class OrdersController < ApplicationController
 
   def create
     if current_user
+
       @order = Order.new(order_params)
        @order.user_id = current_user.id
       @order.status = "To be confirmed"
       @order.save!
-           redirect_to orders_path
-
+      redirect_to orders_path
     else
-      @order = Order.new(order_params)
-      @order.save!
+      session[:order] = order_params
       redirect_to new_user_session_path
     end
   end
@@ -39,16 +43,10 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if current_user
       @order = Order.find(params[:id])
       @order.update!(order_params)
            redirect_to orders_path
 
-    else
-       @order = Order.new(order_params)
-      @order.save!
-      redirect_to new_user_session_path
-    end
   end
 
   def destroy
