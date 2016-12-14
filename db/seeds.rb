@@ -58,8 +58,7 @@ christmas_f = ["cupcake", "gingerbread"]
 christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
 
 
- # unit1 = ["Kg","piece(s)"]
- # unit2 = unit1[rand(0..1)]
+
  shop_id = Shop.all.first.id
  shop = Shop.find(shop_id)
  product_type = "Sandwich"
@@ -70,9 +69,11 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
+ discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.85]
  discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ price_after_promotion_per_unit = (initial_price_per_unit*discount2).to_f
+ p (initial_price_per_unit*discount2).to_f
+ p price_after_promotion_per_unit
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -357,54 +358,3 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  min_quantity: (1..10).to_a.sample,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end
-# 20.times do
-#  unit1 = ["Kg","piece(s)"]
-#  unit2 = unit1[rand(0..1)]
-#  shop_id = Shop.all.sample.id
-#  shop = Shop.find(shop_id)
-#  if shop.name_of_the_store == "Exki"
-#     product_type = "Sandwich"
-#     i = rand(0..3)
-#     title = sandwich.sample
-#     photo_url = sandwich_pic[i]
-#  else
-#    product_type = ingredients.sample
-#    if product_type == "Fruit"
-#       i = rand(0..3)
-#       title = fruits_t[i]
-#       photo_url = fruits_tpic[i]
-#     elsif product_type == "Vegetable"
-#       title = vegetables.sample
-#       i = rand(0..4)
-#       title = vegetables_t[i]
-#       photo_url = vegetables_tpic[i]
-#     elsif product_type == "Bread"
-#       i = rand(0..3)
-#       title = breads_t[i]
-#       photo_url = breads_tpic[i]
-#     else product_type == "Christmas"
-#       i = rand(0..3)
-#       title = christmas_t[i]
-#       photo_url = christmas_tpic[i]
-#   end
-#  end
-#  initial_quantity = (1..15).to_a.sample
-#  initial_price_per_unit = (5..40).to_a.sample
-#  discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
-#  discount2 = discount[rand(0..6)]
-#  price_after_promotion_per_unit = initial_price_per_unit*discount2
-#  Promotion.create(shop_id: shop_id,
-#  title: title,
-#  product_type: product_type,
-#  initial_quantity: [10, 20, 30, 40, 50, 60].sample,
-#  remaining_quantity: (initial_quantity - (0...initial_quantity).to_a.sample),
-#  unit: unit2,
-#  photo_url: photo_url,
-#  description: "#{product_type} - #{title}",
-#  validity: Time.now + (3600..260000).to_a.sample,
-#  promotion_status: true,
-#  digits_code: 2432,
-#  initial_price_per_unit: initial_price_per_unit,
-#  min_quantity: (1..10).to_a.sample,
-#  price_after_promotion_per_unit:price_after_promotion_per_unit)
-# end

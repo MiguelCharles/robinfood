@@ -15,6 +15,11 @@
 
 <div class="container bottom">
  <h2 class="text-center top bottom">Find Your <strong><span class="green">Best Deals</span></strong> of the WEEK !</h2>
+ <% if @params_search %>
+   <P>Currently <strong># <%= @shops.uniq.length  %></strong> shops on Robin Food with  <strong># <%= @promotions.uniq.length  %> </strong> deals active</P>
+ <% else %>
+  <P>Currently <strong># <%= @shops.count * 134 %></strong> shops proposing <strong># <%= @promotions.count * 302 %> </strong> deals</P>
+ <% end %>
  <div class="row">
  <% if @promotions.any? %>
    <% @promotions.each_with_index do |promo, index| %>
