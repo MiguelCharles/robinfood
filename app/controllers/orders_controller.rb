@@ -12,7 +12,9 @@ class OrdersController < ApplicationController
   end
 
   def show
-
+      @order = Order.find(params[:id])
+      @order.status = "Booked" unless @order.status == "Picked-up"
+      @order.save!
      @hash = Gmaps4rails.build_markers(@order) do |order, marker|
         marker.lat order.promotion.shop.latitude
         marker.lng order.promotion.shop.longitude
@@ -69,6 +71,13 @@ class OrdersController < ApplicationController
       flash[:alert] = "Invalid Promotion Code!"
       redirect_to order_path(@order.id)
     end
+
+def booked
+      @order = Order.find(params[:id])
+      @order.status = "Booked"
+      @order.save!
+end
+
   end
 
 private

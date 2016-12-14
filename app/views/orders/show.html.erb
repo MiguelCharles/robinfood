@@ -15,7 +15,7 @@
       </div>
       </div>
 
-      <% if @order.status != "Picked-up" %>
+      <% if @order.status == "Booked" %>
       <div class="text-center top">
         <%= simple_form_for :confirm, :url => confirm_order_path, :method => :post  do |f| %>
         <%= f.error_notification %>

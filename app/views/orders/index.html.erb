@@ -26,7 +26,7 @@
       </div>
   </div>
   <div class="col-md-4">
-         <% if order.status != "Picked-up" %>
+         <% if order.status != "Picked-up" && order.status != "Booked" %>
             <div class="cart-edit text-center"><%= link_to '', promotion_path(order.promotion), class: "btn-minim fa fa-pencil-square-o" %>
             </div>
 
@@ -39,4 +39,3 @@
    <% end %>
 </div>
 </div>
-
