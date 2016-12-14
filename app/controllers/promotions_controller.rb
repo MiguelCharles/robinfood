@@ -2,7 +2,7 @@ class PromotionsController < ApplicationController
   include Pundit
 
   # Pundit: white-list approach.
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
   # after_action :verify_policy_scoped, only: [:update], unless: :skip_pundit?
 
@@ -29,7 +29,7 @@ class PromotionsController < ApplicationController
 
   def show
 
-    @order = Order.find_or_initialize_by(promotion_id: params[:id], user_id: current_user.id)
+    @order = Order.find_or_initialize_by(promotion_id: params[:id])
     @promotion_coordinates = Gmaps4rails.build_markers([@promotion]) do |promo, marker|
       marker.lat promo.shop.latitude
       marker.lng promo.shop.longitude

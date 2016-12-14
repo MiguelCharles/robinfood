@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :destroy, :add_to_order]
+  before_action :authenticate_user!
   def index
     @orders = current_user.orders.order(:updated_at) #maybe better to order by status
   end
