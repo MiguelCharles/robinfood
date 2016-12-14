@@ -1,6 +1,11 @@
 <div class="container top">
+<%= link_to '',orders_path, { :class=>"btn-minim fa fa-arrow-left" } %>
 <div class="row top">
-      <h1 class="text-center bottom">You can generate <span class="colorg">your coupon</span> and pick-up your order </h1>
+      <% if @order.status == "Booked" %>
+        <h1 class="text-center bottom">You can pick-up your order and generate <span class="colorg">your coupon</span> </h1>
+      <% else %>
+        <h1 class="text-center bottom">Please present this <span class="colorg">coupon</span> and benefits from the discount</h1>
+      <% end %>
       <div class="col-md-6 col-md-offset-3" style="border: dashed 2px whitesmoke;">
       <div class="text-center top bottom">
       <%= image_tag @order.promotion.shop.photo_url, { :class=>"avatar-large" }%>

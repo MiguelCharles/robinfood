@@ -33,6 +33,8 @@
             <div class="cart-confirm text-center"><%= link_to ' Confirm Order', order_path(order), class: "btn-medium-confirm fa fa-check" %>
 
             </div>
+         <% else order.status == "Booked" %> %>
+            <div class="cart-confirm text-center"><%= link_to ' Generate Coupon', order_path(order), class: "btn-medium-confirm fa fa-check" %>
          <% end %>
     </div>
       </div>
