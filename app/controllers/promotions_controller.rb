@@ -13,13 +13,19 @@ class PromotionsController < ApplicationController
   end
 
   def index
+    @params_search = false
     if params[:address]
+      @params_search = true
       @address = params[:address]
       @shops = Shop.near(@address, 10).joins(:promotions)
       @ids = @shops.to_a.map(&:id).uniq
       @promotions = @shops.any? ? Promotion.where(shop_id: @ids) : []
+      unless @promotions.empty?
+        @promotions = @promotions.where(promotion_status: true)
+      end
     else
-      @promotions = Promotion.all.order(:validity)
+      @shops = Shop.all
+      @promotions = Promotion.where(promotion_status: true).order(:validity)
     end
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude

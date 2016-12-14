@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212155600) do
+ActiveRecord::Schema.define(version: 20161214153910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20161212155600) do
     t.integer  "initial_quantity"
     t.string   "unit"
     t.integer  "initial_price_per_unit"
-    t.integer  "price_after_promotion_per_unit"
+    t.float    "price_after_promotion_per_unit"
     t.integer  "remaining_quantity"
     t.boolean  "promotion_status"
     t.integer  "digits_code"
