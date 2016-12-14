@@ -10,6 +10,7 @@ end
 
 resources :shops do
   get 'promotions', to: 'shops#promotions'
+  put 'activation', to: 'shops#changestatus'
 end
 resources :promotions do
  post 'add_to_order', to: 'add_to_order#promotions', on: :member

@@ -12,13 +12,15 @@ Shop.destroy_all
 User.destroy_all
 
 User.create(username:"Exki", email:"admin@exki.com", password:"123456" ,address: "Bruxelles")
-User.create(username:"Martin", email:"paul1@gmail.com", password:"123456" ,address: "Louvain-La-Neuve")
+User.create(username:"François", email:"françois@gmail.com", password:"123456" ,address: "Louvain-La-Neuve")
 User.create(username:"François",email:"paul2@gmail.com", password:"123456" , address: "Liège")
-User.create(username:"David",email:"paul3@gmail.com", password:"123456" , address: "Anderlecht")
-User.create(username:"George",email:"paul4@gmail.com", password:"123456" , address: "Verviers")
+User.create(username:"Dandoy",email:"admin@dandoy.com", password:"123456" , address: "Anderlecht")
+User.create(username:"Marcel",email:"admin@marcel.com", password:"123456" , address: "Verviers")
 
 Shop.create(user_id: User.all.first.id, name_of_the_store: "Exki", photo_url: "https://s3-media1.fl.yelpcdn.com/bphoto/XVvCWFEQSg_nN3ISlYGlQw/348s.jpg", category:"Grand Place", description: "Cuisiner des produits de saison, valoriser les végétaux, donner la préférence aux agriculteurs respectueux de la planès", phone_number: "+32 479 22 55 66", VAT_number: "ABCD", country:"Belgium", city:"Brussels", zip_code: 1000, address:"
 Rue du Marché aux Herbes", street_number: 93)
+id = (User.all.last.id) - 1
+Shop.create(user_id: id, name_of_the_store: "Maison Dandoy", photo_url: "http://www.maisondandoy.com/files/cache/440764e44fb323da1705f9ef56a869fe.jpg", category:"Biscuiterie", description:"We want to manke your sense dance", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue au Beurre", street_number: 31)
 Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", photo_url: "http://www.elle.be/fr/wp-content/uploads/2016/08/marcel.jpg", category:"Fine Grocery", description: "Votre boulanger de tradition qui aime le gout", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Ixelles", zip_code: 1050, address:"Avenue Louise", street_number: 200)
 
 ingredients = ["Fruit", "Vegetable", "Bread", "Christmas"]
@@ -36,8 +38,8 @@ breads_tpic = ["food/bread/cougnou.jpg","food/bread/complete.jpg"]
 sandwich_t = ["John", "Luca", "Louisa"]
 sandwich_tpic = ["food/sandwich/cornichon.jpg","food/sandwich/roasted.jpg","food/sandwich/tomato.jpg" ]
 
-christmas_t = ["cupcake", "chocolate cake"]
-christmas_tpic = ["food/christmas/cupcake.jpg","food/christmas/chocolate.jpg"]
+christmas_t = ["chutney", "chocolate cake"]
+christmas_tpic = ["food/christmas/confiture.jpg","food/christmas/chocolate.jpg"]
 
 fruits_f = [ "Belgian Pear Doyen", "Strawberry from Wepion"]
 fruits_fpic = ["food/fruits/night.jpg","food/fruits/strawberry.jpg"]
@@ -52,8 +54,8 @@ breads_fpic = ["food/bread/croissant.jpg","food/bread/baguette.jpg"]
 sandwich_f = ["Big Poulet", "Marcos", "DeliEggs"]
 sandwich_fpic = ["food/sandwich/salami.jpg","food/sandwich/tomato.jpg", "food/sandwich/salami.jpg"]
 
-christmas_f = ["chutney", "gingerbread"]
-christmas_fpic = ["food/christmas/confiture.jpg","food/christmas/cookies.jpg"]
+christmas_f = ["cupcake", "gingerbread"]
+christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
 
 
  # unit1 = ["Kg","piece(s)"]
@@ -177,7 +179,7 @@ christmas_fpic = ["food/christmas/confiture.jpg","food/christmas/cookies.jpg"]
  end
 
 
- shop_id = Shop.all.last.id
+ shop_id = Shop.all.last.id - 1
  shop = Shop.find(shop_id)
  product_type = "Christmas"
  for index in 0 ... christmas_t.size
@@ -327,7 +329,7 @@ christmas_fpic = ["food/christmas/confiture.jpg","food/christmas/cookies.jpg"]
  end
 
 
- shop_id = Shop.all.last.id
+ shop_id = Shop.all.last.id - 1
  shop = Shop.find(shop_id)
  product_type = "Christmas"
  for index in 0 ... christmas_t.size

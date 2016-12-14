@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-before_action :set_shop, only: [:show, :edit, :update, :destroy]
+before_action :set_shop, only: [:show, :edit, :update, :destroy, :changestatus]
   def index
     # @shops = Shop.all
     @shops = Shop.where.not(latitude: nil, longitude: nil)
@@ -35,8 +35,25 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy]
         marker.lat promo.shop.latitude
         marker.lng promo.shop.longitude
     end
-
+    @promotions_active = []
+    @promotions.map do |prom|
+      if prom.promotion_status == true
+        @promotions_active << prom unless prom.nil?
+      end
+    end
+     @promotions_inactive = []
+     @promotions.each do |prom|
+     if prom.promotion_status == false
+        @promotions_inactive << prom unless prom.nil?
+      end
+     end
   end
+
+  def changestatus
+    Promotion.find(params[:promo_id]).change_status
+    redirect_to shop_promotions_path(@shop)
+  end
+
 
   def edit
   end
