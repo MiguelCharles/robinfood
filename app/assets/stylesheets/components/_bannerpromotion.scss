@@ -25,7 +25,7 @@ color: #333333;
 .font-size{ font-size: 24px;}
 .banner-cart {
     position: relative;
-    max-height: 320px;
+    min-height: 320px;
 }
 
 .banner-form-cart {
@@ -42,6 +42,14 @@ span#diminuer {
     font-size: 14pt;
     font-weight: bold;
     cursor: pointer;
+}
+
+p.total {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .banner-form-cart input.btn.btn-default.btn-medium-submit.top.bottom {

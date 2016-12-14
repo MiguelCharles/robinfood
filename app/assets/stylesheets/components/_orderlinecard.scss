@@ -7,3 +7,19 @@
   position: relative;
   background-color: white;
 }
+
+.image-container {
+    position: relative;
+    display: flex;
+    max-height: 300px;
+}
+
+.resume {
+    position: absolute;
+    background-color: rgba(148, 219, 70, 0.75);
+    top: 27%;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-weight: bold;
+}
