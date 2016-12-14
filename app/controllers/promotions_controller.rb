@@ -71,7 +71,7 @@ end
   def update
      if @promotion.update(promotion_params)
       @promotion.save!
-      redirect_to promotions_path
+      redirect_to shop_promotions_path(@promotion.shop.id)
     else
       render :edit
     end
