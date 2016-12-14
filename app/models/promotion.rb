@@ -12,6 +12,7 @@ class Promotion < ApplicationRecord
 
   def price_after_promotion_to_float
     (price_after_promotion_per_unit.to_f).round(2)
+  end
 
   def change_status
     self.promotion_status ? self.promotion_status = false : self.promotion_status = true
