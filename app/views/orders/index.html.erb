@@ -1,43 +1,45 @@
 <div class="container top bottom">
-<%= link_to '',promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
-<div class="row">
-<h1 class="text-center">My orders</h1>
-   <% current_user.orders.each do |order| %>
-<div class="col-xs-12 col-md-12">
-<div class="separator"></div>
-  <div class="col-md-4">
-    <div class="cart-sec">
-         <% if order.promotion.photo_url %>
-            <%= image_tag order.promotion.photo_url, class: "img-responsive"%>
-         <% end %>
-    </div>
-  </div>
+  <%= link_to '',promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
+  <h1 class="text-center">My orders</h1>
+  <% current_user.orders.each do |order| %>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="separator"></div>
+        <div class="col-md-4">
+          <div class="cart-sec">
+           <% if order.promotion.photo_url %>
+           <%= image_tag order.promotion.photo_url, class: "img-responsive" %>
+           <% end %>
+         </div>
+       </div>
 
-  <div class="col-md-4">
-      <div class="cart-item-info">
+       <div class="col-md-4">
+        <div class="cart-item-info">
          <% if order.promotion.shop.photo_url %>
-          <%= image_tag order.promotion.shop.photo_url, class: "avatar-large" %>
-          <%= order.promotion.shop.name_of_the_store %>
-        <% end %>
-          <h3 class="bottom"><%= order.promotion.description %></h3>
+         <%= image_tag order.promotion.shop.photo_url, class: "avatar-large" %>
+         <%= order.promotion.shop.name_of_the_store %>
+         <% end %>
+         <h3 class="bottom"><%= order.promotion.description %></h3>
          <p>Quantity: <%= order.quantity_ordered %> <%= order.promotion.unit %></p>
          <p>Price: <%= order.promotion.price_after_promotion_per_unit * order.quantity_ordered %> €</p>
          <p>Status: <%= order.status %></p>
-      </div>
-  </div>
-  <div class="col-md-4">
-         <% if order.status != "Picked-up" && order.status != "Booked" %>
-            <div class="cart-edit text-center"><%= link_to '', promotion_path(order.promotion), class: "btn-minim fa fa-pencil-square-o" %>
-            </div>
+       </div>
+       </div>
 
-            <div class="cart-confirm text-center"><%= link_to ' Confirm Order', order_path(order), class: "btn-medium-confirm fa fa-check" %>
+       <div class="col-md-4">
+        <% if order.status != "Picked-up" && order.status != "Booked" %>
+        <div class="cart-edit text-center"><%= link_to '', promotion_path(order.promotion), class: "btn-minim fa fa-pencil-square-o" %>
+        </div>
 
-            </div>
-         <% else order.status == "Booked" %> %>
-            <div class="cart-confirm text-center"><%= link_to ' Generate Coupon', order_path(order), class: "btn-medium-confirm fa fa-check" %>
+        <div class="cart-confirm text-center"><%= link_to ' Confirm Order', order_path(order), class: "btn-medium-confirm fa fa-check" %>
+
+        </div>
+        <% else order.status == "Booked" %>
+        <div class="cart-confirm text-center"><%= link_to ' Generate Coupon', order_path(order), class: "btn-medium-confirm fa fa-check" %>
          <% end %>
-    </div>
+        </div>
       </div>
-   <% end %>
-</div>
+    </div>
+  <% end %>
+ </div>
 </div>
