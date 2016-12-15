@@ -21,45 +21,6 @@
     border: solid 2px white;
 }
 
-.btn-mini {
-    color: #111111;
-    border: 2px solid #94DB46;
-    padding: 15px 21px;
-    border-radius: 50px;
-    font-weight: lighter;
-    font-size: large;
-    opacity: 0.9;
-    transition: all 0.3s;
-}
-
-.btn-mini:hover {
-    text-decoration: none;
-    color: white;
-    background-color: #94DB46;
-    border: solid 2px white;
-}
-
-.btn-minim {
-    color: #111111;
-    border: 2px solid #94DB46;
-    width: 50px;
-    text-align: center;
-    line-height: 47px;
-    height: 50px;
-    border-radius: 50px;
-    font-weight: lighter;
-    font-size: large;
-    opacity: 0.9;
-    transition: all 0.3s;
-}
-
-.btn-minim:hover {
-    text-decoration: none;
-    color: white;
-    border: solid 2px white;
-    background-color: #94DB46;
-}
-
 .btn-medium-submit {
   font-size: 18px;
   font-weight: bold;
@@ -118,9 +79,6 @@ input.button.btn.btn-form {
     border: none;
     background-color: #94DB46;
 }
-
-btn-small a{ color: white; }
-
 
 .share-link {
   flex: 0 0 24%;

@@ -1,0 +1,49 @@
+.btn {
+  font-family: $header-font;
+  text-transform: uppercase;
+}
+
+.btn-mini {
+  color: #111111;
+  border: 2px solid #94DB46;
+  padding: 15px 21px;
+  border-radius: 50px;
+
+  opacity: 0.9;
+  transition: all 0.3s;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #94DB46;
+    border: solid 2px white;
+  }
+}
+
+
+.btn-minim {
+  display: block;
+  color: #111111;
+  border: 2px solid #94DB46;
+  width: 50px;
+  text-align: center;
+  line-height: 47px;
+  height: 50px;
+  border-radius: 50px;
+
+  opacity: 0.9;
+  transition: all 0.3s;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    border: solid 2px white;
+    background-color: #94DB46;
+  }
+}
+
+
+.btn-upload {
+  min-width: 350px;
+  min-height: 380px;
+  font-size: 30px;
+  padding-top: 130px;
+}

@@ -5,7 +5,7 @@
   <h1 class="text-center">My orders</h1>
   <% @orders.each do |order| %>
     <div class="row">
-      <div class="col-xs-12 col-md-12">
+
         <div class="separator"></div>
         <div class="col-md-4">
           <div class="cart-sec">
@@ -31,7 +31,7 @@
        <div class="col-md-4">
         <% if order.status != "Picked-up" && order.status != "Booked" %>
         <div class="cart-edit text-center">
-          <%= link_to promotion_path(order.promotion), class: "btn-medium-confirm" do %>
+          <%= link_to promotion_path(order.promotion), class: 'btn btn-default' do %>
             <i class="fa fa-lg fa-pencil-square-o"></i>
             Edit
           <% end %>
@@ -45,9 +45,13 @@
         </div>
 
         <% else order.status == "Booked" %>
-        <div class="cart-confirm text-center"><%= link_to ' Generate Coupon', order_path(order), class: "btn-medium-confirm fa fa-check" %>
-         <% end %>
-        </div>
+          <div class="cart-confirm text-center">
+            <%= link_to order_path(order), class: 'btn-medium-confirm' do %>
+              <i class="fa fa-check"></i>
+              Generate Coupon
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
