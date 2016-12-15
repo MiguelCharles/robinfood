@@ -1,7 +1,5 @@
 <div class="container top bottom">
-  <%= link_to promotions_path, class: 'btn-minim' do %>
-    <i class="fa fa-arrow-left"></i>
-  <% end %>
+  <%= link_to '', promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
   <h1 class="text-center">My orders</h1>
   <% @orders.each do |order| %>
     <div class="row">
