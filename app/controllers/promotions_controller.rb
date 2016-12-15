@@ -42,6 +42,7 @@ if current_user
     @promotion_coordinates = Gmaps4rails.build_markers([@promotion]) do |promo, marker|
       marker.lat promo.shop.latitude
       marker.lng promo.shop.longitude
+    @quantity = @order.quantity_ordered || @promotion.min_quantity
   end
 
 end
