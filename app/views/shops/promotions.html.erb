@@ -33,8 +33,8 @@
   <h2 class="text-center bottom"> Products from your catalogue you can activate with Robin Food</h2>
  <% unless @promotions_inactive.empty? %>
    <% @promotions_inactive.each_with_index do |promo, index| %>
-     <div class ="col-xs-12 col-md-4">
-       <p class="promo-validity text-center"> <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i> <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
+     <div class="col-xs-12 col-md-4">
+       <p class="promo-validity inactive text-center"> <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i> <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
        <%= link_to promotion_path(promo) do %>
        <div class="thumbnail">
 
