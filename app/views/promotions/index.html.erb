@@ -18,7 +18,7 @@
  <% if @params_search %>
    <P>Currently <strong># <%= @shops.uniq.length  %></strong> shops on Robin Food with  <strong># <%= @promotions.uniq.length  %> </strong> deals active</P>
  <% else %>
-  <P>Currently <strong># <%= @shops.count * 134 %></strong> shops proposing <strong># <%= @promotions.count * 302 %> </strong> deals</P>
+  <P class="text-center top bottom"> Today <strong># <%= @shops.count * 134 %></strong> shops offering <strong># <%= @promotions.count * 302 %> </strong> deals</P>
  <% end %>
  <div class="row">
  <% if @promotions.any? %>
