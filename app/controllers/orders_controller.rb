@@ -5,10 +5,10 @@ class OrdersController < ApplicationController
     unless session[:order].nil?
       @order = Order.new(session[:order])
       @order.user = current_user
+      @order.status = "To be confirmed"
       @order.save!
       session[:order] = nil
     end
-
     @orders = current_user.orders.where(status: ["To be confirmed","Booked"]).order("updated_at DESC") #maybe better to order by status
   end
 
