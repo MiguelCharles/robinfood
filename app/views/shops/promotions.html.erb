@@ -12,7 +12,7 @@
        <div class="thumbnail">
          <%= image_tag promo.photo_url, { :class=>"thumbnail-img" } unless promo.photo_url.nil?%>
          <div class="caption">
-           <h5><strong><%= link_to promo.description, promotion_path(promo)%></strong></h5>
+           <h5><strong><%= promo.description%></strong></h5>
            <p class="promo-discount">- <%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
            <p class="promo-price"><%= promo.price_after_promotion_per_unit %>€</p>
             <%= link_to 'Deactivate' ,shop_activation_path( promo_id: promo.id, id: params["shop_id"].to_i), method: :put, :class=>"btn-medium fa fa-pencil-square-o pull-left"  %>
@@ -40,7 +40,7 @@
 
          <%= image_tag promo.photo_url, { :class=>"thumbnail-img" } unless promo.photo_url.nil?%>
          <div class="caption">
-           <h5><strong><%= link_to promo.description, promotion_path(promo)%></strong></h5>
+           <h5><strong><%= promo.description%></strong></h5>
            <p class="promo-discount">- <%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
            <p class="promo-price"><%= promo.price_after_promotion_per_unit %>€</p>
 

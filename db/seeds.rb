@@ -116,7 +116,7 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  promotion_status: true,
  digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
- min_quantity: (1..10).to_a.sample,
+ min_quantity: 1,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end
 
@@ -146,7 +146,7 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  promotion_status: true,
  digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
- min_quantity: (1..10).to_a.sample,
+ min_quantity: 1,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end
 
@@ -168,14 +168,14 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  product_type: product_type,
  initial_quantity: [10, 20, 30, 40, 50, 60].sample,
  remaining_quantity: (initial_quantity - (0...initial_quantity).to_a.sample),
- unit: "Piece(s)",
+ unit: "piece",
  photo_url: photo_url,
  description: "#{product_type} - #{title}",
  validity: Time.now + (3600..260000).to_a.sample,
  promotion_status: true,
  digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
- min_quantity: (1..10).to_a.sample,
+ min_quantity: 1,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end
 
@@ -198,14 +198,14 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  product_type: product_type,
  initial_quantity: [10, 20, 30, 40, 50, 60].sample,
  remaining_quantity: (initial_quantity - (0...initial_quantity).to_a.sample),
- unit: "Piece(s)",
+ unit: "pece",
  photo_url: photo_url,
  description: "#{product_type} - #{title}",
  validity: Time.now + (3600..260000).to_a.sample,
  promotion_status: true,
  digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
- min_quantity: (1..10).to_a.sample,
+ min_quantity: 1,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end
 
@@ -229,14 +229,14 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  product_type: product_type,
  initial_quantity: [10, 20, 30, 40, 50, 60].sample,
  remaining_quantity: (initial_quantity - (0...initial_quantity).to_a.sample),
- unit: "Piece(s)",
+ unit: "piece",
  photo_url: photo_url,
  description: "#{product_type} - #{title}",
  validity: Time.now + (3600..260000).to_a.sample,
  promotion_status: false,
  digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
- min_quantity: (1..10).to_a.sample,
+ min_quantity: 1,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end
 
@@ -266,7 +266,7 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  promotion_status: false,
  digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
- min_quantity: (1..10).to_a.sample,
+ min_quantity: 1,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end
 
@@ -296,7 +296,7 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  promotion_status: false,
  digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
- min_quantity: (1..10).to_a.sample,
+ min_quantity: 1,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end
 
@@ -325,7 +325,7 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  promotion_status: false,
  digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
- min_quantity: (1..10).to_a.sample,
+ min_quantity: 1,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end
 
@@ -348,13 +348,13 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
  product_type: product_type,
  initial_quantity: [10, 20, 30, 40, 50, 60].sample,
  remaining_quantity: (initial_quantity - (0...initial_quantity).to_a.sample),
- unit: "Piece(s)",
+ unit: "piece",
  photo_url: photo_url,
  description: "#{product_type} - #{title}",
  validity: Time.now + (3600..260000).to_a.sample,
  promotion_status: false,
  digits_code: 2432,
  initial_price_per_unit: initial_price_per_unit,
- min_quantity: (1..10).to_a.sample,
+ min_quantity: 1,
  price_after_promotion_per_unit:price_after_promotion_per_unit)
  end

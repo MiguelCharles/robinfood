@@ -6,6 +6,8 @@ class PromotionsController < ApplicationController
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
   # after_action :verify_policy_scoped, only: [:update], unless: :skip_pundit?
 
+
+
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
@@ -73,6 +75,9 @@ end
   end
 
   def update
+    #  @until = params[:promotion][:until]
+
+    # @promotion.validity = @until.to_i.days.from_now
      if @promotion.update(promotion_params)
       @promotion.save!
       redirect_to shop_promotions_path(@promotion.shop.id)
@@ -96,7 +101,7 @@ end
   end
 
   def promotion_params
-    params.require(:promotion).permit(:shop_id, :title, :product_type, :initial_quantity, :unit, :initial_price_per_unit, :price_after_promotion_per_unit, :remaining_quantity, :promotion_status, :digits_code, :validity)
+    params.require(:promotion).permit(:shop_id, :title, :product_type, :initial_quantity, :unit, :initial_price_per_unit, :price_after_promotion_per_unit, :remaining_quantity, :promotion_status, :description, :digits_code, :validity)
   end
 
   def skip_pundit?
