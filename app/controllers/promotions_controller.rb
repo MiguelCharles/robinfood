@@ -34,8 +34,11 @@ class PromotionsController < ApplicationController
   end
 
   def show
-
-    @order = Order.find_or_initialize_by(promotion_id: params[:id])
+if current_user
+    @order = Order.find_or_initialize_by(promotion_id: params[:id], user: current_user)
+  else
+    @order = Order.new
+  end
     @promotion_coordinates = Gmaps4rails.build_markers([@promotion]) do |promo, marker|
       marker.lat promo.shop.latitude
       marker.lng promo.shop.longitude
