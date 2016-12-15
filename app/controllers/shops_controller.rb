@@ -50,7 +50,10 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy, :changestatus]
   end
 
   def changestatus
-    Promotion.find(params[:promo_id]).change_status
+    promo = Promotion.find(params[:promo_id])
+    promo.change_status
+    promo.digits_code = rand(1000..9999)
+    promo.save!
     redirect_to shop_promotions_path(@shop)
   end
 

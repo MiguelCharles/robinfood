@@ -58,7 +58,7 @@ end
     # @promotion = current_user.shops[0].promotions.build(promotion_params)
     @promotion = Promotion.new(promotion_params)
     @promotion.description = @promotion.title + " - " + @promotion.product_type
-    @promotion.digits_code = 2432
+    @promotion.digits_code = 0000
     @promotion.promotion_status = false
     @promotion.min_quantity = 1
     @promotion.photo_url = "shop.png"

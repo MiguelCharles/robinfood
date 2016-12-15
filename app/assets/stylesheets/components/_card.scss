@@ -18,7 +18,7 @@
       box-shadow: 0 4px 15px 0 rgba(0,0,0, 0.2);
 }
 
-.thumbnail-img{ max-height: 195px; width:100%;}
+.thumbnail-img{ max-height: 210px; width:100%;}
 
 .thumbnail a {
     color: #333333 !important;
@@ -28,20 +28,23 @@
 .caption h5{ font-weight: bold;
 font-size: small;}
 
-.promo-validity{
+.promo-validity {
     font-weight: bold;
     font-size: 24px;
     background-color: #94db46;
     box-shadow: inset 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
     color: white;
     padding: 0;
     position: relative;
     padding: 10px;
     top: 12px;
     height: 50px;
+    &.inactive {
+      background-color: transparent;
+      color: $black;
+    }
 }
 
 .promo-discount{
@@ -57,7 +60,6 @@ font-size: small;}
   background-color: #ff413b;
   box-shadow: -3px 3px 3px 0 rgba(0,0,0, 0.1);
   box-shadow: inset 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
   padding: 10px;
 }
 
@@ -75,9 +77,9 @@ font-size: small;}
   position:absolute;
   font-weight: bold;
   bottom:20px;
-  right:25px;
+  right:55px;
   width: 20%;
-  border: solid 2px #94db46;
+
 }
 
 .promo-title{    font-size: 12px;
