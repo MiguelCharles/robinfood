@@ -44,7 +44,7 @@
            <p class="promo-discount">- <%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
            <p class="promo-price"><%= promo.price_after_promotion_per_unit %>€</p>
 
-           <%= link_to 'Edit', edit_promotion_path(promo.id),  :class=>"btn-medium fa fa-pencil-square-o pull-left"  %>
+           <%= link_to '', edit_promotion_path(promo.id),  :class=>"btn-medium btn-sm fa fa-pencil-square-o pull-left"  %>
            <%= link_to 'Activate',shop_activation_path( promo_id: promo.id, id: params["shop_id"].to_i), method: :put, :class=>"btn-medium fa fa-pencil-square-o pull-left"  %>
          </div>
        </div>
