@@ -1,54 +1,44 @@
 <div class="container top">
-<%= link_to '',promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
-<%= link_to '', edit_promotion_path, { :class=>"btn-minim fa fa-pencil-square-o pull-right" } %>
+  <%= link_to '',promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
+  <%= link_to '', edit_promotion_path, { :class=>"btn-minim fa fa-pencil-square-o pull-right" } %>
   <div class="row top">
     <div class="col-md-4 col-md-offset-1">
       <div class="banner-seller ">
 
         <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
         <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
-        <div class="arriere-plan">
+       <div class="arriere-plan">
          <%= image_tag @promotion.photo_url, class: "img-responsive" unless @promotion.photo_url.nil?%>
-        </div>
-        <div class="profil-seller text-center">
+       </div>
+       <div class="profil-seller text-center">
 
-          <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" } unless @promotion.photo_url.nil?%><h4><strong><%= @promotion.shop.name_of_the_store %></strong></h4>
-          <%= @promotion.shop.category %>
-          <p class="text-center top"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= @promotion.shop.full_address  %></p>
-        </div>
+        <%= image_tag @promotion.shop.photo_url, { :class=>"avatar-large" } unless @promotion.photo_url.nil?%><h4><strong><%= @promotion.shop.name_of_the_store %></strong></h4>
+        <%= @promotion.shop.category %>
+        <p class="text-center top"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= @promotion.shop.full_address  %></p>
       </div>
-
     </div>
 
-
   <div class="col-md-6 bottom" style="border:  solid 2px whitesmoke;">
-  <div class="banner-description bottom">
-        <h2 class="text-center top" ><%= @promotion.description %></h2>
-        <p class="text-center"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i> <%= distance_of_time_in_words(@promotion.validity - Time.now) %></p>
-
-
-                <!--<%= @promotion.product_type %>-->
-
-              <p>Quantity: <span class="font-size-small"><strong><%= @promotion.initial_quantity %></strong></span></p>
-
-              <!--<p>Initial price: <strong><%= @promotion.initial_price_per_unit %> € </strong></p>-->
-
-              <p class="text-right">Discount: <span class="font-size colorr"><strong> <%= ((-(@promotion.price_after_promotion_to_float/@promotion.initial_price_to_float))*100).round %>%</strong></span></p>
-
-              <p class="text-right">Price Unit:: <span class="font-size"><strong><%=number_with_precision(@promotion.price_after_promotion_to_float, precision: 2) %>€</p> </strong></span></p>
-
-
-      </div>
+    <div class="banner-description bottom">
+      <h2 class="text-center top" ><%= @promotion.description %></h2>
+      <p class="text-center"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i> <%= distance_of_time_in_words(@promotion.validity - Time.now) %></p>
+      <p class="text-right">Discount: <span class="font-size colorr"><strong> <%= ((-(@promotion.price_after_promotion_to_float/@promotion.initial_price_to_float))*100).round %>%</strong></span></p>
+      <p class="text-right">Price Unit:: <span class="font-size"><strong><%=number_with_precision(@promotion.price_after_promotion_to_float, precision: 2) %>€</p> </strong></span></p>
+    </div>
 
     <div class="banner-cart">
-    <div class="separator"></div>
+      <div class="separator"></div>
       <div class="banner-form-cart text-center">
         <%= simple_form_for(@order) do |f| %>
         <%= f.error_notification %>
 
-        <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @promotion.min_quantity,type: "hidden", min: '1', id: "qt", step: "#{@promotion.min_quantity}" }%><br/>
+        <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @order.quantity_ordered || @promotion.min_quantity,type: "hidden", min: '1', id: "qt", step: "#{@promotion.min_quantity}" }%><br/>
         <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
-        <p><span id="diminuer" class=" btn-mini counter "><i class="fa fa-minus" aria-hidden="true"></i></span><span style="cursor:auto;" class="counter number"><%= @promotion.min_quantity%></span><span class="btn-mini counter" id="augmenter"><i class="fa fa-plus" aria-hidden="true"></i></span> <span> <p class="total"> Total: <%= @promotion.min_quantity * @promotion.price_after_promotion_per_unit.round(2) %> € </p></span>
+        <p><span id="diminuer" class=" btn-mini counter "><i class="fa fa-minus" aria-hidden="true"></i></span><span style="cursor:auto;" class="counter number"><%= @quantity %></span><span class="btn-mini counter" id="augmenter"><i class="fa fa-plus" aria-hidden="true"></i></span> <span>
+          <p class="total">
+            Total: <%= (@quantity * @promotion.price_after_promotion_per_unit).round(2) %> €
+          </p>
+        </span>
         <%= f.button :submit,  class: "btn-medium-submit top bottom" %>
         <% end %>
 
@@ -71,7 +61,7 @@ $(document).ready(function(){
       $('input#qt').val(qt)
      $('.number').text(qt)
      total = qt * <%= @promotion.price_after_promotion_per_unit.round(2) %>;
-    total = "Total:  " +total + " €";
+    total = "Total:  " + (Math.round(total * 100) / 100) + " €";
      $('.total').text(total)
  }
 });
@@ -82,7 +72,7 @@ $(document).ready(function(){
 
     $('.number').text(qt)
     total = qt * <%= @promotion.price_after_promotion_per_unit.round(2) %>;
-    total = "Total:  " + total + " €";
+    total = "Total:  " + (Math.round(total * 100) / 100) + " €";
      $('.total').text(total)
   });
 
