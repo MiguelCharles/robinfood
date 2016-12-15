@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
       @order.save!
       session[:order] = nil
     end
-    @orders = current_user.orders.order(:updated_at DESC) #maybe better to order by status
   end
 
   def show
