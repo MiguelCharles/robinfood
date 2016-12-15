@@ -23,13 +23,13 @@
     <div class="banner-description bottom">
       <h2 class="text-center top" ><%= @promotion.description %></h2>
       <p class="text-center"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i> <%= distance_of_time_in_words(@promotion.validity - Time.now) %></p>
-      <p class="text-right"><strong>Discount: <span class="font-size colorr"><strong> <%= ((-(@promotion.price_after_promotion_to_float/@promotion.initial_price_to_float))*100).round %>%</strong></span></p>
-      <p class="text-right">Price per <%=@promotion.unit %>: <span class="font-size"><strong><%=number_with_precision(@promotion.price_after_promotion_to_float, precision: 2) %>€</p> </strong></span></p>
+      <p class="text-center"><strong>Discount: <span class="font-size colorr"><strong> <%= ((-(@promotion.price_after_promotion_to_float/@promotion.initial_price_to_float))*100).round %>%</strong></span></p>
+      <p class="text-center">Price per <%=@promotion.unit %>: <span class="font-size"><strong><%=number_with_precision(@promotion.price_after_promotion_to_float, precision: 2) %>€</p> </strong></span></p>
     </div>
 
     <div class="banner-cart">
       <div class="separator"></div>
-      <div class="banner-form-cart text-center">
+      <div class="banner-form-cart text-center top">
         <%= simple_form_for(@order) do |f| %>
         <%= f.error_notification %>
 
