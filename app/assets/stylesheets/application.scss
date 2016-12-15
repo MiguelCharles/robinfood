@@ -12,3 +12,8 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+@import "bootstrap-datetimepicker";
+
+.datetimepicker > .input-group-btn {
+  vertical-align: bottom !important;
+}

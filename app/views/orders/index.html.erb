@@ -2,7 +2,7 @@
 <%= link_to '',promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
 <div class="row">
 <h1 class="text-center">My orders</h1>
-   <% current_user.orders.each do |order| %>
+   <% @orders.each do |order| %>
 <div class="col-xs-12 col-md-12">
 <div class="separator"></div>
   <div class="col-md-4">

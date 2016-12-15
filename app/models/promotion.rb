@@ -5,6 +5,9 @@ class Promotion < ApplicationRecord
   # geocoded_by :address
   # after_validation :geocode
 
+
+   attr_accessor :until
+
   def initial_price_to_float
     (initial_price_per_unit.to_f).round(2)
   end
