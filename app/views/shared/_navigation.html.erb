@@ -13,10 +13,10 @@
       <% end %>
     </div>
 
-    <% if user_signed_in? %>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
           <li>
             <%= link_to orders_path do %>
               <%= t(".profile", default: "My orders") %>
@@ -29,19 +29,30 @@
               <% end %>
             <% end %>
           </li>
+          <li>
+            <% if current_user.shops.empty? %>
+            <%= link_to new_shop_path, class: '.profile' do %>
+            Become a partner
+              <% end %>
+              <% end %>
+          </li>
+          <% else %>
+             <li>
+            <%= link_to new_shop_path, class: '.profile' do %>
+            Become a partner
+              <% end %>
+          </li>
+          <% end %>
         </ul>
       </div>
       <div class="pull-right">
-        <% if current_user.shops.empty? %>
-          <%= link_to new_shop_path, class: 'btn btn-link navbar-btn' do %>
-            Become a partner
-          <% end %>
-        <% end %>
         <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-link navbar-btn' do %>
-          <% if current_user.facebook_picture_url %>
-            <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
-          <% else  %>
-            <i class="fa fa-2x fa-user-circle-o"></i>
+          <% if user_signed_in? %>
+            <% if current_user.facebook_picture_url %>
+              <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
+            <% else  %>
+              <i class="fa fa-2x fa-user-circle-o"></i>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -51,11 +62,10 @@
         <%= link_to new_user_session_path, class: 'btn btn-link navbar-btn' do %>
           <%= t(".sign_in", default: "Login")%>
         <% end %>
-        <%= link_to new_user_registration_path, class: 'btn btn-success navbar-btn'  do %>
+        <%= link_to new_user_registration_path, class: 'btn btn-success navbar-btn hidden-xs'  do %>
           <%= t(".sign_up", default: "Sign Up") %>
         <% end %>
       </div>
-    <% end %>
 
   </div>
 </nav>
