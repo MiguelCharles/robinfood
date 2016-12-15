@@ -15,6 +15,7 @@
   <div class="form-inputs">
     <%= promo.input :title, label:"Define title of your promotion", placeholder:"Sandwiches,croissants, Soup,..."%>
     <%= promo.input :description, label:"Select product you want to promote", placeholder:"E.g : Sandwich Nordic"%>
+    <%= promo.input :initial_price_per_unit, label:"Provide the initial price of your product ", placeholder:"3€" %>
     <%= promo.input :price_after_promotion_per_unit, label:"Define the reduced price of your product ", placeholder:"2€" %>
     <%= promo.input :validity, as: :datetime_picker %>
   </div>

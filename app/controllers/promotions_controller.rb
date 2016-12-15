@@ -57,7 +57,7 @@ end
   def create
     # @promotion = current_user.shops[0].promotions.build(promotion_params)
     @promotion = Promotion.new(promotion_params)
-    @promotion.description = @promotion.title + " - " + @promotion.product_type
+    @promotion.product_type = "Food"
     @promotion.digits_code = 2432
     @promotion.promotion_status = false
     @promotion.min_quantity = 1
