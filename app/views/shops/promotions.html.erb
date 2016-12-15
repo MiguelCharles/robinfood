@@ -51,12 +51,16 @@
        <%end%>
      </div>
      <% if index.odd?%>
-     <!--<div class="clearfix"></div> -->
+
      <% end %>
    <% end %>
    <% else %>
    <% end %>
-   <%= link_to 'Upload New Product', new_promotion_path(shop_id: params[:shop_id]), :class=>"btn-medium fa fa-pencil-square-o pull-left"  %>
+    <%= link_to new_promotion_path(shop_id: params[:shop_id]), class: 'btn btn-lg btn-default btn-upload' do %>
+      <i class="fa fa-lg fa-cloud-upload"></i>
+      <br>
+      Upload New Product
+    <% end %>
   </div>
 
 </div>

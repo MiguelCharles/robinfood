@@ -37,7 +37,7 @@
             Become a partner
           <% end %>
         <% end %>
-        <%= link_to '#', class: 'btn btn-link navbar-btn' do %>
+        <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-link navbar-btn' do %>
           <% if current_user.facebook_picture_url %>
             <%= image_tag current_user.facebook_picture_url, class: 'avatar' %>
           <% else  %>
