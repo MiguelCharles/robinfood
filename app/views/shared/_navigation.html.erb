@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -9,52 +9,53 @@
         <span class="icon-bar"></span>
       </button>
        <%= link_to root_path, class: "navbar-brand" do %>
-          Robin Food
+          Robin <span>Food</span>
       <% end %>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <% if user_signed_in? %>
 
-      <ul class="nav navbar-nav navbar-right">
-      <% if user_signed_in? %>
-
-        <li class="dropdown">
-        <% avatar_url = current_user.facebook_picture_url || "https://image.freepik.com/free-icon/user-male-shape-in-a-circle-ios-7-interface-symbol_318-35357.jpg" %>
-        <%= image_tag avatar_url, class: "avatar dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-haspopup" => true, "aria-expanded" => false %>
-          <ul class="dropdown-menu">
-
-            <li><%= link_to orders_path do %>
-             <i class="fa fa-shopping-cart"></i> <%= t(".profile", default: "My orders") %>
-             <% end %>
-            </li>
-            <% unless current_user.shops.empty? %>
-            <li>
-             <%= link_to shop_promotions_path(current_user.shops.first.id) do %>
-             <i class="fa fa-sign-out"></i>  Manage My Products
-             <% end %>
-            </li>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <%= link_to orders_path do %>
+              <%= t(".profile", default: "My orders") %>
             <% end %>
-            <li><%= link_to destroy_user_session_path, method: :delete do %>
-             <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-             <% end %>
-            </li>
+          </li>
+          <li>
+            <% unless current_user.shops.empty? %>
+              <%= link_to shop_promotions_path(current_user.shops.first.id) do %>
+               Manage my products
+              <% end %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="pull-right">
+        <% if current_user.shops.empty? %>
+          <%= link_to new_shop_path, class: 'btn btn-link navbar-btn' do %>
+            Become a partner
+          <% end %>
+        <% end %>
+        <%= link_to '#', class: 'btn btn-link navbar-btn' do %>
+          <% if current_user.facebook_picture_url %>
+            <%= image_tag current_user.facebook_picture_url, class: 'avatar' %>
+          <% else  %>
+            <i class="fa fa-2x fa-user-circle-o"></i>
+          <% end %>
+        <% end %>
+      </div>
 
-          </ul>
-        </li>
-        <% else %>
-
-    </div><!-- /.navbar-collapse -->
-
-  <div class="pull-right">
-    <!-- Login link-->
-    <%= link_to new_user_session_path do %>
-    <i class="fa fa-sign-in"></i> <%= t(".sign_in", default: "Login")%>
+    <% else %>
+      <div class="pull-right">
+        <%= link_to new_user_session_path, class: 'btn btn-link navbar-btn' do %>
+          <%= t(".sign_in", default: "Login")%>
+        <% end %>
+        <%= link_to new_user_registration_path, class: 'btn btn-primary navbar-btn'  do %>
+          <%= t(".sign_up", default: "Sign Up") %>
+        <% end %>
+      </div>
     <% end %>
-    <!-- Sign Up link (call-to-action) -->
-    <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, {class: "sign btn btn-form hidden-xs"} %>
-    </div>
-    <% end %>
 
-  </div><!-- /.container-fluid -->
+  </div>
 </nav>
