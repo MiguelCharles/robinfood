@@ -39,7 +39,7 @@
         <% end %>
         <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-link navbar-btn' do %>
           <% if current_user.facebook_picture_url %>
-            <%= image_tag current_user.facebook_picture_url, class: 'avatar' %>
+            <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
           <% else  %>
             <i class="fa fa-2x fa-user-circle-o"></i>
           <% end %>
