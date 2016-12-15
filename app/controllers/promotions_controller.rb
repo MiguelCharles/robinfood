@@ -36,8 +36,11 @@ class PromotionsController < ApplicationController
   end
 
   def show
-if current_user
+   if current_user
     @order = Order.find_or_initialize_by(promotion_id: params[:id], user: current_user)
+    if @order.status == "Booked" || @order.status == "Picked-up"
+      @order = Order.new
+    end
   else
     @order = Order.new
   end
