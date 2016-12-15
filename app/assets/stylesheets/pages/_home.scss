@@ -2,3 +2,19 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+.homepage-search {
+  background-color: rgb(105, 169, 93);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: image-url('background-fruits.png');
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  #current_location {
+    width: 600px;
+  }
+}

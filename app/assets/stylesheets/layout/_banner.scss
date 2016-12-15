@@ -2,16 +2,20 @@
   text-align: center;
   height: 90vh;
   width: 100%;
-  max-height: 450px;
+  max-height: 720px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-position: center center;
+  position: relative;
 }
 .banner h1 {
   font-size: 50px;
   font-weight: $font-weight-bold;
   color: white;
   text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.44);
+  padding: 20px;
 }
 
 
