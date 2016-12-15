@@ -11,17 +11,17 @@ Promotion.destroy_all
 Shop.destroy_all
 User.destroy_all
 
-User.create(username:"Exki", email:"admin@exki.com", password:"123456" ,address: "Bruxelles")
-User.create(username:"François", email:"françois@gmail.com", password:"123456" ,address: "Louvain-La-Neuve")
-User.create(username:"François",email:"paul2@gmail.com", password:"123456" , address: "Liège")
-User.create(username:"Dandoy",email:"admin@dandoy.com", password:"123456" , address: "Anderlecht")
-User.create(username:"Marcel",email:"admin@marcel.com", password:"123456" , address: "Verviers")
+User.create(username:"Exki", email:"admin@exki.com", password:"123456" ,address: "Bruxelles", facebook_picture_url: "exki.jpg")
+User.create(username:"François", email:"francois@gmail.com", password:"123456" ,address: "Louvain-La-Neuve", facebook_picture_url:"user/francois2.jpg")
+User.create(username:"Martin",email:"martin@gmail.com", password:"123456" , address: "Liège", facebook_picture_url:"user/MartinB.jpg")
+User.create(username:"Dandoy",email:"admin@dandoy.com", password:"123456" , address: "Anderlecht", facebook_picture_url:"Dandoy.jpg")
+User.create(username:"Marcel",email:"admin@marcel.com", password:"123456" , address: "Verviers", facebook_picture_url:"Marcel.jpg")
 
-Shop.create(user_id: User.all.first.id, name_of_the_store: "Exki", photo_url: "https://s3-media1.fl.yelpcdn.com/bphoto/XVvCWFEQSg_nN3ISlYGlQw/348s.jpg", category:"Grand Place", description: "Cuisiner des produits de saison, valoriser les végétaux, donner la préférence aux agriculteurs respectueux de la planès", phone_number: "+32 479 22 55 66", VAT_number: "ABCD", country:"Belgium", city:"Brussels", zip_code: 1000, address:"
+Shop.create(user_id: User.all.first.id, name_of_the_store: "Exki", photo_url: "exki.jpg", category:"Grand Place", description: "Cuisiner des produits de saison, valoriser les végétaux, donner la préférence aux agriculteurs respectueux de la planès", phone_number: "+32 479 22 55 66", VAT_number: "ABCD", country:"Belgium", city:"Brussels", zip_code: 1000, address:"
 Rue du Marché aux Herbes", street_number: 93)
 id = (User.all.last.id) - 1
-Shop.create(user_id: id, name_of_the_store: "Maison Dandoy", photo_url: "http://www.maisondandoy.com/files/cache/440764e44fb323da1705f9ef56a869fe.jpg", category:"Biscuiterie", description:"We want to manke your sense dance", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue au Beurre", street_number: 31)
-Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", photo_url: "http://www.elle.be/fr/wp-content/uploads/2016/08/marcel.jpg", category:"Fine Grocery", description: "Votre boulanger de tradition qui aime le gout", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Ixelles", zip_code: 1050, address:"Avenue Louise", street_number: 200)
+Shop.create(user_id: id, name_of_the_store: "Maison Dandoy", photo_url: "Dandoy.jpg", category:"Biscuiterie", description:"We want to manke your sense dance", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue au Beurre", street_number: 31)
+Shop.create(user_id: User.all.last.id, name_of_the_store: "Chez Marcel", photo_url: "Marcel.jpg", category:"Fine Grocery", description: "Votre boulanger de tradition qui aime le gout", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Ixelles", zip_code: 1050, address:"Avenue Louise", street_number: 200)
 
 ingredients = ["Fruit", "Vegetable", "Bread", "Christmas"]
 
