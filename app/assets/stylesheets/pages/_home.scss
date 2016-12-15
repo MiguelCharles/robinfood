@@ -13,8 +13,11 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-
-  #current_location {
-    width: 600px;
-  }
 }
+
+input#current_location {
+    width: 100%;
+    height: 50px;
+
+  }
+
