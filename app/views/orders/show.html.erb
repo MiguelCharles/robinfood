@@ -2,7 +2,7 @@
 <%= link_to '',orders_path, { :class=>"btn-minim fa fa-arrow-left" } %>
 <div class="row top">
       <% if @order.status == "Booked" %>
-        <h1 class="text-center bottom">You can pick-up your order and generate <span class="colorg">your coupon</span> </h1>
+        <h1 class="text-center bottom">Thanks! Go now at <%= @order.promotion.shop.name_of_the_store%> to pick-up your order and generate <span class="colorg">your coupon</span> </h1>
       <% else %>
         <h1 class="text-center bottom">Please present this <span class="colorg">coupon</span> and benefits from the discount</h1>
       <% end %>
