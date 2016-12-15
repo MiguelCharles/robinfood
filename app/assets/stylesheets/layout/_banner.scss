@@ -16,12 +16,14 @@
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.44);
   padding: 20px;
+  margin-bottom: 0px;
 }
 
 
 .banner p {
   font-size: 25px;
-  font-weight: lighter;
+  font-weight: $font-weight-bold;
   color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.44);
   margin-bottom: 50px;
 }
