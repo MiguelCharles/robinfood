@@ -46,17 +46,15 @@
         </ul>
       </div>
       <div class="pull-right">
+      <% if user_signed_in? %>
         <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-link navbar-btn' do %>
-          <% if user_signed_in? %>
             <% if current_user.facebook_picture_url %>
               <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
             <% else  %>
               <i class="fa fa-2x fa-user-circle-o"></i>
             <% end %>
           <% end %>
-        <% end %>
       </div>
-
     <% else %>
       <div class="pull-right">
         <%= link_to new_user_session_path, class: 'btn btn-link navbar-btn' do %>
@@ -66,6 +64,6 @@
           <%= t(".sign_up", default: "Sign Up") %>
         <% end %>
       </div>
-
+       <% end %>
   </div>
 </nav>
