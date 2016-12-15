@@ -9,6 +9,8 @@ body {
   }
 
 
+a{text-decoration: none !important;}
+
 // Paddings
 .padded {
   padding-top: 2em;
@@ -51,8 +53,10 @@ span.green{ color: #94DB46;}
 .colorg{  color: #94DB46;}
 .colorr{ color: #ff413b;}
 
-a{text-decoration: none !important;}
+
 // Elements
+
+
 
 .separator {
     width: 100%;
@@ -64,18 +68,5 @@ a{text-decoration: none !important;}
 
 #map{
 
-}
-
-video {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(-50%);
-    background-size: cover;
 }
 
