@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-root to: 'promotions#index'
+root to: 'pages#index'
 resources :users, except: [:index] do
 end
 
