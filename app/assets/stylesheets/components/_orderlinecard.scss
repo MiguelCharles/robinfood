@@ -16,6 +16,16 @@
 
 .resume {
     position: absolute;
+    background-color: rgba(red, 0.75);
+    top: 27%;
+    color: #333333;
+    width: 100%;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.resumed {
+    position: absolute;
     background-color: rgba(148, 219, 70, 0.75);
     top: 27%;
     color: #333333;
