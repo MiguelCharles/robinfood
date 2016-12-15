@@ -16,11 +16,10 @@
 <div class="container bottom">
  <h2 class="text-center top bottom">Find Your <strong><span class="green">Best Deals</span></strong> of the WEEK !</h2>
  <% if @params_search %>
-   <h3 class="text-center bottom">Currently <span class="green"><strong> <%= @shops.uniq.length  %></strong></span> shops on Robin Food with  <span class="green"><strong> <%= @promotions.uniq.length  %> </strong></span> deals active</h3>
+   <h3 class="text-center bottom">Today <span class="green"><strong> <%= @shops.uniq.length  %></strong></span> shops are offering <span class="green"><strong> <%= @promotions.uniq.length  %> </strong></span> deals </h3>
  <% else %>
 
-  <h3 class="text-center bottom">Currently <span class="green"><strong> <%= @shops.count * 134 %></strong></span> shops proposing <span class="green"><strong> <%= @promotions.count * 302 %> </strong></span> deals</h3>
-
+  <h3 class="text-center bottom">Today <span class="green"><strong> <%= @shops.count * 134 %></strong></span> shops are offering <span class="green"><strong> <%= @promotions.count * 302 %> </strong></span> deals</h3>
  <% end %>
  <div class="row">
  <% if @promotions.any? %>
