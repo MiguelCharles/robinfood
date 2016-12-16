@@ -11,7 +11,7 @@ Promotion.destroy_all
 Shop.destroy_all
 User.destroy_all
 
-User.create(username:"Exki", email:"admin@exki.com", password:"123456",address: "Bruxelles", facebook_picture_url: "exki.jpg")
+User.create(username:"Exki", email:"admin@exki.com", password:"123456", address: "Bruxelles", facebook_picture_url: "exki.jpg")
 User.create(username:"François", email:"francois@gmail.com", password:"123456" ,address: "Louvain-La-Neuve", facebook_picture_url:"user/francois2.jpg")
 User.create(username:"Martin",email:"martin@gmail.com", password:"123456", address: "Liège", facebook_picture_url:"user/MartinB.jpg")
 User.create(username:"Dandoy",email:"admin@dandoy.com", password:"123456" , address: "Anderlecht", facebook_picture_url:"MaisonDandoy.jpg")
