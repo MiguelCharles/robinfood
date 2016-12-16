@@ -66,13 +66,16 @@
   font-size: 30px;
   padding-top: 130px;
 }
+
 .btn-p {
-  display: block;
-  color: #111111;
-  border: 2px solid #94DB46;
-  width: 50px;
-  line-height: 47px;
-  height: 50px;
-  border-radius: 50px;
-  margin: auto;
+    display: block;
+    color: #111111;
+    border: 2px solid #94DB46;
+    width: 50px;
+    line-height: 47px;
+    height: 50px;
+    left: -3px;
+    position: relative;
+    border-radius: 50px;
+    margin: 30px auto;
 }
