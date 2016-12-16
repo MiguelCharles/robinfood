@@ -20,7 +20,7 @@
       <% end %>
       <p> <%= @order.promotion.description %> </p>
       <p>Quantity: <%= @order.quantity_ordered %> <%= @order.promotion.unit %></p>
-      <p>Price: <%= @order.promotion.price_after_promotion_per_unit * @order.quantity_ordered %> €</p>
+      <p>Price: <%= (@order.promotion.price_after_promotion_per_unit * @order.quantity_ordered).round(2) %> €</p>
       </div>
       </div>
 

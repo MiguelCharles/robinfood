@@ -69,10 +69,12 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.85]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = (initial_price_per_unit*discount2).to_f
- p (initial_price_per_unit*discount2).to_f
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ p discount
+ discount2 = 1 - discount[rand(0..6)]
+ p discount2
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
+ p initial_price_per_unit
  p price_after_promotion_per_unit
  Promotion.create(shop_id: shop_id,
  title: title,
@@ -101,9 +103,9 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ discount2 = 1 - discount[rand(0..6)]
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -131,9 +133,9 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ discount2 = 1 - discount[rand(0..6)]
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -160,9 +162,9 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ discount2 = 1 - discount[rand(0..6)]
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -190,9 +192,9 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ discount2 = 1 - discount[rand(0..6)]
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -221,9 +223,9 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ discount2 = 1 - discount[rand(0..6)]
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -251,9 +253,9 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ discount2 = 1 - discount[rand(0..6)]
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -281,9 +283,9 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ discount2 = 1 - discount[rand(0..6)]
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -310,9 +312,9 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ discount2 = 1 - discount[rand(0..6)]
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
@@ -340,9 +342,9 @@ christmas_fpic = ["food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
     p title
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (5..12).to_a.sample
- discount = [0.5, 0.55, 0.65, 0.75, 0.85, 0.82, 0.90]
- discount2 = discount[rand(0..6)]
- price_after_promotion_per_unit = initial_price_per_unit*discount2
+ discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+ discount2 = 1 - discount[rand(0..6)]
+ price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
  product_type: product_type,
