@@ -43,6 +43,16 @@
               <% end %>
           </li>
           <% end %>
+          <li>
+             <%= link_to new_user_session_path, class: 'hidden-mg hidden-lg' do %>
+          <%= t(".sign_in", default: "Login")%>
+        <% end %>
+          </li>
+          <li>
+          <%= link_to new_user_registration_path, class: 'hidden-sm hidden-lg' do %>
+          <%= t(".sign_up", default: "Sign up")%>
+        <% end %>
+          </li>
         </ul>
       </div>
       <div class="pull-right">
@@ -56,12 +66,20 @@
           <% end %>
       </div>
     <% else %>
-      <div class="pull-right">
+      <div style="margin-right:70px" class="pull-right hidden-xs ">
+
         <%= link_to new_user_session_path, class: 'btn btn-link navbar-btn' do %>
           <%= t(".sign_in", default: "Login")%>
         <% end %>
 
+
+      </div>
+      <div class="pull-right hidden-xs " style="color:rgb(148, 219, 70);">
+        <%= link_to new_user_registration_path, class: 'btn btn-link btn-success navbar-btn' do %>
+          <%= t(".sign_up", default: "Sign up")%>
+        <% end %>
       </div>
        <% end %>
   </div>
 </nav>
+
