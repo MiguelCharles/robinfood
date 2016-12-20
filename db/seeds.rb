@@ -13,7 +13,7 @@ User.destroy_all
 
 User.create(username:"Exki", email:"admin@exki.com", password:"123456", address: "Bruxelles", facebook_picture_url: "exki.jpg")
 User.create(username:"François", email:"francois@gmail.com", password:"123456" , address: "Louvain-La-Neuve", facebook_picture_url:"user/francois2.jpg")
-User.create(username:"Martin",email:"martin.bragard@robinfood.store", password:"Classico2011.", address: "Liège", facebook_picture_url:"user/MartinB.jpg", admin: true)
+User.create(username:"Martin",email:"martin.bragard@robinfood.store", password:"123456", address: "Liège", facebook_picture_url:"user/MartinB.jpg", admin: true)
 User.create(username:"Dandoy",email:"admin@dandoy.com", password:"123456" , address: "Anderlecht", facebook_picture_url:"MaisonDandoy.jpg")
 User.create(username:"Marcel",email:"admin@marcel.com", password:"123456" , address: "Verviers", facebook_picture_url:"Marcel.jpg")
 User.create(username:"Sushi Shop",email:"admin@sushishop.com", password:"123456" , address: "Bruxelles", facebook_picture_url:"sushishop.jpg")
@@ -21,10 +21,9 @@ User.create(username:"Eat & Drink",email:"admin@eatanddrink.com", password:"1234
 
 Shop.create(user_id: User.all.first.id, name_of_the_store: "Exki", photo_url: "exki.jpg", category:"Grand Place", description: "Cuisiner des produits de saison, valoriser les végétaux, donner la préférence aux agriculteurs respectueux de la planès", phone_number: "+32 479 22 55 66", VAT_number: "ABCD", country:"Belgium", city:"Brussels", zip_code: 1000, address:"
 Rue du Marché aux Herbes", street_number: 93)
-id = (User.all.last.id) - 1
-Shop.create(user_id: id, name_of_the_store: "Maison Dandoy", photo_url: "Dandoy.jpg", category:"Biscuiterie", description:"We want to manke your sense dance", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue au Beurre", street_number: 31)
-Shop.create(user_id: id, name_of_the_store: "Chez Marcel", photo_url: "Marcel.jpg", category:"Grocery", description: "Votre boulanger de tradition qui aime le gout", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Ixelles", zip_code: 1050, address:"Avenue Louise", street_number: 200)
-Shop.create(user_id: id, name_of_the_store: "Sushi Shop", photo_url: "sushishop.jpg.jpg", category:"Sushis", description: "Restaurant japonais", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Place du Grand Sablon", street_number: 10)
+Shop.create(user_id: User.all.first.id + 3, name_of_the_store: "Maison Dandoy", photo_url: "Dandoy.jpg", category:"Biscuiterie", description:"We want to manke your sense dance", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue au Beurre", street_number: 31)
+Shop.create(user_id: User.all.first.id + 4, name_of_the_store: "Chez Marcel", photo_url: "Marcel.jpg", category:"Grocery", description: "Votre boulanger de tradition qui aime le gout", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Ixelles", zip_code: 1050, address:"Avenue Louise", street_number: 200)
+Shop.create(user_id: User.all.last.id - 1, name_of_the_store: "Sushi Shop", photo_url: "sushishop.jpg.jpg", category:"Sushis", description: "Restaurant japonais", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Place du Grand Sablon", street_number: 10)
 Shop.create(user_id: User.all.last.id, name_of_the_store: "Eat & Drink", photo_url: "eatanddrink.jpg.jpg", category:"Sandwich & soup", description: "Best place for a hot lunch", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue des Colonies", street_number: 50)
 
 ingredients = ["Fruit", "Vegetable", "Bread", "Christmas", "Sushis", "Pasta", "Soup"]
