@@ -23,9 +23,15 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy, :changestatus]
   end
 
   def create
-  @shop = Shop.new(shop_params)
-  @shop.user_id = current_user.id
-  @shop.save
+    if current_user
+      @shop = Shop.new(shop_params)
+      @shop.user_id = current_user.id
+      @shop.save
+    else
+      @shop = Shop.new(shop_params)
+      session[:shop] = shop_params
+      @shop.save
+    end
   redirect_to promotions_path
   end
 
