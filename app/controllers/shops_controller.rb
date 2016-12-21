@@ -32,6 +32,7 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy, :changestatus]
       session[:shop] = shop_params
       @shop.save
     end
+  flash[:notice] = "Thanks - A member of our team will contact you soon"
   redirect_to promotions_path
   end
 
