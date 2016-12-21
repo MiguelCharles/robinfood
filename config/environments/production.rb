@@ -25,12 +25,12 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "gaspiranha.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "www.robinfood.store" }
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
-  Rails.application.routes.default_url_options[:host] = 'gaspiranha.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = 'www.robinfood.store'
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
