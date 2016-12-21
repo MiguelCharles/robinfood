@@ -7,8 +7,15 @@ class Shop < ApplicationRecord
   validates :country, presence: true
   after_validation :geocode
 
+  after_create :send_confirmation_email
 
   def full_address
     "#{address}, #{street_number} #{zip_code} #{city} #{country}"
+  end
+
+  private
+
+  def send_confirmation_email
+    ShopMailer.partnership_demand(self).deliver_now
   end
 end
