@@ -69,3 +69,9 @@ en:
       one: 'discounted product on RobinFood.store'
       other: 'discounted products on RobinFood.store'
     unfortunately: "Unfortunately, we were not able to find any promotion near your current location"
+
+  promo-show:
+    discount: "Discount:"
+    price: "Price per "
+    quantity: "Quantity"
+    bouton:

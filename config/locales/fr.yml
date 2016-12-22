@@ -48,3 +48,9 @@ fr:
       one: 'produit en promotion sur RobinFood.store'
       other: 'produits en promotion sur RobinFood.store'
     unfortunately: "Malheureusement, il n'y a pas de promotion active proche de votre position actuelle"
+
+  promo-show:
+    discount: "Réduction:"
+    price: "Prix/"
+    quantity: "Quantité"
+    bouton:
