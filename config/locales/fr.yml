@@ -28,5 +28,23 @@ fr:
     fail:
 
   promotions:
-    slogan:
-    sous-slogan:
+    slogan-1: "Selectionnez les"
+    slogan-2: " offres"
+    slogan-3: " à proximité"
+    sous-slogan: "Promotions proches de vous"
+    location: "Indiquez-votre-position-actuelle"
+    bouton: "RECHERCHE"
+    titre-1: "Aujourd'hui"
+    shops:
+      zero: "magasin propose"
+      one: "magasin propose"
+      other: "magasins proposent"
+    promos:
+      zero: 'produit en promotion proche de vous'
+      one: 'produit en promotion proche de vous'
+      other: 'produits en promotion proche de vous'
+    promos-2:
+      zero: 'produit en promotion sur RobinFood.store'
+      one: 'produit en promotion sur RobinFood.store'
+      other: 'produits en promotion sur RobinFood.store'
+    unfortunately: "Malheureusement, il n'y a pas de promotion active proche de votre position actuelle"

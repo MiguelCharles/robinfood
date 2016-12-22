@@ -49,5 +49,23 @@ en:
     fail:
 
   promotions:
-    slogan:
-    sous-slogan:
+    slogan-1: "Select "
+    slogan-2: "deals "
+    slogan-3: "nearby"
+    sous-slogan: "Discounted products in your area"
+    location: "Insert-your-current-location"
+    bouton: "FIND DEALS"
+    titre-1: "Today"
+    shops:
+      zero: 'shop is offering'
+      one: 'shop is offering'
+      other: 'shops are offering'
+    promos:
+      zero: 'discounted product in your area'
+      one: 'discounted product in your area'
+      other: 'discounted products in your area'
+    promos-2:
+      zero: 'discounted product on RobinFood.store'
+      one: 'discounted product on RobinFood.store'
+      other: 'discounted products on RobinFood.store'
+    unfortunately: "Unfortunately, we were not able to find any promotion near your current location"
