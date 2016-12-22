@@ -23,8 +23,8 @@
     <div class="banner-description bottom">
       <h2 class="text-center top" ><%= @promotion.description %></h2>
       <p class="text-center"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i> <%= distance_of_time_in_words(@promotion.validity - Time.now) %></p>
-      <p class="text-center"><strong>Discount: <span class="font-size colorr"><strong> <%= ((1-(@promotion.price_after_promotion_to_float/@promotion.initial_price_to_float))*100).round %>%</strong></span></p>
-      <p class="text-center">Price per <%=@promotion.unit %>: <span class="font-size"><strong><%=number_with_precision(@promotion.price_after_promotion_to_float, precision: 2) %>€</p> </strong></span></p>
+      <p class="text-center"><strong>Discount: <span class="font-size colorr"><%= ((1-(@promotion.price_after_promotion_to_float/@promotion.initial_price_to_float))*100).round %></span></strong></p>
+      <p class="text-center">Price per <%=@promotion.unit %>: <span class="font-size"><strong><%=number_with_precision(@promotion.price_after_promotion_to_float, precision: 2) %>€ </strong></span></p>
     </div>
 
     <div class="banner-cart">
@@ -35,11 +35,11 @@
 
         <%= f.input :quantity_ordered, label: "Quantity", input_html: { value:  @order.quantity_ordered || @promotion.min_quantity,type: "hidden", min: '1', id: "qt", step: "#{@promotion.min_quantity}" }%><br/>
         <%= f.input :promotion_id, as: "hidden", input_html: {value: @promotion.id} %>
-        <p><span id="diminuer" class=" btn-mini counter "><i class="fa fa-minus" aria-hidden="true"></i></span><span style="cursor:auto;" class="counter number"><%= @quantity %></span><span class="btn-mini counter" id="augmenter"><i class="fa fa-plus" aria-hidden="true"></i></span> <span>
-          <p class="total">
+        <p><span id="diminuer" class=" btn-mini counter "><i class="fa fa-minus" aria-hidden="true"></i></span><span style="cursor:auto;" class="counter number"><%= @quantity %></span><span class="btn-mini counter" id="augmenter"><i class="fa fa-plus" aria-hidden="true"></i></span><p class="total"> <span>
+
             Total: <%= (@quantity * @promotion.price_after_promotion_per_unit).round(2) %> €
-          </p>
-        </span>
+
+        </span> </p>
            <%= f.button :submit,  class: "btn-medium-submit top bottom" %>
         <% end %>
      </div>

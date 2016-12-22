@@ -32,7 +32,7 @@
          <%= image_tag promo.photo_url, { :class=>"thumbnail-img" } unless promo.photo_url.nil?%>
          <div class="caption">
            <h4><%= promo.shop.name_of_the_store %></h4>
-           <h5><strong><%= link_to promo.description, promotion_path(promo)%></strong></h5>
+           <h5><strong><%=  promo.description%></strong></h5>
            <p class="promo-title"><%= promo.shop.category %></p>
            <p class="promo-discount"> - <%= ((1-(promo.price_after_promotion_to_float/promo.initial_price_to_float))*100).round %> %</p>
            <p class="promo-price"><%= number_with_precision(promo.price_after_promotion_to_float, precision: 2) %>€</p>
@@ -68,4 +68,3 @@
    });
  <% end %>
 <% end %>
-
