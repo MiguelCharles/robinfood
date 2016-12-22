@@ -31,3 +31,23 @@ en:
     choose: "Order the food you want"
     pick-up: "Pick-up order at the store"
     enjoy: "Enjoy your food"
+
+  footer:
+    contact: "Contact us at martin.bragard@robinfood.store"
+    about: "About"
+    follow: "Follow us"
+    description: "Robin Food aims to reduce food waste by connecting local shops with nearby customers"
+
+  navigation:
+    partnership: "Become a partner"
+    manage-products: "Manage my products"
+    orders: "My orders"
+    sign_up: "Sign up"
+
+  inscription:
+    successful:
+    fail:
+
+  promotions:
+    slogan:
+    sous-slogan:

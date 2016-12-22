@@ -2,7 +2,7 @@ fr:
   home:
     slogan: "Too good to waste"
     sous-slogan: "Évitez le gaspillage. Économisez"
-    explication-1: "RobinFood.store a pour objectif de réduire le gaspillage alimentaire en connectant commerces et achteurs"
+    explication-1: "RobinFood.store a pour objectif de réduire le gaspillage alimentaire en connectant commerces de proximité et acheteurs"
     explication-2: "Les commerces listent leurs produits approchant la date limite de vente"
     explication-3:  "Notre communauté d'utilisateurs peut alors les commander à un prix réduit"
     fonctionnement:  "Comment ça marche ?"
@@ -10,3 +10,23 @@ fr:
     choose: "Commandez"
     pick-up: "Récupérez votre commande au magasin"
     enjoy: "Bon appétit"
+
+  footer:
+    contact: "Pour plus d'info, contactez nous à l'adresse martin.bragard@robinfood.store"
+    about: "Info"
+    follow: "Suivez-nous"
+    description: "Robin Food a pour objectif de réduire le gaspillage alimentaire en connectant commerces de proximité et clients"
+
+  navigation:
+    partnership: "Devenir partenaire"
+    manage-products: "Gérer mes promotions"
+    orders: "Mes commandes"
+    sign_up: "S'inscrire"
+
+  inscription:
+    successful:
+    fail:
+
+  promotions:
+    slogan:
+    sous-slogan:
