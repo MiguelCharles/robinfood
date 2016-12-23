@@ -53,9 +53,6 @@ fr:
     discount: "Réduction:"
     price: "Prix/"
     quantity: "Quantité"
-<<<<<<< HEAD
-    bouton:
-=======
 
   orders:
     thanks: 'Merci, vous pouvez désormais vous rendre chez '
@@ -104,4 +101,3 @@ fr:
   helpers:
     submit:
        create: "Créer commande"
->>>>>>> 6d9c206fb1a265e5e2165e879145940c34b6c2f7
