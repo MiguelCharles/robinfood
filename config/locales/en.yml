@@ -99,6 +99,10 @@ en:
     coupon-fail: "Invalid Promotion Code!"
     authorization: "You are not authorized to perform this action."
 
+  language:
+    français: "Français"
+    english: "English"
+
   seed:
     légume: "Vegetables"
     pain: "Bread"

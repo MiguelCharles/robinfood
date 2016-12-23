@@ -98,6 +98,10 @@ fr:
     broco: "Soupe de Brocoli"
     fish: "Soupe de poisson"
 
+  language:
+    français: "Français"
+    english: "English"
+
   helpers:
     submit:
        create: "Créer commande"
