@@ -2,27 +2,27 @@ fr:
   devise:
     confirmations:
       confirmed: "Votre adresse email a été confirmée avec succès"
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_instructions: "Merci. Vous aller recevoir un email dans quelques instants"
+      send_paranoid_instructions: "Si votre adresse email existe dans notre base de données, vous allez recevoir un email d'instruction dans quelques instants."
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your email address before continuing."
+      already_authenticated: "Vous êtes déjà connecté"
+      inactive: "Votre compte n'est pas encore actif"
+      invalid: "Mot de passe ou %{authentication_keys} invalide"
+      locked: "Votre compte est bloqué"
+      last_attempt: "IL vous reste un essai avant que votre compte ne soit bloqué"
+      not_found_in_database: "Mot de passe ou %{authentication_keys} invalide"
+      timeout: "Votre session a expiré. Veuillez vous connecter pour continuer"
+      unauthenticated: "Vous devez être connecté pour effectuer cette action"
+      unconfirmed: "Vous devez confirmer votre adresse email avant de pouvoir continuer"
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Instructions de confirmation"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Instructions concernant la réinitialisation de votre mot de passe"
       unlock_instructions:
         subject: "Unlock instructions"
       password_change:
-        subject: "Password Changed"
+        subject: "Mot de passe modifié"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -45,15 +45,15 @@ fr:
       signed_out: "Déconnexion réussie."
       already_signed_out: "Déconnexion réussie."
     unlocks:
-      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_instructions: "Vous allez recevoir un email d'instructions dans quelques instant."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+      unlocked: "Votre compte a été débloqué avec succès."
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
+      already_confirmed: "était déjà confirmé, please try signing in"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
-      not_found: "not found"
+      not_found: "Non trouvé"
       not_locked: "was not locked"
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
