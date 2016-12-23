@@ -1,6 +1,6 @@
 <div class="container top bottom">
   <%= link_to '', promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
-  <h1 class="text-center">My orders</h1>
+  <h1 class="text-center"><%= t('orders.myorders') %></h1>
   <% @orders.each do |order| %>
     <div class="row">
 
@@ -22,7 +22,13 @@
          <h3 class="bottom"><%= order.promotion.description %></h3>
          <p><%= t('orders.quantity') %>: <%= order.quantity_ordered %> <%= order.promotion.unit %></p>
          <p><%= t('orders.price') %>: <%= (order.promotion.price_after_promotion_per_unit * order.quantity_ordered).round(2) %> €</p>
-         <p>Status: <%= order.status %></p>
+         <p>Status: <% if order.status == "To be confirmed" %>
+                    <%= t('orders.status.tbc') %>
+                    <% elsif order.status == "Booked" %>
+                    <%= t('orders.status.booked') %>
+                    <% else %>
+                    <%= t('orders.status.picked-up') %>
+          <%end%></p>
        </div>
        </div>
 

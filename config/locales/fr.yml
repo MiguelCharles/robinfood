@@ -65,11 +65,38 @@ fr:
     enter-code: "Veuillez indiquer le code exposé au comptoir de "
     confirm: "Confirmer commande"
     edit: "Modifier"
+    myorders: "Mes commandes"
+    status:
+      tbc: "À confirmer"
+      booked: "Commandé"
+      picked-up: "Récupéré"
 
   flash:
     coupon-ok: "Promotion validée - Voici votre coupon"
     coupon-fail: "Code Promotion Invalide!"
     authorization: "Vous n'êtes pas autorisé à effectuer cette action"
+
+  seed:
+    légume: "Légumes"
+    pain: "Boulangerie"
+    noel: "Noël"
+    pasta: "Pâtes"
+    soup: "Soupe"
+    pomme: "Pommes Jonnagold"
+    orange: "Oranges de Valence"
+    poire: "Poires belges Doyen"
+    fraises: "Fraises de Wepion"
+    choux: "Choux"
+    celery: "Céleri"
+    courgette: "Courgettes"
+    salad: "Salade"
+    pdt: "Patates douces"
+    confiture: "Confiture"
+    chocolat: "Moelleux chocolat"
+    pain-épi: "Pain d'épice"
+    bolo: "Bolognaise"
+    broco: "Soupe de Brocoli"
+    fish: "Soupe de poisson"
 
   helpers:
     submit:
