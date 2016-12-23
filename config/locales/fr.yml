@@ -1,0 +1,56 @@
+fr:
+  home:
+    slogan: "Too good to waste"
+    sous-slogan: "Évitez le gaspillage. Économisez"
+    explication-1: "RobinFood.store a pour objectif de réduire le gaspillage alimentaire en connectant commerces de proximité et acheteurs"
+    explication-2: "Les commerces listent leurs produits approchant la date limite de vente"
+    explication-3:  "Notre communauté d'utilisateurs peut alors les commander à un prix réduit"
+    fonctionnement:  "Comment ça marche ?"
+    location: "Indiquez votre position"
+    choose: "Commandez"
+    pick-up: "Récupérez votre commande au magasin"
+    enjoy: "Bon appétit"
+
+  footer:
+    contact: "Pour plus d'info, contactez nous à l'adresse martin.bragard@robinfood.store"
+    about: "Info"
+    follow: "Suivez-nous"
+    description: "Robin Food a pour objectif de réduire le gaspillage alimentaire en connectant commerces de proximité et clients"
+
+  navigation:
+    partnership: "Devenir partenaire"
+    manage-products: "Gérer mes promotions"
+    orders: "Mes commandes"
+    sign_up: "S'inscrire"
+
+  inscription:
+    successful:
+    fail:
+
+  promotions:
+    slogan-1: "Selectionnez les"
+    slogan-2: " offres"
+    slogan-3: " à proximité"
+    sous-slogan: "Promotions proches de vous"
+    location: "Indiquez-votre-position-actuelle"
+    bouton: "RECHERCHE"
+    titre-1: "Aujourd'hui"
+    shops:
+      zero: "magasin propose"
+      one: "magasin propose"
+      other: "magasins proposent"
+    promos:
+      zero: 'produit en promotion proche de vous'
+      one: 'produit en promotion proche de vous'
+      other: 'produits en promotion proche de vous'
+    promos-2:
+      zero: 'produit en promotion sur RobinFood.store'
+      one: 'produit en promotion sur RobinFood.store'
+      other: 'produits en promotion sur RobinFood.store'
+    unfortunately: "Malheureusement, il n'y a pas de promotion active proche de votre position actuelle"
+
+  promo-show:
+    discount: "Réduction:"
+    price: "Prix/"
+    quantity: "Quantité"
+    bouton:
