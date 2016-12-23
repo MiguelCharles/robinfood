@@ -53,4 +53,55 @@ fr:
     discount: "Réduction:"
     price: "Prix/"
     quantity: "Quantité"
+<<<<<<< HEAD
     bouton:
+=======
+
+  orders:
+    thanks: 'Merci, vous pouvez désormais vous rendre chez '
+    pick-up: 'pour récupérer votre commande et générer votre '
+    present: "Veuillez présenter ce "
+    benefit: " pour profiter de cette promotion"
+    quantity: "Quantité"
+    price: "Prix"
+    generate: "Générer coupon"
+    enter-code: "Veuillez indiquer le code exposé au comptoir de "
+    confirm: "Confirmer commande"
+    edit: "Modifier"
+    myorders: "Mes commandes"
+    status:
+      tbc: "À confirmer"
+      booked: "Commandé"
+      picked-up: "Récupéré"
+
+  flash:
+    coupon-ok: "Promotion validée - Voici votre coupon"
+    coupon-fail: "Code Promotion Invalide!"
+    authorization: "Vous n'êtes pas autorisé à effectuer cette action"
+
+  seed:
+    légume: "Légumes"
+    pain: "Boulangerie"
+    noel: "Noël"
+    pasta: "Pâtes"
+    soup: "Soupe"
+    pomme: "Pommes Jonnagold"
+    orange: "Oranges de Valence"
+    poire: "Poires belges Doyen"
+    fraises: "Fraises de Wepion"
+    choux: "Choux"
+    celery: "Céleri"
+    courgette: "Courgettes"
+    salad: "Salade"
+    pdt: "Patates douces"
+    confiture: "Confiture"
+    chocolat: "Moelleux chocolat"
+    pain-épi: "Pain d'épice"
+    bolo: "Bolognaise"
+    broco: "Soupe de Brocoli"
+    fish: "Soupe de poisson"
+
+  helpers:
+    submit:
+       create: "Créer commande"
+>>>>>>> 6d9c206fb1a265e5e2165e879145940c34b6c2f7

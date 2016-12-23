@@ -1,39 +1,39 @@
 <div class="banner" style="background: url('<%= image_url('landingpage.jpg')%>'); background-size: cover !important;">
 
   <div class="banner-content">
-    <h1>Too good to waste</h1>
-    <p>Eat green. Eat cheap. Reduce food waste</p>
-    <%= link_to "Today's deals", promotions_path, class:'btn btn-default btn-medium-submit bottom' %>
+    <h1><%= t('home.slogan') %></h1>
+    <p><%= t('home.sous-slogan') %></p>
+    <%= link_to "Français", promotions_path, class:'btn btn-default btn-medium-submit bottom' %>
+    <%= link_to "English", promotions_path, class:'btn btn-default btn-medium-submit bottom' %>
   </div>
 
 </div>
 <div class="container-fluid padded text-center bottom" style="background-color: #CFD1D0;">
   <div class="row">
     <p style="font-size: 22px; line-height: 36px;">
-    Robin Food store aims to reduce food waste by connecting local shops with nearby consumers.<br>
-    Shops & restaurants list their products approaching the sale deadline on our platform<br> where our community can buy them a discount price.
+    <%= t('home.explication-1') %><br><%= t('home.explication-2') %><br><%= t('home.explication-3') %>
     </p>
   </div>
 </div>
 
 <div class="container text-center top">
-<h1>How does it work ?</h1>
+<h1><%= t('home.fonctionnement') %></h1>
   <div class="row bottom">
     <div class="col-xs-12 col-md-3 top">
       <p><i class="fa fa-street-view fa-5x" aria-hidden="true"></i></p>
-      <p class="font topp morem">Insert your current location</p>
+      <p class="font topp morem"><%= t('home.location') %></p>
     </div>
     <div class="col-xs-12 col-md-3 top">
       <p><i class="fa fa-shopping-basket fa-5x" aria-hidden="true"></i></p>
-      <p class="font topp morem">Order the food you want</p>
+      <p class="font topp morem"><%= t('home.choose') %></p>
     </div>
     <div class="col-xs-12 col-md-3 top">
       <p><i class="fa fa-map-marker fa-5x" aria-hidden="true"></i></p>
-      <p class="font topp morem">Pick-up order at the store</p>
+      <p class="font topp morem"><%= t('home.pick-up') %></p>
     </div>
     <div class="col-xs-12 col-md-3 top">
       <p><i class="fa fa-smile-o fa-5x" aria-hidden="true"></i></p>
-      <p class="font topp morem">Enjoy your food</p>
+      <p class="font topp morem"><%= t('home.enjoy') %></p>
     </div>
   </div>
 </div>

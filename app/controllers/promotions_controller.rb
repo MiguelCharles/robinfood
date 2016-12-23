@@ -10,7 +10,7 @@ class PromotionsController < ApplicationController
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
-    flash[:alert] = "You are not authorized to perform this action."
+    flash[:alert] = t('flash.authorization')
     redirect_to(root_path)
   end
 
@@ -61,7 +61,7 @@ end
     # @promotion = current_user.shops[0].promotions.build(promotion_params)
     @promotion = Promotion.new(promotion_params)
     @promotion.product_type = "Food"
-    @promotion.digits_code = 2432
+    @promotion.digits_code = (1000..9999).to_a.sample
     @promotion.promotion_status = false
     @promotion.min_quantity = 1
     @promotion.photo_url = "shop.png"
