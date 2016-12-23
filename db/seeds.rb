@@ -26,31 +26,31 @@ Shop.create(user_id: User.all.first.id + 4, name_of_the_store: "Chez Marcel", ph
 Shop.create(user_id: User.all.last.id - 1, name_of_the_store: "Sushi Shop", photo_url: "sushishop.jpg.jpg", category:"Sushis", description: "Restaurant japonais", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Place du Grand Sablon", street_number: 10)
 Shop.create(user_id: User.all.last.id, name_of_the_store: "Eat & Drink", photo_url: "eatanddrink.jpg.jpg", category:"Sandwich & soup", description: "Best place for a hot lunch", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue des Colonies", street_number: 50)
 
-ingredients = ["Fruit", "Vegetable", "Bread", "Christmas", "Sushis", "Pasta", "Soup"]
+ingredients = ["Fruits", "#{I18n.t('seed.légume')}", "#{I18n.t('seed.pain')}", "#{I18n.t('seed.noel')}", "Sushis", "#{I18n.t('seed.pasta')}", "#{I18n.t('seed.soup')}"]
 
-fruits_t = ["Jonnagold Apple", "Orange from Valencia", "Belgian Pear Doyen", "Strawberry from Wepion"]
+fruits_t = [I18n.t('seed.pomme'), I18n.t('seed.orange'), I18n.t('seed.poire'), I18n.t('seed.fraises')]
 fruits_tpic = ["food/fruits/apple.jpg","food/fruits/orange.jpg", "food/fruits/night.jpg","food/fruits/strawberry.jpg"]
 
 
-vegetables_t = ["Cabbages", "Celery", "Zuchini", "Spinach", "Sweet Potato"]
+vegetables_t = [I18n.t('seed.choux'), I18n.t('seed.celery'), I18n.t('seed.courgette'), I18n.t('seed.salad'), I18n.t('seed.pdt')]
 vegetables_tpic = ["food/vegetables/potatoes.jpg","food/vegetables/celery.jpg", "food/vegetables/zuchini.jpg", "food/vegetables/salad.jpg","food/vegetables/sweet-potatoe.jpg"]
 
 breads_t = ["Cougnou", "Cramique", "Croissant", "Baguette"]
 breads_tpic = ["food/bread/cougnou.jpg","food/bread/complete.jpg","food/bread/croissant.jpg","food/bread/baguette.jpg"]
 
-sandwich_t = ["John", "Luca", "Louisa","Big Poulet", "Brocoli soup", "DeliEggs"]
-sandwich_tpic = ["food/sandwich/cornichon.jpg","food/sandwich/roasted.jpg","food/sandwich/tomato.jpg","food/sandwich/salami.jpg","sandwich.jpg", "food/sandwich/salami.jpg" ]
+sandwich_t = ["John", "Luca", "Louisa","Big Poulet", "DeliEggs"]
+sandwich_tpic = ["food/sandwich/cornichon.jpg","food/sandwich/roasted.jpg","food/sandwich/tomato.jpg","food/sandwich/salami.jpg","sandwich.jpg"]
 
-christmas_t = ["chutney", "chocolate cake","cupcake", "gingerbread"]
+christmas_t = [I18n.t('seed.confiture'), I18n.t('seed.chocolat'),"cupcake", I18n.t('seed.pain-épi')]
 christmas_tpic = ["food/christmas/confiture.jpg","food/christmas/chocolate.jpg", "food/christmas/cupcake.jpg","food/christmas/cookies.jpg"]
 
 sushi_t = ["Lunch Box", "Sushi Box"]
 sushi_tpic = ["sushis1.jpg","sushis2.jpg"]
 
-pasta_t = ["Carbonara", "Bolognese"]
+pasta_t = ["Carbonara", I18n.t('seed.bolo')]
 pasta_tpic = ["carbo.jpg","bolo3.jpg"]
 
-soup_t = ["Brocoli soup", "Fish soup"]
+soup_t = [I18n.t('seed.broco'), I18n.t('seed.fish')]
 soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
 
 
@@ -90,7 +90,7 @@ soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
 
  shop_id = Shop.all.first.id + 2
  shop = Shop.find(shop_id)
- product_type = "Fruit"
+ product_type = "Fruits"
  for index in 0 ... fruits_t.size
     title = fruits_t[index]
     photo_url = fruits_tpic[index].to_s
@@ -120,7 +120,7 @@ soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
 
  shop_id = Shop.all.first.id + 2
  shop = Shop.find(shop_id)
- product_type = "Vegetable"
+ product_type = I18n.t('seed.légume')
  for index in 0 ... vegetables_t.size
     title = vegetables_t[index]
     photo_url = vegetables_tpic[index].to_s
@@ -149,7 +149,7 @@ soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
 
  shop_id = Shop.all.first.id + 1
  shop = Shop.find(shop_id)
- product_type = "Bread"
+ product_type = I18n.t('seed.pain')
  for index in 0 ... breads_t.size
     title = breads_t[index]
     photo_url = breads_tpic[index].to_s
@@ -179,7 +179,7 @@ soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
 
  shop_id = Shop.all.first.id + 2
  shop = Shop.find(shop_id)
- product_type = "Christmas"
+ product_type = I18n.t('seed.noel')
  for index in 0 ... christmas_t.size
     title = christmas_t[index]
     photo_url = christmas_tpic[index].to_s
@@ -242,7 +242,7 @@ shop_id = Shop.all.last.id - 1
 
  shop_id = Shop.all.last.id
  shop = Shop.find(shop_id)
- product_type = "Soup"
+ product_type = I18n.t('seed.soup')
  for index in 0 ... sushi_t.size
     title = soup_t[index]
     photo_url = soup_tpic[index].to_s
@@ -275,7 +275,7 @@ shop_id = Shop.all.last.id - 1
 
   shop_id = Shop.all.last.id
  shop = Shop.find(shop_id)
- product_type = "Pasta"
+ product_type = I18n.t('seed.pasta')
  for index in 0 ... sushi_t.size
     title = pasta_t[index]
     photo_url = pasta_tpic[index].to_s

@@ -1,15 +1,15 @@
 <div class="banner" style="background: url('<%= image_url('banner.jpg')%>'); background-size: cover !important;">
  <div class="banner-content">
-  <h1>Select <span class="green">deals</span> nearby</h1>
-  <p>Discounted products in your area</p>
+  <h1><%= t('promotions.slogan-1') %><span class="green"><%= t('promotions.slogan-2') %></span><%= t('promotions.slogan-3') %></h1>
+  <p><%= t('promotions.sous-slogan') %></p>
  </div>
 
  <div class="homepage-search">
   <form action="" method="get" class="form-inline">
    <div class="form-group">
-     <input type="text" id="current_location" name="address" class="form-control" placeholder="Insert your current location" aria-describedby="sizing-addon1">
+     <input type="text" id="current_location" name="address" class="form-control" placeholder=<%="#{t('promotions.location')}"%> aria-describedby="sizing-addon1">
    </div>
-    <button type="submit" id="localisation" class="btn btn-form">FIND DEALS</button>
+    <button type="submit" id="localisation" class="btn btn-form"><%= t('promotions.bouton') %></button>
   </form>
  </div>
 </div>
@@ -17,10 +17,10 @@
 
 <div class="container bottom">
  <% if @params_search %>
-   <h3 class="text-center bottom">Today <span class="green"><strong> <%= @shops.uniq.length  %></strong></span> shops are offering <span class="green"><strong> <%= @promotions.uniq.length  %> </strong></span> discounted products in your area </h3>
+   <h3 class="text-center bottom"><%=t('promotions.titre-1')%> <span class="green"><strong> <%= @shops.uniq.length  %></strong></span> <%=t('promotions.shops', count: @shops.uniq.length)%> <span class="green"><strong> <%= @promotions.uniq.length  %> </strong></span> <%=t('promotions.promos', count: @promotions.uniq.length)%> </h3>
  <% else %>
 
-  <h3 class="text-center bottom">Today <span class="green"><strong> <%= @shops.count * 134 %></strong></span> shops are offering <span class="green"><strong> <%= @promotions.count * 302 %> </strong></span> discounted products on Robin Food</h3>
+  <h3 class="text-center bottom"><%=t('promotions.titre-1')%> <span class="green"><strong> <%= @shops.count * 134 %></strong></span> <%=t('promotions.shops', count: @shops.count)%><span class="green"><strong> <%= @promotions.count * 302 %> </strong></span> <%=t('promotions.promos-2', count: @promotions.count)%></h3>
  <% end %>
  <div class="row">
  <% if @promotions.any? %>
@@ -45,7 +45,7 @@
      <% end %>
    <% end %>
    <% else %>
-     <h2 class="text-center bottom">Unfortunately, we were not able to find any promotion near your current location</h2>
+     <h2 class="text-center bottom"><%= t('promotions.unfortunately') %></h2>
    <% end %>
    </div>
 </div>

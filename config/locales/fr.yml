@@ -1,0 +1,103 @@
+fr:
+  home:
+    slogan: "Too good to waste"
+    sous-slogan: "Évitez le gaspillage. Économisez"
+    explication-1: "RobinFood.store a pour objectif de réduire le gaspillage alimentaire en connectant commerces de proximité et acheteurs"
+    explication-2: "Les commerces listent leurs produits approchant la date limite de vente"
+    explication-3:  "Notre communauté d'utilisateurs peut alors les commander à un prix réduit"
+    fonctionnement:  "Comment ça marche ?"
+    location: "Indiquez votre position"
+    choose: "Commandez"
+    pick-up: "Récupérez votre commande au magasin"
+    enjoy: "Bon appétit"
+
+  footer:
+    contact: "Pour plus d'info, contactez nous à l'adresse martin.bragard@robinfood.store"
+    about: "Info"
+    follow: "Suivez-nous"
+    description: "Robin Food a pour objectif de réduire le gaspillage alimentaire en connectant commerces de proximité et clients"
+
+  navigation:
+    partnership: "Devenir partenaire"
+    manage-products: "Gérer mes promotions"
+    orders: "Mes commandes"
+    sign_up: "S'inscrire"
+
+  inscription:
+    successful:
+    fail:
+
+  promotions:
+    slogan-1: "Selectionnez les"
+    slogan-2: " offres"
+    slogan-3: " à proximité"
+    sous-slogan: "Promotions proches de vous"
+    location: "Indiquez-votre-position-actuelle"
+    bouton: "RECHERCHE"
+    titre-1: "Aujourd'hui"
+    shops:
+      zero: "magasin propose"
+      one: "magasin propose"
+      other: "magasins proposent"
+    promos:
+      zero: 'produit en promotion proche de vous'
+      one: 'produit en promotion proche de vous'
+      other: 'produits en promotion proche de vous'
+    promos-2:
+      zero: 'produit en promotion sur RobinFood.store'
+      one: 'produit en promotion sur RobinFood.store'
+      other: 'produits en promotion sur RobinFood.store'
+    unfortunately: "Malheureusement, il n'y a pas de promotion active proche de votre position actuelle"
+
+  promo-show:
+    discount: "Réduction:"
+    price: "Prix/"
+    quantity: "Quantité"
+
+  orders:
+    thanks: 'Merci, vous pouvez désormais vous rendre chez '
+    pick-up: 'pour récupérer votre commande et générer votre '
+    present: "Veuillez présenter ce "
+    benefit: " pour profiter de cette promotion"
+    quantity: "Quantité"
+    price: "Prix"
+    generate: "Générer coupon"
+    enter-code: "Veuillez indiquer le code exposé au comptoir de "
+    confirm: "Confirmer commande"
+    edit: "Modifier"
+    myorders: "Mes commandes"
+    status:
+      tbc: "À confirmer"
+      booked: "Commandé"
+      picked-up: "Récupéré"
+
+  flash:
+    coupon-ok: "Promotion validée - Voici votre coupon"
+    coupon-fail: "Code Promotion Invalide!"
+    authorization: "Vous n'êtes pas autorisé à effectuer cette action"
+
+  seed:
+    légume: "Légumes"
+    pain: "Boulangerie"
+    noel: "Noël"
+    pasta: "Pâtes"
+    soup: "Soupe"
+    pomme: "Pommes Jonnagold"
+    orange: "Oranges de Valence"
+    poire: "Poires belges Doyen"
+    fraises: "Fraises de Wepion"
+    choux: "Choux"
+    celery: "Céleri"
+    courgette: "Courgettes"
+    salad: "Salade"
+    pdt: "Patates douces"
+    confiture: "Confiture"
+    chocolat: "Moelleux chocolat"
+    pain-épi: "Pain d'épice"
+    bolo: "Bolognaise"
+    broco: "Soupe de Brocoli"
+    fish: "Soupe de poisson"
+
+  helpers:
+    submit:
+       create: "Créer commande"

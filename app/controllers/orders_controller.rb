@@ -66,10 +66,10 @@ class OrdersController < ApplicationController
     if @order.promotion.digits_code == code
       @order.status = "Picked-up"
       @order.save!
-      flash[:notice] = "Promotion Validated - Here is your coupon"
+      flash[:notice] = t('flash.coupon-ok')
       redirect_to order_path(@order.id)
     else
-      flash[:alert] = "Invalid Promotion Code!"
+      flash[:alert] = t('flash.coupon-fail')
       redirect_to order_path(@order.id)
     end
 

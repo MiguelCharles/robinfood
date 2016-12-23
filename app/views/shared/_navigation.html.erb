@@ -18,28 +18,28 @@
         <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <li>
-            <%= link_to orders_path do %>
-              <%= t(".profile", default: "My orders") %>
+            <%= link_to orders_path, class: '.profile' do %>
+              <%= t('navigation.orders') %>
             <% end %>
           </li>
           <li>
             <% unless current_user.shops.empty? %>
               <%= link_to shop_promotions_path(current_user.shops.first.id) do %>
-               Manage my products
+              <%= t('navigation.manage-products') %>
               <% end %>
             <% end %>
           </li>
           <li>
             <% if current_user.shops.empty? %>
             <%= link_to new_shop_path, class: '.profile' do %>
-            Become a partner
+            <%= t('navigation.partnership') %>
               <% end %>
               <% end %>
           </li>
           <% else %>
              <li>
             <%= link_to new_shop_path, class: '.profile' do %>
-            Become a partner
+            <%= t('navigation.partnership') %>
               <% end %>
           </li>
           <% end %>
@@ -49,8 +49,8 @@
         <% end %>
           </li>
           <li>
-          <%= link_to new_user_registration_path, class: 'hidden-sm hidden-lg' do %>
-          <%= t(".sign_up", default: "Sign up")%>
+          <%= link_to new_user_registration_path, class: '.sign_up hidden-sm hidden-lg' do %>
+          <%= t('navigation.sign_up') %>
         <% end %>
           </li>
         </ul>
@@ -66,7 +66,7 @@
           <% end %>
       </div>
     <% else %>
-      <div style="margin-right:70px" class="pull-right hidden-xs ">
+      <div style="margin-right:80px" class="pull-right hidden-xs ">
 
         <%= link_to new_user_session_path, class: 'btn btn-link navbar-btn' do %>
           <%= t(".sign_in", default: "Login")%>
@@ -75,8 +75,8 @@
 
       </div>
       <div class="pull-right hidden-xs " style="color:rgb(148, 219, 70);">
-        <%= link_to new_user_registration_path, class: 'btn btn-link btn-success navbar-btn' do %>
-          <%= t(".sign_up", default: "Sign up")%>
+        <%= link_to new_user_registration_path, class: '.sign up btn btn-link btn-success navbar-btn' do %>
+          <%= t('navigation.sign_up') %>
         <% end %>
       </div>
        <% end %>

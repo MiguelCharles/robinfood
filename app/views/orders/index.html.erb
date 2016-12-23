@@ -1,6 +1,6 @@
 <div class="container top bottom">
   <%= link_to '', promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
-  <h1 class="text-center">My orders</h1>
+  <h1 class="text-center"><%= t('orders.myorders') %></h1>
   <% @orders.each do |order| %>
     <div class="row">
 
@@ -20,9 +20,15 @@
          <%= order.promotion.shop.name_of_the_store %>
          <% end %>
          <h3 class="bottom"><%= order.promotion.description %></h3>
-         <p>Quantity: <%= order.quantity_ordered %> <%= order.promotion.unit %></p>
-         <p>Price: <%= (order.promotion.price_after_promotion_per_unit * order.quantity_ordered).round(2) %> €</p>
-         <p>Status: <%= order.status %></p>
+         <p><%= t('orders.quantity') %>: <%= order.quantity_ordered %> <%= order.promotion.unit %></p>
+         <p><%= t('orders.price') %>: <%= (order.promotion.price_after_promotion_per_unit * order.quantity_ordered).round(2) %> €</p>
+         <p>Status: <% if order.status == "To be confirmed" %>
+                    <%= t('orders.status.tbc') %>
+                    <% elsif order.status == "Booked" %>
+                    <%= t('orders.status.booked') %>
+                    <% else %>
+                    <%= t('orders.status.picked-up') %>
+          <%end%></p>
        </div>
        </div>
 
@@ -31,14 +37,14 @@
         <div class="cart-edit text-center">
           <%= link_to promotion_path(order.promotion), class: 'btn-medium-confirm' do %>
             <i class="fa fa-lg fa-pencil-square-o"></i>
-            Edit
+            <%= t('orders.edit') %>
           <% end %>
         </div>
 
         <div class="cart-confirm text-center">
           <%= link_to order_path(order), class: "btn-medium-confirm" do %>
             <i class="fa fa-check"></i>
-            Confirm Order
+            <%= t('orders.confirm') %>
           <% end %>
         </div>
 
@@ -46,7 +52,7 @@
           <div class="cart-confirm text-center">
             <%= link_to order_path(order), class: 'btn-medium-confirm' do %>
               <i class="fa fa-check"></i>
-              Generate Coupon
+              <%= t('orders.generate') %>
             <% end %>
           </div>
         <% end %>

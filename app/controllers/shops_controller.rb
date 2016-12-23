@@ -59,7 +59,6 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy, :changestatus]
   def changestatus
     promo = Promotion.find(params[:promo_id])
     promo.change_status
-    promo.digits_code = 2432
     promo.save!
     redirect_to shop_promotions_path(@shop)
   end
