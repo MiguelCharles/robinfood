@@ -70,8 +70,26 @@ en:
       other: 'discounted products on RobinFood.store'
     unfortunately: "Unfortunately, we were not able to find any promotion near your current location"
 
+
   promo-show:
     discount: "Discount:"
     price: "Price per "
     quantity: "Quantity"
     bouton:
+
+  orders:
+    thanks: 'Thanks, go now at '
+    pick-up: 'to pick-up your order and generate your '
+    present: "Please present this "
+    benefit: " and benefits from the discount"
+    quantity: "Quantity"
+    price: "Price"
+    generate: "Generate coupon"
+    enter-code: "Please enter the code provided at the counter of "
+    confirm: "Confirm order"
+    edit: "Edit"
+
+  flash:
+    coupon-ok: "Promotion Validated - Here is your coupon"
+    coupon-fail: "Invalid Promotion Code!"
+    authorization: "You are not authorized to perform this action."

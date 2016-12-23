@@ -53,4 +53,24 @@ fr:
     discount: "Réduction:"
     price: "Prix/"
     quantity: "Quantité"
-    bouton:
+
+  orders:
+    thanks: 'Merci, vous pouvez désormais vous rendre chez '
+    pick-up: 'pour récupérer votre commande et générer votre '
+    present: "Veuillez présenter ce "
+    benefit: " pour profiter de cette promotion"
+    quantity: "Quantité"
+    price: "Prix"
+    generate: "Générer coupon"
+    enter-code: "Veuillez indiquer le code exposé au comptoir de "
+    confirm: "Confirmer commande"
+    edit: "Modifier"
+
+  flash:
+    coupon-ok: "Promotion validée - Voici votre coupon"
+    coupon-fail: "Code Promotion Invalide!"
+    authorization: "Vous n'êtes pas autorisé à effectuer cette action"
+
+  helpers:
+    submit:
+       create: "Créer commande"

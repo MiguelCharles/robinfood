@@ -3,9 +3,9 @@
 </div>
 <div class="row top">
       <% if @order.status == "Booked" %>
-        <h1 class="text-center bottom">Thanks! Go now at <%= @order.promotion.shop.name_of_the_store%> to pick-up your order and generate <span class="colorg">your coupon</span> </h1>
+        <h1 class="text-center bottom"><%= t('orders.thanks') %><%= @order.promotion.shop.name_of_the_store%> <%= t('orders.pick-up') %> <span class="colorg">coupon</span> </h1>
       <% else %>
-        <h1 class="text-center bottom">Please present this <span class="colorg">coupon</span> and benefits from the discount</h1>
+        <h1 class="text-center bottom"><%= t('orders.present') %><span class="colorg">coupon</span><%= t('orders.benefit') %></h1>
       <% end %>
       <div class="col-md-6 col-md-offset-3" style="border: dashed 2px whitesmoke;">
       <div class="text-center top bottom">
@@ -20,8 +20,8 @@
       <div class="resumed">
       <% end %>
       <p> <%= @order.promotion.description %> </p>
-      <p>Quantity: <%= @order.quantity_ordered %> <%= @order.promotion.unit %></p>
-      <p>Price: <%= (@order.promotion.price_after_promotion_per_unit * @order.quantity_ordered).round(2) %> €</p>
+      <p><%= t('orders.quantity') %>: <%= @order.quantity_ordered %> <%= @order.promotion.unit %></p>
+      <p><%= t('orders.price') %>: <%= (@order.promotion.price_after_promotion_per_unit * @order.quantity_ordered).round(2) %> €</p>
       </div>
       </div>
 
@@ -29,8 +29,8 @@
       <div class="text-center top">
         <%= simple_form_for :confirm, :url => confirm_order_path, :method => :post  do |f| %>
         <%= f.error_notification %>
-        <%= f.input :code, label: "Please enter the code provided at the counter of #{@order.promotion.shop.name_of_the_store}"%>
-        <%= f.button :submit,  "Generate Coupon", { :class=>"btn-medium fa fa-arrow-right top bottom" }  %>
+        <%= f.input :code, label: "#{t('orders.enter-code')} #{@order.promotion.shop.name_of_the_store}"%>
+        <%= f.button :submit,  t('orders.generate'), { :class=>"btn-medium fa fa-arrow-right top bottom" }  %>
         <div id="map" class="top" style="width: 100%; height: 600px;">
 
         <% content_for(:after_js) do %>
