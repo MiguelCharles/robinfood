@@ -102,6 +102,20 @@ fr:
     français: "Français"
     english: "English"
 
+  partner:
+    become: "Devenez partenaire"
+    slogan: "Augmentez vos revenus. Réduisez votre gaspillage. Attirez de nouveaux clients"
+    reduce: "Diminuez le gaspillage"
+    sell: "Vendez vos aliments plutôt que de les jeter"
+    attract: "Attirez de nouveaux clients"
+    visibility: "Soyez visible à une nouvelle communauté de consommateurs locaux"
+    increase: "Augmentez vos revenus"
+    with: "Grâce à plus de clients et moins de gaspillage"
+    partner: "Créer un partenariat"
+    notice: "Après l'envoi de ce questionnaire. Un membre de l'équipe RobinFood vous contactera dans les plus brefs délais"
+    flash: "Merci - Un membre de notre équipe vous contactera dans les plus brefs délais"
+
   helpers:
     submit:
        create: "Créer commande"
+       shop: "Envoyer"
