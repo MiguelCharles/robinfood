@@ -124,6 +124,7 @@ fr:
 
   simple_form:
     labels:
+      password: "Mot de passe"
       shop:
           name_of_the_store: "Nom du magasin"
           address: "Adresse"
@@ -133,3 +134,7 @@ fr:
           category: "Catégorie"
           description: "Description"
           phone_number: "Numéro de téléphone"
+
+  form_for:
+      labels:
+        password: "Mot de passe"

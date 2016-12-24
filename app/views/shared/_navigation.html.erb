@@ -55,11 +55,11 @@
           </li>
           <li>
           <% if I18n.locale == I18n.default_locale %>
-          <%= link_to pages_index_path, :locale=>'fr', class: '.sign_up hidden-sm hidden-lg' do %>
+          <%= link_to pages_index_path, class: '.sign_up hidden-sm hidden-lg' do %>
           <%= t('language.français') %>
             <% end %>
             <% else %>
-          <%= link_to pages_index_path, :locale=>'en', class: '.sign_up hidden-sm hidden-lg' do %>
+          <%= link_to pages_index_path, class: '.sign_up hidden-sm hidden-lg' do %>
           <%= t('language.english') %>
             <% end %>
             <% end %>
@@ -81,12 +81,12 @@
 
       <div style="margin-right:140px" class="pull-right hidden-xs ">
         <% if I18n.locale == I18n.default_locale %>
-          <%= link_to pages_index_path, :locale=>'fr', class: '.sign up btn btn-link btn-success navbar-btn' do %>
+          <%= link_to pages_index_path, class: '.sign up btn btn-link btn-success navbar-btn' do %>
           <%= t('language.français') %>
            <% end %>
 
     <% else %>
-      <%= link_to pages_index_path, :locale=>'en', class: '.sign up btn btn-link btn-success navbar-btn' do %>
+      <%= link_to pages_index_path, class: '.sign up btn btn-link btn-success navbar-btn' do %>
       <%= t('language.english')%>
       <% end %>
     <% end %>
