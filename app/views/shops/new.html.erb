@@ -1,8 +1,8 @@
 
 <div class="banner" style="background: url('<%= image_url('shop.jpg')%>'); background-size: cover !important;">
   <div class="banner-content">
-    <h1>Become a partner</h1>
-    <p>Increase your revenues by reducing food waste and attract new customers in your store</p>
+    <h1><%= t('partner.become') %></h1>
+    <p><%= t('partner.slogan') %></p>
   </div>
 </div>
 
@@ -10,24 +10,24 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
       <img src="http://img.freepik.com/free-icon/recycle-bin-interface-symbol_318-56523.jpg?size=338&amp;ext=jpg" width="103" height="93" alt="">
-      <h2>Reduce food waste</h2>
-      <p>Sell your food rather than throwing it away</p>
+      <h2><%=t('partner.reduce')%></h2>
+      <p><%=t('partner.sell')%></p>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <img src="http://www.tesradio.com/resources/client%20icon.png" width="103" height="93" alt="">
-      <h2>Attract new clients</h2>
-      <p>Be visible to a new community of local customers</p>
+      <h2><%=t('partner.attract')%></h2>
+      <p><%=t('partner.visibility')%></p>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <img src="https://image.freepik.com/free-icon/euro-banknotes-stack_318-56433.jpg" width="103" height="93" alt="">
-      <h2>Increase your revenues</h2>
-      <p>With more clients and less waste</p>
+      <h2><%=t('partner.increase')%></h2>
+      <p><%=t('partner.with')%></p>
     </div>
   </div>
 </div>
 
 <div class="text-center padded" id="newsletter">
-  <h2>Partner with us</h2>
-  <p>After you submit this form, a member of the Robin Food team will get in touch with you</p>
+  <h2><%=t('partner.partner')%></h2>
+  <p><%=t('partner.notice')%></p>
   <%= render 'form', shop: @shop %>
 </div>

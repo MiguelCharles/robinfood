@@ -23,6 +23,7 @@ en:
   home:
     slogan: "Too good to waste"
     sous-slogan: "Reduce food waste. Save money"
+    button: "Today's deal"
     explication-1: "RobinFood.store aims to reduce food waste by connecting local shops with nearby consumers."
     explication-2: "Shops & restaurants list their products approaching the sale deadline on our platform"
     explication-3:  "where our community can buy them a discount price."
@@ -99,6 +100,10 @@ en:
     coupon-fail: "Invalid Promotion Code!"
     authorization: "You are not authorized to perform this action."
 
+  language:
+    français: "Français"
+    english: "English"
+
   seed:
     légume: "Vegetables"
     pain: "Bread"
@@ -120,3 +125,16 @@ en:
     bolo: "Bolognese"
     broco: "Brocoli soup"
     fish: "Fish soup"
+
+  partner:
+    become: "Become a partner"
+    slogan: "Increase your revenues by reducing food waste and attract new customers in your store"
+    reduce: "Reduce food waste"
+    sell: "Sell your food rather than throwing it away"
+    attract: "Attract new clients"
+    visibility: "Be visible to a new community of local customers"
+    increase: "Increase your revenues"
+    with: "With more clients and less waste"
+    partner: "Partner with us"
+    notice: "After you submit this form, a member of the Robin Food team will get in touch with you"
+    flash: "Thanks - A member of our team will contact you soon"

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
 
-scope '(:locale)', locale: /fr/ do  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+scope '(:locale)', locale: /fr|en/ do  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 root to: 'pages#index'
 resources :users, except: [:index] do
 end
