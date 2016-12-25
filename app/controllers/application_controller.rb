@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
   end
 
+  def change_language
+  cookies[:language] = params[:language]
+
+  redirect_to :back
+  end
+
 private
   # override the devise helper to store the current location so we can
   # redirect to it after loggin in or out. This override makes signing in
