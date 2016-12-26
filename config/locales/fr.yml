@@ -149,6 +149,5 @@ fr:
           description: "Description"
           phone_number: "Numéro de téléphone"
 
-  form_for:
-      labels:
-        password: "Mot de passe"
+
+  password: "Mot de passe"
