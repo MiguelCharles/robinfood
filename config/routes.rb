@@ -11,7 +11,7 @@ scope '(:locale)', locale: /fr|en/ do  # For details on the DSL available within
 root to: 'pages#index'
 resources :users, except: [:index] do
 end
-
+get 'change_language/:language' => 'application_controller#change_language', as: 'change_language'
 resources :shops do
   get 'promotions', to: 'shops#promotions'
   put 'activation', to: 'shops#changestatus'

@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+I18n.locale = :fr || I18n.default_locale
 Order.destroy_all
 Promotion.destroy_all
 Shop.destroy_all
@@ -23,8 +23,8 @@ Shop.create(user_id: User.all.first.id, name_of_the_store: "Exki", photo_url: "e
 Rue du Marché aux Herbes", street_number: 93)
 Shop.create(user_id: User.all.first.id + 3, name_of_the_store: "Maison Dandoy", photo_url: "Dandoy.jpg", category:"Biscuiterie", description:"We want to manke your sense dance", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue au Beurre", street_number: 31)
 Shop.create(user_id: User.all.first.id + 4, name_of_the_store: "Chez Marcel", photo_url: "Marcel.jpg", category:"Grocery", description: "Votre boulanger de tradition qui aime le gout", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Ixelles", zip_code: 1050, address:"Avenue Louise", street_number: 200)
-Shop.create(user_id: User.all.last.id - 1, name_of_the_store: "Sushi Shop", photo_url: "sushishop.jpg.jpg", category:"Sushis", description: "Restaurant japonais", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Place du Grand Sablon", street_number: 10)
-Shop.create(user_id: User.all.last.id, name_of_the_store: "Eat & Drink", photo_url: "eatanddrink.jpg.jpg", category:"Sandwich & soup", description: "Best place for a hot lunch", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue des Colonies", street_number: 50)
+Shop.create(user_id: User.all.last.id - 1, name_of_the_store: "Sushi Shop", photo_url: "sushishop.jpg", category:"Sushis", description: "Restaurant japonais", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Place du Grand Sablon", street_number: 10)
+Shop.create(user_id: User.all.last.id, name_of_the_store: "Eat & Drink", photo_url: "eatanddrink.jpg", category:"Sandwich & soup", description: "Best place for a hot lunch", phone_number:"+32 56 33 23 47" ,VAT_number: "AZERTY", country:"Belgium", city:"Bruxelles", zip_code: 1000, address:"Rue des Colonies", street_number: 50)
 
 ingredients = ["Fruits", "#{I18n.t('seed.légume')}", "#{I18n.t('seed.pain')}", "#{I18n.t('seed.noel')}", "Sushis", "#{I18n.t('seed.pasta')}", "#{I18n.t('seed.soup')}"]
 

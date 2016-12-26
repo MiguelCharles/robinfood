@@ -28,6 +28,13 @@ fr:
     successful:
     fail:
 
+  shop:
+    promo-active: Produits de votre catalogue disponibles en promotion sur RobinFood actuellement"
+    no-promo: "Pas de promotion active pour le moment"
+    activation: "Produits de votre catalogue que vous pouvez activer sur RobinFood"
+    digicode: "Digicode de la promotion: "
+    upload: "Uploader nouveau produit"
+
   promotions:
     slogan-1: "Selectionnez les"
     slogan-2: " offres"
@@ -49,6 +56,13 @@ fr:
       one: 'produit en promotion sur RobinFood.store'
       other: 'produits en promotion sur RobinFood.store'
     unfortunately: "Malheureusement, il n'y a pas de promotion active proche de votre position actuelle"
+
+  promo-edit:
+    title: "Titre de votre promotion"
+    product: "Produits que vous voulez mettre en promotion"
+    initial: "Prix initial du produit "
+    after: "Prix après promotion du produit "
+    edit: "Modification de votre offre"
 
   promo-show:
     discount: "Réduction:"
@@ -135,6 +149,5 @@ fr:
           description: "Description"
           phone_number: "Numéro de téléphone"
 
-  form_for:
-      labels:
-        password: "Mot de passe"
+
+  password: "Mot de passe"

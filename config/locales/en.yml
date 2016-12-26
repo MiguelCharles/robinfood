@@ -49,6 +49,13 @@ en:
     successful:
     fail:
 
+  shop:
+    promo-active: "Products from your catalogue currently promoted with Robin Food"
+    no-promo: "No active promotion for the moment"
+    activation: "Products from your catalogue you can activate with Robin Food"
+    digicode: "Your digicode is"
+    upload: "Upload new product"
+
   promotions:
     slogan-1: "Select "
     slogan-2: "deals "
@@ -71,6 +78,12 @@ en:
       other: 'discounted products on RobinFood.store'
     unfortunately: "Unfortunately, we were not able to find any promotion near your current location"
 
+  promo-edit:
+    title: "Define title of your promotion"
+    product: "Select product you want to promote"
+    initial: "Provide the initial price of your product "
+    after: "Define the reduced price of your product "
+    edit: "Modify your offer"
 
   promo-show:
     discount: "Discount:"
