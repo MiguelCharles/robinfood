@@ -66,7 +66,7 @@ soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
  initial_price_per_unit = (4..6).to_a.sample
  discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
  p discount
- discount2 = 1 - discount[rand(0..6)]
+ discount2 = discount[rand(0..6)]
  p discount2
  price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  p initial_price_per_unit
@@ -99,7 +99,7 @@ soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (1..3).to_a.sample
  discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
- discount2 = 1 - discount[rand(0..6)]
+ discount2 = discount[rand(0..6)]
  price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
@@ -129,7 +129,7 @@ soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (2..5).to_a.sample
  discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
- discount2 = 1 - discount[rand(0..6)]
+ discount2 = discount[rand(0..6)]
  price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
@@ -158,7 +158,7 @@ soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (2..6).to_a.sample
  discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
- discount2 = 1 - discount[rand(0..6)]
+ discount2 = discount[rand(0..6)]
  price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
@@ -188,7 +188,7 @@ soup_tpic = ["soupe_verte.jpg","soupe_orange.jpg"]
  initial_quantity = (1..15).to_a.sample
  initial_price_per_unit = (3..7).to_a.sample
  discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
- discount2 = 1 - discount[rand(0..6)]
+ discount2 = discount[rand(0..6)]
  price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  Promotion.create(shop_id: shop_id,
  title: title,
@@ -218,7 +218,7 @@ shop_id = Shop.all.last.id - 1
  initial_price_per_unit = (10..15).to_a.sample
  discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
  p discount
- discount2 = 1 - discount[rand(0..6)]
+ discount2 = discount[rand(0..6)]
  p discount2
  price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  p initial_price_per_unit
@@ -252,7 +252,7 @@ shop_id = Shop.all.last.id - 1
  initial_price_per_unit = (3..6).to_a.sample
  discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
  p discount
- discount2 = 1 - discount[rand(0..6)]
+ discount2 = discount[rand(0..6)]
  p discount2
  price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  p initial_price_per_unit
@@ -285,7 +285,7 @@ shop_id = Shop.all.last.id - 1
  initial_price_per_unit = (8..12).to_a.sample
  discount = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
  p discount
- discount2 = 1 - discount[rand(0..6)]
+ discount2 = discount[rand(0..6)]
  p discount2
  price_after_promotion_per_unit = (initial_price_per_unit*(1- discount2)).to_f
  p initial_price_per_unit
