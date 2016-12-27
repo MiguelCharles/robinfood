@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    if policy(@order).show?
       @order = Order.find(params[:id])
       @order.status = "Booked" unless @order.status == "Picked-up"
       @order.save!
@@ -20,6 +21,8 @@ class OrdersController < ApplicationController
         marker.lat order.promotion.shop.latitude
         marker.lng order.promotion.shop.longitude
       end
+    end
+    authorize @order
   end
 
   def new
