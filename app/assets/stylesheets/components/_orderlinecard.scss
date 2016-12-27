@@ -22,6 +22,7 @@
     width: 100%;
     padding: 15px;
     font-weight: bold;
+    left: 0;
 }
 
 .resumed {
@@ -32,4 +33,12 @@
     width: 100%;
     padding: 15px;
     font-weight: bold;
+    left: 0;
 }
+
+form.simple_form.confirm {
+  position: relative;
+  bottom: -200px;
+}
+
+
