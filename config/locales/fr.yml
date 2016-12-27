@@ -23,6 +23,7 @@ fr:
     manage-products: "Gérer mes promotions"
     orders: "Mes commandes"
     sign_up: "S'inscrire"
+    about: "Qui nous sommes"
 
   inscription:
     successful:

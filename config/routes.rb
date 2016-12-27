@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
   get 'pages/index'
+  get 'pages/about'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
