@@ -41,6 +41,11 @@
               <% end %>
               <% end %>
           </li>
+          <li>
+            <%= link_to edit_user_path(current_user), class: '.profile' do %>
+              <%= t('navigation.edit-account') %>
+            <% end %>
+          </li>
           <% else %>
               <li>
             <%= link_to pages_about_path, class: '.profile' do %>

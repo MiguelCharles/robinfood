@@ -24,6 +24,7 @@ fr:
     orders: "Mes commandes"
     sign_up: "S'inscrire"
     about: "Qui nous sommes"
+    edit-account: "Edit my account"
 
   inscription:
     successful:
