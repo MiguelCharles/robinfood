@@ -152,3 +152,8 @@ en:
     partner: "Partner with us"
     notice: "After you submit this form, a member of the Robin Food team will get in touch with you"
     flash: "Thanks - A member of our team will contact you soon"
+
+  password:
+    new: "New password"
+    edit: "Change my password"
+    confirm: "Confirm new password"

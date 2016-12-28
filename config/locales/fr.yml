@@ -152,3 +152,6 @@ fr:
 
 
   password: "Mot de passe"
+  password-new: "Nouveau mot de passe"
+  password-edit: "Modifier mon mot de passe"
+  password-confirm: "Confirmer nouveau mot de passe"
