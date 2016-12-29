@@ -33,6 +33,9 @@ en:
     pick-up: "Pick-up order at the store"
     enjoy: "Enjoy your food"
 
+  user:
+    edit: "Modify your personal settings"
+
   footer:
     contact: "Contact us at martin.bragard@robinfood.store"
     about: "About"

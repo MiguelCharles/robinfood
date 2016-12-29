@@ -12,6 +12,9 @@ fr:
     pick-up: "Récupérez votre commande au magasin"
     enjoy: "Bon appétit"
 
+  user:
+    edit: "Modifier mes données personnelles"
+
   footer:
     contact: "Pour plus d'info, contactez nous à l'adresse martin.bragard@robinfood.store"
     about: "Info"
@@ -137,6 +140,8 @@ fr:
        create: "Créer commande"
        shop:
         create: "Créer partenariat"
+       user:
+        update: "modifier mes paramètres"
 
   simple_form:
     labels:
