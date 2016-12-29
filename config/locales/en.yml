@@ -33,6 +33,9 @@ en:
     pick-up: "Pick-up order at the store"
     enjoy: "Enjoy your food"
 
+  user:
+    edit: "Modify your personal settings"
+
   footer:
     contact: "Contact us at martin.bragard@robinfood.store"
     about: "About"
@@ -152,3 +155,8 @@ en:
     partner: "Partner with us"
     notice: "After you submit this form, a member of the Robin Food team will get in touch with you"
     flash: "Thanks - A member of our team will contact you soon"
+
+  password:
+    new: "New password"
+    edit: "Change my password"
+    confirm: "Confirm new password"

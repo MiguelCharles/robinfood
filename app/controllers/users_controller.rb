@@ -16,8 +16,14 @@ def edit
 end
 
 def update
-  @user.update(user_params)
-  redirect_to promotions_path
+ if @user == current_user
+    if @user.update(user_params)
+      @user.save!
+      redirect_to promotions_path
+    else
+      render :edit
+    end
+end
 end
 
 def destroy
