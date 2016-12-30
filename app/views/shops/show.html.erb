@@ -1,2 +1,41 @@
-<h1>Shops#show</h1>
-<p>Find me in app/views/shops/show.html.erb</p>
+<div class="container top">
+  <%= link_to '',promotions_path, { :class=>"btn-minim fa fa-arrow-left" } %>
+</div>
+  <div class="row top">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="banner-seller ">
+
+        <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
+        <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
+       <div class="profil-seller text-center">
+
+        <%= image_tag @shop.photo_url, { :class=>"avatar-large" } unless @shop.photo_url.nil?%><h4><strong><%= @shop.name_of_the_store %></strong></h4>
+        <%= @shop.category %>
+        <p class="text-center top"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= @shop.full_address  %></p>
+        <p class="text-center top"><i class="fa fa-phone-square fa-lg" aria-hidden="true"></i> <%= @shop.phone_number  %></p>
+        <p class="text-center top"><i > <%= @shop.description  %></i></p>
+      </div>
+      </div>
+    </div>
+  <div id="map" class="col-md-6 bottom" style="width: 100%; height: 300px;">
+
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            $(document).ready(function() {
+              var handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function() {
+                markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+                if (markers.length == 0) {
+                  handler.getMap().setZoom(2);
+                } else if (markers.length == 1) {
+                  handler.getMap().setZoom(14);
+                }
+              });
+            });
+          <% end %>
+        <% end %>
+  </div>
+
+  </div>
