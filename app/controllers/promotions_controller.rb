@@ -27,7 +27,8 @@ class PromotionsController < ApplicationController
       end
     else
       @shops = Shop.all
-      @promotions = Promotion.where(promotion_status: true).where("validity >= :time", time: Time.now).order(:validity)
+      time = Time.now
+      @promotions = Promotion.where(promotion_status: true).where("validity >?",time).order(:validity)
     end
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude

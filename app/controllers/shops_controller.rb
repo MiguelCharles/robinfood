@@ -44,13 +44,13 @@ before_action :set_shop, only: [:show, :edit, :update, :destroy, :changestatus]
     end
     @promotions_active = []
     @promotions.map do |prom|
-      if prom.promotion_status == true
+      if (prom.promotion_status == true && prom.validity > Time.now)
         @promotions_active << prom unless prom.nil?
       end
     end
      @promotions_inactive = []
      @promotions.each do |prom|
-     if prom.promotion_status == false
+     if (prom.promotion_status == false || prom.validity < Time.now)
         @promotions_inactive << prom unless prom.nil?
       end
      end
