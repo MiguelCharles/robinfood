@@ -19,6 +19,7 @@ def update
  if @user == current_user
     if @user.update(user_params)
       @user.save!
+      flash[:notice] = t('flash.edit-user')
       redirect_to promotions_path
     else
       render :edit
@@ -33,7 +34,7 @@ end
 private
 
 def user_params
-  params.require(:params).permit(:username, :email, :password, :address)
+  params.require(:user).permit(:username, :email, :password, :address)
 end
 
 def set_user

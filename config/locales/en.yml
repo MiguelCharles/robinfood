@@ -116,6 +116,7 @@ en:
     coupon-ok: "Promotion Validated - Here is your coupon"
     coupon-fail: "Invalid Promotion Code!"
     authorization: "You are not authorized to perform this action."
+    edit-user: "Your data have been modified"
 
   language:
     français: "Français"

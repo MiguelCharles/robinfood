@@ -95,6 +95,7 @@ fr:
     coupon-ok: "Promotion validée - Voici votre coupon"
     coupon-fail: "Code Promotion Invalide!"
     authorization: "Vous n'êtes pas autorisé à effectuer cette action"
+    edit-user: "Vos données ont été modifiées"
 
   seed:
     légume: "Légumes"
