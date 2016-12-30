@@ -6,7 +6,7 @@
  <div class="homepage-search">
   <form action="" method="get" class="form-inline">
    <div class="form-group">
-     <input type="text" id="current_location" name="address" class="form-control" placeholder=<%="#{t('promotions.location')}"%> aria-describedby="sizing-addon1">
+     <input type="text" id="current_location" name="address" class="form-control" placeholder=<%="#{t('shop.location')}"%> aria-describedby="sizing-addon1">
    </div>
     <button type="submit" id="localisation" class="btn btn-form"><%= t('shop.bouton') %></button>
   </form>
@@ -16,10 +16,10 @@
 
 <div class="container bottom">
  <% if @params_search %>
-   <h3 class="text-center bottom"><%=t('promotions.titre-1')%> <span class="green"><strong> <%= @shops.uniq.length  %></strong></span> <%=t('promotions.shops', count: @shops.uniq.length)%> <span class="green"></h3>
+   <h3 class="text-center bottom"><span class="green"><strong> <%= @shops.uniq.length  %></strong></span> <%=t('shop.nearby', count: @shops.uniq.length)%> <span class="green"></h3>
  <% else %>
 
-  <h3 class="text-center bottom"><%=t('promotions.titre-1')%> <span class="green"><strong> <%= @shops.count * 134 %></strong></span> <%=t('promotions.shops', count: @shops.count)%><span class="green"></h3>
+  <h3 class="text-center bottom"><span class="green"><strong> <%= @shops.count * 134 %></strong></span> <%=t('shop.partner', count: @shops.count)%><span class="green"></h3>
  <% end %>
  <div class="row">
  <% if @shops.any? %>
@@ -30,8 +30,7 @@
        <div class="thumbnail">
          <%= image_tag shop.photo_url, { :class=>"thumbnail-img" } unless shop.photo_url.nil?%>
          <div class="caption">
-           <h4><%= shop.name_of_the_store %></h4>
-           <h5><strong><%=  shop.description%></strong></h5>
+           <h5><strong><i class="fa fa-map-marker fa-lg" aria-hidden="true"> </i> <%= shop.address %></strong></h5>
            <p class="promo-title"><%= shop.category %></p>
          </div>
        </div>
@@ -42,7 +41,7 @@
      <% end %>
    <% end %>
    <% else %>
-     <h2 class="text-center bottom"><%= t('promotions.unfortunately') %></h2>
+     <h2 class="text-center bottom"><%= t('shop.no-partner') %></h2>
    <% end %>
    </div>
 </div>

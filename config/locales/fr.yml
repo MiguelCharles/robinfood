@@ -42,6 +42,10 @@ fr:
     index-1: "Nos"
     index-2: " Partenaires"
     bouton: "Recherche"
+    location: "Trouvez-les-magasins-à-proximité"
+    partner: "magasins et restaurants sont partenaires de RobinFood"
+    nearby: "magasins et restaurants partenaires de RobinFood se trouvent dans votre région"
+    no-partner: "Malheureusement, il n'y a pas de magasin partenaire à proximité de votre position actuelle"
 
   promotions:
     slogan-1: "Selectionnez les"

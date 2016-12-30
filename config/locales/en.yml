@@ -62,6 +62,10 @@ en:
     index-1: "Our existing"
     index-2: " partners"
     bouton: "Find shops"
+    location: "Find-shops-nearby"
+    partner: "RobinFood's partners"
+    nearby: "RobinFood's partners near your current position"
+    no-partner: "Unfortunately, we were not able to find any shop or restaurant near your current location"
 
   promotions:
     slogan-1: "Select "
