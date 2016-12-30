@@ -1,6 +1,6 @@
 .banner {
   text-align: center;
-  height: 90vh;
+  height: 80vh;
   width: 100%;
   max-height: 720px;
   display: flex;
@@ -9,6 +9,8 @@
   background-size: cover !important;
   position: relative;
 }
+
+
 .banner h1 {
   font-size: 50px;
   font-weight: $font-weight-bold;

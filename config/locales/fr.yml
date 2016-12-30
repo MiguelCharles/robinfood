@@ -39,6 +39,9 @@ fr:
     activation: "Produits de votre catalogue que vous pouvez activer sur RobinFood"
     digicode: "Digicode de la promotion: "
     upload: "Uploader nouveau produit"
+    index-1: "Nos"
+    index-2: " Partenaires"
+    bouton: "Recherche"
 
   promotions:
     slogan-1: "Selectionnez les"

@@ -59,6 +59,9 @@ en:
     activation: "Products from your catalogue you can activate with Robin Food"
     digicode: "Your digicode is: "
     upload: "Upload new product"
+    index-1: "Our existing"
+    index-2: " partners"
+    bouton: "Find shops"
 
   promotions:
     slogan-1: "Select "

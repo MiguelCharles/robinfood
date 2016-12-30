@@ -1,2 +1,49 @@
-<h1>Shops#index</h1>
-<p>Find me in app/views/shops/index.html.erb</p>
+<div class="banner" style="background: url('<%= image_url('shop-cover.jpg')%>'); background-size: cover !important;">
+ <div class="banner-content">
+  <h1><%= t('shop.index-1') %><span class="green"><%= t('shop.index-2') %></span></h1>
+ </div>
+
+ <div class="homepage-search">
+  <form action="" method="get" class="form-inline">
+   <div class="form-group">
+     <input type="text" id="current_location" name="address" class="form-control" placeholder=<%="#{t('promotions.location')}"%> aria-describedby="sizing-addon1">
+   </div>
+    <button type="submit" id="localisation" class="btn btn-form"><%= t('shop.bouton') %></button>
+  </form>
+ </div>
+</div>
+
+
+<div class="container bottom">
+ <% if @params_search %>
+   <h3 class="text-center bottom"><%=t('promotions.titre-1')%> <span class="green"><strong> <%= @shops.uniq.length  %></strong></span> <%=t('promotions.shops', count: @shops.uniq.length)%> <span class="green"></h3>
+ <% else %>
+
+  <h3 class="text-center bottom"><%=t('promotions.titre-1')%> <span class="green"><strong> <%= @shops.count * 134 %></strong></span> <%=t('promotions.shops', count: @shops.count)%><span class="green"></h3>
+ <% end %>
+ <div class="row">
+ <% if @shops.any? %>
+   <% @shops.each_with_index do |shop, index| %>
+     <div class ="col-xs-12 col-md-4">
+       <p class="promo-validity text-center"> <%= shop.name_of_the_store %></p>
+       <%= link_to shop_path(shop) do %>
+       <div class="thumbnail">
+         <%= image_tag shop.photo_url, { :class=>"thumbnail-img" } unless shop.photo_url.nil?%>
+         <div class="caption">
+           <h4><%= shop.name_of_the_store %></h4>
+           <h5><strong><%=  shop.description%></strong></h5>
+           <p class="promo-title"><%= shop.category %></p>
+         </div>
+       </div>
+       <%end%>
+     </div>
+     <% if index.odd?%>
+     <!--<div class="clearfix"></div>-->
+     <% end %>
+   <% end %>
+   <% else %>
+     <h2 class="text-center bottom"><%= t('promotions.unfortunately') %></h2>
+   <% end %>
+   </div>
+</div>
+
