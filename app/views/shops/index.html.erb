@@ -30,7 +30,7 @@
        <div class="thumbnail">
          <%= image_tag shop.photo_url, { :class=>"thumbnail-img" } unless shop.photo_url.nil?%>
          <div class="caption">
-           <h5><strong><i class="fa fa-map-marker fa-lg" aria-hidden="true"> </i> <%= shop.address %></strong></h5>
+           <h5><strong><i class="fa fa-map-marker fa-lg" aria-hidden="true"> </i> <%= shop.street_number %> <%= shop.address %> <%= shop.zip_code %> <%= shop.city %></strong></h5>
            <p class="promo-title"><%= shop.category %></p>
          </div>
        </div>
