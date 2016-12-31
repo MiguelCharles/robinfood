@@ -70,10 +70,12 @@
           <li>
           <% if I18n.locale == I18n.default_locale %>
           <%= link_to url_for( :locale => 'fr' ) , class: '.sign_up hidden-sm hidden-lg' do %>
+          <%= flag_icon(:fr) %>
           <%= t('language.français') %>
             <% end %>
             <% else %>
           <%= link_to url_for( :locale => 'en' ), class: '.sign_up hidden-sm hidden-lg' do %>
+          <%= flag_icon(:gb) %>
           <%= t('language.english') %>
             <% end %>
             <% end %>
@@ -108,11 +110,13 @@
       <div style="margin-right:140px" class="pull-right hidden-xs ">
         <% if I18n.locale == I18n.default_locale %>
           <%= link_to url_for( :locale => 'fr' ), class: '.sign up btn btn-link btn-success navbar-btn' do %>
+          <%= flag_icon(:fr) %>
           <%= t('language.français') %>
            <% end %>
 
         <% else %>
           <%= link_to url_for( :locale => 'en' ), class: '.sign up btn btn-link btn-success navbar-btn' do %>
+          <%= flag_icon(:gb) %>
           <%= t('language.english')%>
           <% end %>
         <% end %>

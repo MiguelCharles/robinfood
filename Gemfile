@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pundit'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'flag-icons-rails'
 gem 'omniauth-facebook'
 gem 'simple_form'
 gem 'figaro'
