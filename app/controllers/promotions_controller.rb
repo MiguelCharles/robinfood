@@ -23,12 +23,12 @@ class PromotionsController < ApplicationController
       @ids = @shops.to_a.map(&:id).uniq
       @promotions = @shops.any? ? Promotion.where(shop_id: @ids) : []
       unless @promotions.empty?
-        @promotions = @promotions.where(promotion_status: true)
+        @promotions = @promotions.where(promotion_status: true).where('validity >= ?', Time.now)
       end
     else
       @shops = Shop.all
       time = Time.now
-      @promotions = Promotion.where(promotion_status: true).order(:validity)
+      @promotions = Promotion.where(promotion_status: true).where('validity >= ?', Time.now).order(:validity)
     end
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude
