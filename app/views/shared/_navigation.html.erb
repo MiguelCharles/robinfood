@@ -16,12 +16,12 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-        <% if user_signed_in? %>
-            <li>
+          <li>
             <%= link_to pages_about_path, class: '.profile' do %>
               <%= t('navigation.about') %>
             <% end %>
           </li>
+        <% if user_signed_in? %>
           <li>
             <%= link_to orders_path, class: '.profile' do %>
               <%= t('navigation.orders') %>
@@ -47,11 +47,6 @@
             <% end %>
           </li>
           <% else %>
-              <li>
-            <%= link_to pages_about_path, class: '.profile' do %>
-              <%= t('navigation.about') %>
-            <% end %>
-              </li>
              <li>
             <%= link_to new_shop_path, class: '.profile' do %>
             <%= t('navigation.partnership') %>
@@ -67,7 +62,8 @@
           <%= t('navigation.sign_up') %>
         <% end %>
           </li>
-          <li>
+          <% end %>
+        <li>
           <% if I18n.locale == I18n.default_locale %>
           <%= link_to url_for( :locale => 'fr' ) , class: '.sign_up hidden-sm hidden-lg' do %>
           <%= flag_icon(:fr) %>
@@ -81,7 +77,6 @@
             <% end %>
           </li>
         </ul>
-        <% end %>
       </div>
       <div class="pull-right">
       <% if user_signed_in? %>
@@ -95,11 +90,13 @@
           <div style="margin-right:80px" class="pull-right hidden-xs ">
             <% if I18n.locale == I18n.default_locale %>
             <%= link_to url_for( :locale => 'fr' ), class: '.sign up btn btn-link btn-success navbar-btn' do %>
+            <%= flag_icon(:fr) %>
             <%= t('language.français') %>
               <% end %>
 
             <% else %>
             <%= link_to url_for( :locale => 'en' ), class: '.sign up btn btn-link btn-success navbar-btn' do %>
+              <%= flag_icon(:gb) %>
               <%= t('language.english')%>
             <% end %>
         <% end %>
