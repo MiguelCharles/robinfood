@@ -48,6 +48,7 @@ en:
     orders: "My orders"
     sign_up: "Sign up"
     about: "About us"
+    sign-out: "Log out"
 
   inscription:
     successful:
