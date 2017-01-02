@@ -11,7 +11,7 @@ Promotion.destroy_all
 Shop.destroy_all
 User.destroy_all
 
-User.create(username:"Exki", email:"admin@exki.com", password:"123456", address: "Bruxelles", facebook_picture_url: "exki.jpg")
+User.create(username:"Exki", email:"admin@exki.com", password:"123456", address: "Bruxelles", facebook_picture_url: "http://res.cloudinary.com/desy3o0oh/image/upload/c_fill,w_300/v1483364163/exkigp_rmrkbz.png")
 User.create(username:"François", email:"francois@gmail.com", password:"123456" , address: "Louvain-La-Neuve", facebook_picture_url:"user/francois2.jpg")
 User.create(username:"Martin",email:"martin.bragard@robinfood.store", password:"123456", address: "Liège", facebook_picture_url:"user/MartinB.jpg", admin: true)
 User.create(username:"Dandoy",email:"admin@dandoy.com", password:"123456" , address: "Anderlecht", facebook_picture_url:"MaisonDandoy.jpg")
@@ -30,7 +30,6 @@ ingredients = ["Fruits", "#{I18n.t('seed.légume')}", "#{I18n.t('seed.pain')}", 
 
 fruits_t = [I18n.t('seed.pomme'), I18n.t('seed.orange'), I18n.t('seed.poire'), I18n.t('seed.fraises')]
 fruits_tpic = ["food/fruits/apple.jpg","food/fruits/orange.jpg", "food/fruits/night.jpg","food/fruits/strawberry.jpg"]
-
 
 vegetables_t = [I18n.t('seed.choux'), I18n.t('seed.celery'), I18n.t('seed.courgette'), I18n.t('seed.salad'), I18n.t('seed.pdt')]
 vegetables_tpic = ["food/vegetables/potatoes.jpg","food/vegetables/celery.jpg", "food/vegetables/zuchini.jpg", "food/vegetables/salad.jpg","food/vegetables/sweet-potatoe.jpg"]

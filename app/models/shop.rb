@@ -8,6 +8,7 @@ class Shop < ApplicationRecord
   after_validation :geocode
 
   after_create :send_confirmation_email
+  mount_uploader :photo_url, PhotoUploader
 
   def full_address
     "#{address}, #{street_number} #{zip_code} #{city} #{country}"
