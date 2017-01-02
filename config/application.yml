@@ -15,3 +15,5 @@ POSTMARK_API_TOKEN:       "3638de78-9885-441d-b38d-3f3d2f94592c"
 GMAIL_DOMAIN: "gmail.com"
 GMAIL_USERNAME: "robinfood.help@gmail.com"
 GMAIL_PASSWORD: "haktabuysqwutjbj"
+
+CLOUDINARY_URL: "cloudinary://813987955664285:t5Q0SNzCvd_l_zfhh5l1A2KszmI@desy3o0oh"
