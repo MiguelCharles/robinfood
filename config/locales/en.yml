@@ -48,6 +48,7 @@ en:
     orders: "My orders"
     sign_up: "Sign up"
     about: "About us"
+    sign-out: "Log out"
 
   inscription:
     successful:
@@ -95,6 +96,7 @@ en:
     initial: "Provide the initial price of your product "
     after: "Define the reduced price of your product "
     edit: "Modify your offer"
+    picture: "Picture"
 
   promo-show:
     discount: "Discount:"

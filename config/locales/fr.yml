@@ -28,6 +28,7 @@ fr:
     sign_up: "S'inscrire"
     about: "Qui nous sommes"
     edit-account: "Edit my account"
+    sign-out: "Déconnexion"
 
   inscription:
     successful:
@@ -75,6 +76,7 @@ fr:
     initial: "Prix initial du produit "
     after: "Prix après promotion du produit "
     edit: "Modification de votre offre"
+    picture: "Photo"
 
   promo-show:
     discount: "Réduction:"

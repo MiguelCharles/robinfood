@@ -46,6 +46,11 @@
               <%= t('navigation.edit-account') %>
             <% end %>
           </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'hidden-mg hidden-lg' do %>
+              <%= t('navigation.sign-out') %>
+          <% end %>
+          </li>
           <% else %>
              <li>
             <%= link_to new_shop_path, class: '.profile' do %>
@@ -80,14 +85,12 @@
       </div>
       <div class="pull-right">
       <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-link navbar-btn' do %>
-            <% if current_user.facebook_picture_url %>
-              <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
-            <% else  %>
-              <i class="fa fa-2x fa-user-circle-o"></i>
-            <% end %>
+        <div class="pull-right hidden-xs ">
+        <%= link_to destroy_user_session_path, method: :delete, class: '.sign up btn btn-link btn-success navbar-btn' do %>
+            <%= t('navigation.sign-out') %>
           <% end %>
-          <div style="margin-right:80px" class="pull-right hidden-xs ">
+        </div>
+          <div style="margin-right:100px" class="pull-right hidden-xs ">
             <% if I18n.locale == I18n.default_locale %>
             <%= link_to url_for( :locale => 'fr' ), class: '.sign up btn btn-link btn-success navbar-btn' do %>
             <%= flag_icon(:fr) %>
@@ -101,6 +104,14 @@
             <% end %>
         <% end %>
     </div>
+        <div style="margin-right:220px" class="pull-right hidden-xs ">
+          <% if current_user.facebook_picture_url %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
+          <% else  %>
+          <i class="fa fa-2x fa-user-circle-o"></i>
+          <% end %>
+        </div>
+
       </div>
     <% else %>
 

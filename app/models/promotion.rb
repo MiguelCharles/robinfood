@@ -2,6 +2,7 @@ class Promotion < ApplicationRecord
   belongs_to :shop
   has_many :orders
   validates :shop, presence: true
+  mount_uploader :photo_url, PhotoUploader
   # geocoded_by :address
   # after_validation :geocode
 
