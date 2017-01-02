@@ -18,6 +18,8 @@
     <%= promo.input :initial_price_per_unit, label:t('promo-edit.initial'), placeholder:"3€" %>
     <%= promo.input :price_after_promotion_per_unit, label:t('promo-edit.after'), placeholder:"2€" %>
     <%= promo.input :validity, as: :datetime_picker %>
+    <%= promo.file_field :photo_url, label:t('promo-edit.picture') %>
+    <%= promo.hidden_field :photo_url_cache, as: :hidden %>
   </div>
 
   <div class="form-actions text-center">

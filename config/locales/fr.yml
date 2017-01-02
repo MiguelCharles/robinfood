@@ -76,6 +76,7 @@ fr:
     initial: "Prix initial du produit "
     after: "Prix après promotion du produit "
     edit: "Modification de votre offre"
+    picture: "Photo"
 
   promo-show:
     discount: "Réduction:"

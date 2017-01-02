@@ -11,7 +11,6 @@ class User < ApplicationRecord
   # validates :address, presence: true
 
   has_many :shops
-  mount_uploader :facebook_picture_url, PhotoUploader
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

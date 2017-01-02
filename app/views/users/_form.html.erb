@@ -9,6 +9,8 @@
         <%= s.input :username %>
         <%= s.input :email %>
         <%= s.input :password %>
+        <%= s.file_field :photo_url, label:t('promo-edit.picture') %>
+        <%= s.hidden_field :photo_url_cache, as: :hidden %>
         </div>
         <%= s.submit class: 'btn btn-primary' %>
       <% end %>
