@@ -36,7 +36,9 @@
        <p class="promo-validity inactive text-center"> <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i> <%= distance_of_time_in_words(promo.validity - Time.now) %></p>
        <%= link_to promotion_path(promo) do %>
        <div class="thumbnail">
-         <%= cl_image_tag promo.photo_url, { :class=>"thumbnail-img" } unless promo.photo_url.nil?%>
+          <div class="thumbnail-img">
+         <%= cl_image_tag(promo.photo_url,:height=>210, :width=>340,crop: :fill) unless promo.photo_url.nil?%>
+          </div>
          <div class="caption">
            <h5><strong><%= promo.description%></strong></h5>
            <p class="promo-discount">- <%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
