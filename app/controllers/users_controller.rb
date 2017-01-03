@@ -34,7 +34,7 @@ end
 private
 
 def user_params
-  params.require(:user).permit(:username, :email, :password, :address)
+  params.require(:user).permit(:username, :email, :password, :address, :facebook_picture_url, :facebook_picture_url_cache)
 end
 
 def set_user

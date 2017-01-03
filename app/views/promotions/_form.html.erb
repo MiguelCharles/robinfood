@@ -17,8 +17,9 @@
     <%= promo.input :description, label: t('promo-edit.product'), placeholder:"E.g : Sandwich Nordic"%>
     <%= promo.input :initial_price_per_unit, label:t('promo-edit.initial'), placeholder:"3€" %>
     <%= promo.input :price_after_promotion_per_unit, label:t('promo-edit.after'), placeholder:"2€" %>
-    <%= promo.input :validity, as: :datetime_picker %>
-    <%= promo.file_field :photo_url, label:t('promo-edit.picture') %>
+    <%= promo.input :validity, label:t('promo-edit.validity'), as: :datetime_picker %>
+    <strong><%= t('promo-edit.picture') %></strong>
+    <%= promo.file_field :photo_url %>
     <%= promo.hidden_field :photo_url_cache, as: :hidden %>
   </div>
 

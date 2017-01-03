@@ -28,7 +28,9 @@
        <p class="promo-validity text-center"> <%= shop.name_of_the_store %></p>
        <%= link_to shop_path(shop) do %>
        <div class="thumbnail">
-         <%= image_tag shop.photo_url, { :class=>"thumbnail-img" } unless shop.photo_url.nil?%>
+          <div class="thumbnail-img">
+         <%= cl_image_tag(shop.user.facebook_picture_url,:height=>210, :width=>340,crop: :fill) unless shop.user.facebook_picture_url.nil?%>
+          </div>
          <div class="caption">
            <h5><strong><i class="fa fa-map-marker fa-lg" aria-hidden="true"> </i> <%= shop.street_number %> <%= shop.address %> <%= shop.zip_code %> <%= shop.city %></strong></h5>
            <p class="promo-title"><%= shop.category %></p>

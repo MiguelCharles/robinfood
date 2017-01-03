@@ -97,6 +97,7 @@ en:
     after: "Define the reduced price of your product "
     edit: "Modify your offer"
     picture: "Picture"
+    validity: "Validity"
 
   promo-show:
     discount: "Discount:"
