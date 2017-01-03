@@ -106,7 +106,7 @@
     </div>
         <div style="margin-right:220px" class="pull-right hidden-xs ">
           <% if current_user.facebook_picture_url %>
-          <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
+          <%= cl_image_tag current_user.facebook_picture_url, class: "avatar" %>
           <% else  %>
           <i class="fa fa-2x fa-user-circle-o"></i>
           <% end %>
