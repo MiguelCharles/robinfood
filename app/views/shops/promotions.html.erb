@@ -9,7 +9,9 @@
        <p class="text-center"><%= t('shop.digicode') %><strong><%= promo.digits_code %></strong></p>
        <%= link_to promotion_path(promo) do %>
        <div class="thumbnail">
-         <%= image_tag promo.photo_url, { :class=>"thumbnail-img" } unless promo.photo_url.nil?%>
+         <div class="thumbnail-img">
+         <%= cl_image_tag(promo.photo_url,:height=>210, :width=>340,crop: :fill) unless promo.photo_url.nil?%>
+          </div>
          <div class="caption">
            <h5><strong><%= promo.description%></strong></h5>
            <p class="promo-discount">- <%= ((1-(promo.price_after_promotion_per_unit.to_f/promo.initial_price_per_unit.to_f))*100).round %> %</p>
