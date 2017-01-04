@@ -16,23 +16,33 @@ class PromotionsController < ApplicationController
 
   def index
     @params_search = false
-    if params[:address]
+    if params[:address] # Retrieve geographically close promotions
       @params_search = true
       @address = params[:address]
-      @shops = Shop.near(@address, 10).joins(:promotions)
+      shops = category_filter()
+      @shops = shops.near(@address, 10).joins(:promotions)
       @ids = @shops.to_a.map(&:id).uniq
       @promotions = @shops.any? ? Promotion.where(shop_id: @ids) : []
       unless @promotions.empty?
         @promotions = @promotions.where(promotion_status: true).where('validity >= ?', Time.now)
       end
-    else
-      @shops = Shop.all
+
+    else # No address filled in
+      @shops = category_filter()
       time = Time.now
-      @promotions = Promotion.where(promotion_status: true).where('validity >= ?', Time.now).order(:validity)
+      shops_ids = @shops.to_a.map(&:id).uniq
+      @promotions = @shops.any? ? Promotion.where(shop_id: @ids) : []
+      @promotions = Promotion.where("shop_id in (?)", shops_ids).where(promotion_status: true).where('validity >= ?', Time.now).order(:validity)
     end
+
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude
       marker.lng shop.longitude
+    end
+
+    respond_to do |format| # Pour gérer les requêtes AJAX en js
+        format.js {}
+        format.html
     end
   end
 
@@ -98,6 +108,17 @@ end
 
 
   private
+
+  def category_filter # Filter shops based on category
+    if (params[:shop] && params[:shop][:category] && Shop.all.collect(&:category).include?(params[:shop][:category]))
+      shops = Shop.where('category like ?', params[:shop][:category])
+      @default_filter = params[:shop][:category]
+    else
+      shops = Shop.all
+      @default_filter = 'All'
+    end
+    return shops
+  end
 
   def set_promotion
     @promotion = Promotion.find(params[:id])

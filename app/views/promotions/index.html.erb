@@ -11,6 +11,7 @@
    </div>
     <button type="submit" id="localisation" class="btn btn-form"><%= t('promotions.bouton') %></button>
   </form>
+
  </div>
 </div>
 
@@ -20,9 +21,15 @@
    <h3 class="text-center bottom"><%=t('promotions.titre-1')%> <span class="green"><strong> <%= @shops.uniq.length  %></strong></span> <%=t('promotions.shops', count: @shops.uniq.length)%> <span class="green"><strong> <%= @promotions.uniq.length  %> </strong></span> <%=t('promotions.promos', count: @promotions.uniq.length)%> </h3>
  <% else %>
 
-  <h3 class="text-center bottom"><%=t('promotions.titre-1')%> <span class="green"><strong> <%= @shops.count * 134 %></strong></span> <%=t('promotions.shops', count: @shops.count)%><span class="green"><strong> <%= @promotions.count * 302 %> </strong></span> <%=t('promotions.promos-2', count: @promotions.count)%></h3>
+  <h3 class="text-center bottom"><%=t('promotions.titre-1')%> <span class="green"><strong> <%= @shops.uniq.length  %></strong></span> <%=t('promotions.shops', count: @shops.uniq.length)%><span class="green"><strong> <%= @promotions.uniq.length %> </strong></span> <%=t('promotions.promos-2', count: @promotions.count)%></h3>
  <% end %>
- <div class="row">
+ <!-- Filtre qui fait une requête AJAX pour montrer les promos d'une catégorie -->
+ <%= form_tag('/promotions', method: 'get', :remote=> true, :id => 'cat_filter') do %>
+    <%= select("shop", "category", Shop.all.collect(&:category) + ["All"],{:selected => @default_filter},{:onchange => "$.ajax({type:'GET',url: '/promotions', data: $('#cat_filter').serialize(), success: function(data){}});",:class=>"selectpicker"}) %>
+ <% end %>
+
+ 
+ <div class="row" id="promo_list">
  <% if @promotions.any? %>
    <% @promotions.each_with_index do |promo, index| %>
      <div class ="col-xs-12 col-md-4">

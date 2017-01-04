@@ -19,7 +19,7 @@
     <%= yield %>
     <%= render 'shared/footer' %>
 
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag :rails, :application %>
     <!-- Include Dependencies of GMaps for Rails gem -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js"></script>

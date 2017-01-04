@@ -1,0 +1,2 @@
+//Gestion de la requête AJAX pour mettre à jour les promos
+$("#promo_list").html("<%= escape_javascript(render partial: 'promo_filtered', locals: { promotions: @promotions } ) %>");
