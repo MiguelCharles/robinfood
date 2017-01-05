@@ -7,17 +7,15 @@ class PromotionPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
-    # tout user peut créer un shop ( si validation par admin), et un shop peut créer une promotion
-  end
-
-  def new?
-    if user.shops.empty?
-
+    if user.shops.empty? # Only authorize user with shop to create promotion
       return false
     else
       true
     end
+  end
+
+  def new?
+
   end
 
   def show
