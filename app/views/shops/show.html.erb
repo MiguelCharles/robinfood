@@ -8,8 +8,8 @@
         <%#= Link_to ' Subtract',  order_path(promotion_id: @promotion.id, quantity_ordered: -1), method: :put %>
         <%#= Link_to ' Add',  order_path(promotion_id: @promotion.id, quantity_ordered: 1), method: :put %>
        <div class="profil-seller text-center">
-
-        <%= image_tag @shop.photo_url, { :class=>"avatar-large" } unless @shop.photo_url.nil?%><h4><strong><%= @shop.name_of_the_store %></strong></h4>
+          <div class="avatar-large">
+        <%= cl_image_tag @shop.user.facebook_picture_url unless @shop.user.facebook_picture_url.nil?%></div><h4><strong><%= @shop.name_of_the_store %></strong></h4>
         <%= @shop.category %>
         <p class="text-center top"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> <%= @shop.full_address  %></p>
         <p class="text-center top"><i class="fa fa-phone-square fa-lg" aria-hidden="true"></i> <%= @shop.phone_number  %></p>
