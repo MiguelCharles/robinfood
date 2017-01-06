@@ -91,7 +91,7 @@ en:
     unfortunately: "Unfortunately, we were not able to find any promotion near your current location"
 
   promo-edit:
-    title: "Define title of your promotion"
+    product_type: "Product category"
     product: "Select product you want to promote"
     initial: "Provide the initial price of your product "
     after: "Define the reduced price of your product "

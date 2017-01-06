@@ -71,7 +71,7 @@ fr:
     unfortunately: "Malheureusement, il n'y a pas de promotion active proche de votre position actuelle"
 
   promo-edit:
-    title: "Titre de votre promotion"
+    product_type: "Catégorie du produit en promotion"
     product: "Produits que vous voulez mettre en promotion"
     initial: "Prix initial du produit "
     after: "Prix après promotion du produit "
