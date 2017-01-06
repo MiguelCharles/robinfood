@@ -12,8 +12,7 @@ Rails.application.routes.draw do
     scope '(:locale)', locale: /fr|en/ do  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
         root to: 'pages#index'
-        resources :users, except: [:index] do
-        end
+        resources :users, only: [:show, :edit, :update] # User Profile page, the rest is handeld by Devise
         get 'change_language/:language' => 'application_controller#change_language', as: 'change_language'
         resources :shops do
           get 'promotions', to: 'shops#promotions'

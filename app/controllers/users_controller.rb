@@ -1,22 +1,18 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update, :destroy]
-def show
-end
 
-def new
-  @user = User.new
-end
+  before_action :set_user, only: [:show, :edit, :update]
+  before_action :authenticate_user! # Only for signed in users
 
-def create
-  User.create(user_params)
-  redirect_to promotions_path
-end
+  def show
+    authorize @user # Can only see your own profile
+  end
 
-def edit
-end
+  def edit
+    authorize @user # Can only modify your own profile
+  end
 
-def update
- if @user == current_user
+  def update
+    authorize @user # Can only modify your own profile
     if @user.update(user_params)
       @user.save!
       flash[:notice] = t('flash.edit-user')
@@ -24,20 +20,15 @@ def update
     else
       render :edit
     end
-end
-end
+  end
 
-def destroy
-  @user.destroy
-end
+  private
 
-private
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :address, :facebook_picture_url, :facebook_picture_url_cache) #TODO Check Strong parameters and what it does
+  end
 
-def user_params
-  params.require(:user).permit(:username, :email, :password, :address, :facebook_picture_url, :facebook_picture_url_cache)
-end
-
-def set_user
-  @user = User.find(params[:id])
-end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
