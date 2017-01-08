@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :destroy, :add_to_order]
-  before_action :authenticate_user!, only: [:update]
+  before_action :set_order, only: [:show, :edit, :update, :confirm, :destroy, :add_to_order]
+  before_action :authenticate_user!
 
     def index
       unless session[:order].nil?
@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
         @order = Order.find(params[:id])
         @order.status = "Booked" unless @order.status == "Picked-up"
         @order.save!
-       @hash = Gmaps4rails.build_markers(@order) do |order, marker|
+        @hash = Gmaps4rails.build_markers(@order) do |order, marker|
           marker.lat order.promotion.shop.latitude
           marker.lng order.promotion.shop.longitude
         end
@@ -32,9 +32,8 @@ class OrdersController < ApplicationController
 
     def create
       if current_user
-
         @order = Order.new(order_params)
-         @order.user_id = current_user.id
+        @order.user_id = current_user.id
         @order.status = "To be confirmed"
         @order.save!
         redirect_to orders_path
@@ -46,26 +45,21 @@ class OrdersController < ApplicationController
 
 
     def edit
-
+      authorize @order
     end
 
     def update
-        @order = Order.find(params[:id])
-        @order.update!(order_params)
-             redirect_to orders_path
-
+      authorize @order
+      @order.update!(order_params)
+           redirect_to orders_path
     end
 
     def destroy
-
-    end
-
-    def orders_from_user(user)
-      @orders_user = Order.where(@order.user_id = user)
+      authorize @order
     end
 
     def confirm
-      @order = Order.find(params[:id])
+      authorize @order
       code =  (params[:confirm]["code"]).to_i
       if @order.promotion.digits_code == code
         @order.status = "Picked-up"
