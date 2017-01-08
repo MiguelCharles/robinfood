@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   # validates :username, presence: true
+  validates :username, uniqueness: true
   # validates :address, presence: true
 
   has_many :shops

@@ -4,10 +4,8 @@ class PromotionsController < ApplicationController
   # Pundit: white-list approach.
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
-  # after_action :verify_policy_scoped, only: [:update], unless: :skip_pundit?
 
-
-
+# Flash notification when trying an action for which the user is not authorized
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
     flash[:alert] = t('flash.authorization')
@@ -47,30 +45,30 @@ class PromotionsController < ApplicationController
   end
 
   def show
-   if current_user
-    @order = Order.find_or_initialize_by(promotion_id: params[:id], user: current_user)
-    if @order.status == "Booked" || @order.status == "Picked-up"
+    if current_user
+        @order = Order.find_or_initialize_by(promotion_id: params[:id], user: current_user)
+        if @order.status == "Booked" || @order.status == "Picked-up"
+          @order = Order.new
+        end
+    else
       @order = Order.new
     end
-  else
-    @order = Order.new
-  end
     @promotion_coordinates = Gmaps4rails.build_markers([@promotion]) do |promo, marker|
       marker.lat promo.shop.latitude
       marker.lng promo.shop.longitude
-    @quantity = @order.quantity_ordered || @promotion.min_quantity
+      @quantity = @order.quantity_ordered || @promotion.min_quantity
+    end
+
   end
 
-end
-
-  def new
+  def new # Authorized only to user who have shops
     @promotion = Promotion.new
     authorize @promotion
   end
 
-  def create
-    # @promotion = current_user.shops[0].promotions.build(promotion_params)
+  def create # Authorized only to user who have shops
     @promotion = Promotion.new(promotion_params)
+    authorize @promotion
     @promotion.product_type = "Food"
     @promotion.digits_code = (1000..9999).to_a.sample
     @promotion.promotion_status = false
@@ -86,13 +84,12 @@ end
   end
 
   def edit
+    authorize @promotion
   end
 
   def update
-    #  @until = params[:promotion][:until]
-
-    # @promotion.validity = @until.to_i.days.from_now
-     if @promotion.update(promotion_params)
+    authorize @promotion
+    if @promotion.update(promotion_params)
       @promotion.save!
       redirect_to shop_promotions_path(@promotion.shop.id)
     else
@@ -101,11 +98,10 @@ end
   end
 
   def destroy
+    authorize @promotion
     @promotion.destroy
     redirect_to promotions_path
   end
-
-
 
   private
 
@@ -122,14 +118,10 @@ end
 
   def set_promotion
     @promotion = Promotion.find(params[:id])
-    authorize @promotion
   end
 
   def promotion_params
     params.require(:promotion).permit(:shop_id, :title, :product_type, :initial_quantity, :unit, :initial_price_per_unit, :price_after_promotion_per_unit, :remaining_quantity, :promotion_status, :description, :digits_code, :validity, :photo_url, :photo_cache)
   end
 
-  def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
-  end
 end

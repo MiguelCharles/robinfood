@@ -18,9 +18,9 @@
  <% if @params_search %>
    <h3 class="text-center bottom"><span class="green"><strong> <%= @shops.uniq.length  %></strong></span> <%=t('shop.nearby', count: @shops.uniq.length)%> <span class="green"></h3>
  <% else %>
-
-  <h3 class="text-center bottom"><span class="green"><strong> <%= @shops.count * 134 %></strong></span> <%=t('shop.partner', count: @shops.count)%><span class="green"></h3>
+  <h3 class="text-center bottom"><span class="green"><strong> <%= @shops.count %></strong></span> <%=t('shop.partner', count: @shops.count)%><span class="green"></h3>
  <% end %>
+
  <div class="row">
  <% if @shops.any? %>
    <% @shops.each_with_index do |shop, index| %>
@@ -39,7 +39,6 @@
        <%end%>
      </div>
      <% if index.odd?%>
-     <!--<div class="clearfix"></div>-->
      <% end %>
    <% end %>
    <% else %>
@@ -47,4 +46,3 @@
    <% end %>
    </div>
 </div>
-
