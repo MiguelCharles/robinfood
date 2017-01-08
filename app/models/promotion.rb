@@ -18,7 +18,12 @@ class Promotion < ApplicationRecord
   end
 
   def change_status
-    self.promotion_status ? self.promotion_status = false : self.promotion_status = true
+    if self.promotion_status
+      self.promotion_status = false
+    else
+      self.digits_code = (1000..9999).to_a.sample
+      self.promotion_status = true
+    end
     self.save
   end
 end
